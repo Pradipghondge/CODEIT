@@ -102,7 +102,7 @@ const Footer = () => {
         {/* Section 3: Copyright and Social Icons */}
         <div className="flex flex-col-reverse items-center justify-between pt-12 sm:flex-row">
           <p className="mt-6 text-sm text-gray-600 sm:mt-0">
-            © 2024 Code It Private Limited. All Rights Reserved.
+            © 2025 Code It Private Limited. All Rights Reserved.
           </p>
           <div className="flex space-x-5">
             <Link href="#" className="text-gray-500 transition-colors hover:text-[#0F4F3F]">
