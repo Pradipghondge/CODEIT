@@ -47,7 +47,7 @@ const SCENES: Scene[] = [
   },
 ];
 
-export default function ScrollShowcase(): JSX.Element {
+export default function ScrollShowcase(){
   // hooks always in same order
   const rootRef = useRef<HTMLElement | null>(null);
   const sectionsRef = useRef<Array<HTMLElement | null>>([]);
