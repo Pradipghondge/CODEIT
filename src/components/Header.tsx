@@ -29,9 +29,14 @@ export const Header = () => {
               </Link>
             </li>
             <li>
-              <Link href="/careers" className="font-semibold text-gray-600 hover:text-[#00b894]">
-                Careers
+              <Link href="https://www.linkedin.com/company/code-it-software-training-institute/posts/?feedView=all"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-gray-600 hover:text-[#00b894]"
+             >
+               Careers
               </Link>
+
             </li>
             <li>
               <Link href="/blog" className="font-semibold text-gray-600 hover:text-[#00b894]">
