@@ -1,4 +1,5 @@
-import Address from "@/components/address";
+import Address from "@/components/address"
+import Link from "next/link";
 import Image from "next/image";
 
 const blogPosts = [
@@ -93,9 +94,11 @@ export default function BlogPage() {
           </p>
 
           <div className="mt-8 sm:mt-10">
-            <button className="inline-flex items-center justify-center rounded-md bg-[#0F4F3F] px-5 sm:px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-sm hover:bg-opacity-90 transition">
+            <Link href="/services" >
+            <button className=" inline-flex items-center justify-center rounded-md bg-[#0F4F3F] px-5 sm:px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-sm hover:bg-opacity-90 transition">
               Explore Our Insights <ArrowIcon />
             </button>
+            </Link>
           </div>
         </div>
       </section>
