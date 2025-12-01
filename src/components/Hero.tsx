@@ -53,11 +53,13 @@ export default function ScrollShowcase() {
   const layersRef = useRef<Array<HTMLElement | null>>([]);
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
-  const setSectionRef = (el: HTMLElement | null, i: number) =>
-    (sectionsRef.current[i] = el);
+  const setSectionRef = (el: HTMLElement | null, i: number): void => {
+    sectionsRef.current[i] = el;
+  };
 
-  const setLayerRef = (el: HTMLElement | null, i: number) =>
-    (layersRef.current[i] = el);
+  const setLayerRef = (el: HTMLElement | null, i: number): void => {
+    layersRef.current[i] = el;
+  };
 
   useEffect(() => {
     const root = rootRef.current;
@@ -65,7 +67,6 @@ export default function ScrollShowcase() {
 
     const mm = gsap.matchMedia();
 
-    // Desktop only
     mm.add("(min-width: 768px)", () => {
       sectionsRef.current.forEach((el, i) => {
         if (!el) return;
@@ -111,9 +112,8 @@ export default function ScrollShowcase() {
       });
     });
 
-    // Mobile: NO sticky, NO left panel, each section shows its own text
     mm.add("(max-width: 767px)", () => {
-      sectionsRef.current.forEach((el, i) => {
+      sectionsRef.current.forEach((el) => {
         if (!el) return;
 
         gsap.fromTo(
@@ -163,12 +163,16 @@ export default function ScrollShowcase() {
             {SCENES.map((s, i) => (
               <section
                 key={s.id}
-                ref={(el) => setSectionRef(el, i)}
+                ref={(el) => {
+                  setSectionRef(el, i);
+                }}
                 className="scene min-h-[100vh] flex items-center justify-center"
               >
                 <div className="relative w-full max-w-[720px]">
                   <div
-                    ref={(el) => setLayerRef(el, i)}
+                    ref={(el) => {
+                      setLayerRef(el, i);
+                    }}
                     className="layer absolute inset-0 rounded-2xl"
                     style={{
                       background: 'linear-gradient(135deg, #00b89422, #00000011)',
@@ -190,20 +194,12 @@ export default function ScrollShowcase() {
 
         {/* MOBILE LAYOUT */}
         <div className="md:hidden space-y-14">
-
-          {SCENES.map((s, i) => (
+          {SCENES.map((s) => (
             <div key={s.id} className="space-y-4">
-
-              {/* TEXT ABOVE IMAGE */}
-              <h3 className="text-3xl font-bold text-slate-900">
-                {s.title}
-              </h3>
-
+              <h3 className="text-3xl font-bold text-slate-900">{s.title}</h3>
               <p className="text-lg text-slate-600 leading-relaxed">
                 {s.lineA}
               </p>
-
-              {/* IMAGE */}
               <div className="relative rounded-2xl overflow-hidden shadow-md img-wrap">
                 <img
                   src={s.image}
@@ -213,8 +209,8 @@ export default function ScrollShowcase() {
               </div>
             </div>
           ))}
-
         </div>
+
       </div>
     </section>
   );
