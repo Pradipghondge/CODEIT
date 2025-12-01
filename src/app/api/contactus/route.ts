@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import * as nodemailer from "nodemailer";
 
-
 export async function POST(req: Request) {
   try {
     const { name, email, phone, message } = await req.json();
@@ -24,9 +23,9 @@ export async function POST(req: Request) {
       },
     });
 
-    // Email content
-    const mailOptions = {
-      from: `"Website Contact" <${process.env.EMAIL_USER}>`,
+    // Email content for Admin
+    const adminMailOptions = {
+      from: `"Contact Form" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_TO,
       subject: `New contact form submission from ${name}`,
       text: `
@@ -46,8 +45,25 @@ ${message || "-"}
       `,
     };
 
-    // Send email
-    await transporter.sendMail(mailOptions);
+    // Email content for User
+    const userMailOptions = {
+      from: `"Code IT Pvt. Ltd." <${process.env.EMAIL_USER}>`,
+      to: email, // Send to the user who filled the form
+      subject: `We've received your message!`,
+      html: `
+        <h2>Thank You, ${name}!</h2>
+        <p>We have successfully received your message and will get back to you as soon as possible.</p>
+        <p><strong>Here is a copy of your submission:</strong></p>
+        <blockquote style="border-left: 2px solid #ccc; padding-left: 1em; margin-left: 1em;">
+          <p><strong>Message:</strong></p>
+          <p>${message || "-"}</p>
+        </blockquote>
+      `,
+    };
+
+    // Send both emails
+    await transporter.sendMail(adminMailOptions); // Send to admin
+    await transporter.sendMail(userMailOptions); // Send to user
 
     return NextResponse.json(
       { success: true, message: "Email sent successfully" },
