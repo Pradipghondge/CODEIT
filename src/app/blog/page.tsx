@@ -65,7 +65,7 @@ const ArrowIcon = () => (
     viewBox="0 0 24 24"
     strokeWidth={2}
     stroke="currentColor"
-    className="w-5 h-5 ml-2"
+    className="w-4 h-4 sm:w-5 sm:h-5 ml-2"
   >
     <path
       strokeLinecap="round"
@@ -78,19 +78,22 @@ const ArrowIcon = () => (
 export default function BlogPage() {
   return (
     <div className="bg-white">
+
       {/* Hero Section */}
-      <section className="py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#0F4F3F] leading-tight">
+      <section className="py-20 sm:py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#0F4F3F] leading-tight">
             Learn. Grow. Lead The Future of IT.
           </h1>
-          <p className="mt-6 mx-auto max-w-2xl text-lg leading-8 text-gray-600">
+
+          <p className="mt-6 mx-auto max-w-2xl text-base sm:text-lg leading-relaxed text-gray-600">
             Stay ahead with insights on technology, career development, IT outsourcing,
             and the latest innovations shaping the digital world.
           </p>
 
-          <div className="mt-10">
-            <button className="inline-flex items-center justify-center rounded-md bg-[#0F4F3F] px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-opacity-90">
+          <div className="mt-8 sm:mt-10">
+            <button className="inline-flex items-center justify-center rounded-md bg-[#0F4F3F] px-5 sm:px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-sm hover:bg-opacity-90 transition">
               Explore Our Insights <ArrowIcon />
             </button>
           </div>
@@ -98,9 +101,10 @@ export default function BlogPage() {
       </section>
 
       {/* Blog Grid */}
-      <section className="pb-24 sm:pb-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
+      <section className="pb-20 sm:pb-28 lg:pb-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+          <div className="grid grid-cols-1 gap-y-14 gap-x-8 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post, index) => (
               <div
                 key={index}
@@ -112,23 +116,26 @@ export default function BlogPage() {
                     alt={post.title}
                     width={600}
                     height={400}
-                    className="w-full object-cover rounded-xl"
+                    className="w-full h-auto object-cover rounded-xl"
                   />
                 </div>
+
                 <div className="p-6 pt-2">
-                  <div className="flex justify-between items-center text-sm">
-                    <span className="inline-block rounded-full bg-[#0F4F3F] px-3 py-1 text-xs font-semibold text-white">
+                  <div className="flex justify-between items-center text-xs sm:text-sm">
+                    <span className="inline-block rounded-full bg-[#0F4F3F] px-3 py-1 text-[11px] sm:text-xs font-semibold text-white whitespace-nowrap">
                       {post.tag}
                     </span>
                     <p className="text-gray-500">{post.date}</p>
                   </div>
-                  <h3 className="mt-4 text-xl font-bold leading-7 text-[#0F4F3F]">
+
+                  <h3 className="mt-4 text-lg sm:text-xl font-bold leading-6 sm:leading-7 text-[#0F4F3F]">
                     {post.title}
                   </h3>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 

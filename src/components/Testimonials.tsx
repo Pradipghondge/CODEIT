@@ -32,48 +32,50 @@ const testimonialData = [
   },
 ];
 
-
 const Testimonials = () => {
   const sectionVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-      },
+      transition: { duration: 0.6, ease: 'easeOut' },
     },
   };
 
   return (
-    <section className="bg-white py-20 sm:py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex flex-col space-y-20">
+    <section className="bg-white py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        <div className="flex flex-col space-y-16 sm:space-y-20">
           {testimonialData.map((item, index) => (
             <motion.div
               key={index}
-              className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:gap-16"
+              className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 sm:gap-12 lg:gap-16"
               variants={sectionVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
             >
-              {/* Text Content */}
-              <div className={`flex flex-col justify-center ${index % 2 !== 0 ? 'md:order-last' : ''}`}>
+              {/* TEXT */}
+              <div className={`flex flex-col justify-center text-center md:text-left ${index % 2 !== 0 ? 'md:order-last' : ''}`}>
                 <h2
-                  className="text-4xl font-extrabold tracking-tight sm:text-5xl"
+                  className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight"
                   style={{ color: '#133B31' }}
                 >
                   {item.title}
                 </h2>
-                <p className="mt-6 text-lg leading-relaxed" style={{ color: '#52606D' }}>
+
+                <p
+                  className="mt-4 sm:mt-6 text-base sm:text-lg leading-relaxed"
+                  style={{ color: '#52606D' }}
+                >
                   {item.description}
                 </p>
-                <div className="mt-8">
+
+                <div className="mt-6 sm:mt-8 flex justify-center md:justify-start">
                   <a
                     href={item.ctaLink}
-                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0F2027] to-[#2C5364] px-6 py-3 text-base font-semibold text-white shadow-lg transition-transform hover:scale-105"
+                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0F2027] to-[#2C5364] px-5 sm:px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-lg transition-transform hover:scale-105"
                   >
                     {item.ctaText}
                     <ArrowRight className="h-5 w-5" />
@@ -81,21 +83,23 @@ const Testimonials = () => {
                 </div>
               </div>
 
-              {/* Image Content */}
-              <div className="flex items-center justify-center">
-                <div className="w-full">
+              {/* IMAGE */}
+              <div className="flex justify-center items-center">
+                <div className="w-full max-w-md sm:max-w-lg md:max-w-none">
                   <Image
                     src={item.image}
                     alt={item.title}
                     width={600}
                     height={400}
-                    className="w-full rounded-xl object-cover shadow-lg"
+                    className="w-full h-auto rounded-xl object-cover shadow-lg"
                   />
                 </div>
               </div>
+
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );
