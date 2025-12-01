@@ -80,43 +80,36 @@ export default function ContactPage() {
       const result = await response.json();
 
       if (response.ok && result.success) {
-        setStatus({
-          submitting: false,
-          success: true,
-          message: "Thank you! Your message has been sent successfully.",
-        });
-        setFormData(initialFormData); // Reset form on success
+        setStatus({ submitting: false, success: true, message: "Thank you! Your message has been sent successfully." });
+        setFormData(initialFormData); // Reset form
       } else {
-        setStatus({
-          submitting: false,
-          success: false,
-          message: result.message || "Failed to send message. Please try again.",
-        });
+        setStatus({ submitting: false, success: false, message: result.message || "Failed to send message. Please try again." });
       }
     } catch (error) {
       console.error("Submission error:", error);
-      setStatus({
-        submitting: false,
-        success: false,
-        message: "An error occurred. Please try again later.",
-      });
+      setStatus({ submitting: false, success: false, message: "An error occurred. Please try again later." });
     }
+
   };
 
   return (
-    <div className="bg-[#F7F8FA] min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-lg p-8 space-y-8 bg-white rounded-2xl shadow-lg">
+    <div className="bg-[#F7F8FA] min-h-screen flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-lg p-6 sm:p-8 md:p-10 space-y-8 bg-white rounded-2xl shadow-lg">
+
+        {/* HEADER */}
         <div className="text-center">
-          <h1 className="text-4xl font-extrabold text-[#0F4F3F]">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0F4F3F]">
             How Can We Help?
           </h1>
-          <p className="mt-4 text-lg text-gray-500">
+          <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-500 leading-relaxed">
             We're here to help with any questions you may have. Reach out and
             let&apos;s build something great together.
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+        {/* FORM */}
+        <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6" noValidate>
+          
           <div>
             <input
               type="text"
@@ -126,7 +119,7 @@ export default function ContactPage() {
               value={formData.name}
               onChange={handleChange}
               placeholder="Name"
-              className="w-full px-4 py-3 bg-[#F7F8FA] border-2 border-transparent rounded-lg text-[#0F4F3F] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0F4F3F] focus:border-transparent transition"
+              className="w-full px-4 py-3 bg-[#F7F8FA] border-2 border-transparent rounded-lg text-[#0F4F3F] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0F4F3F] transition"
             />
             {errors.name && (
               <p className="mt-1 text-sm text-red-600">{errors.name}</p>
@@ -142,7 +135,7 @@ export default function ContactPage() {
               value={formData.email}
               onChange={handleChange}
               placeholder="Email"
-              className="w-full px-4 py-3 bg-[#F7F8FA] border-2 border-transparent rounded-lg text-[#0F4F3F] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0F4F3F] focus:border-transparent transition"
+              className="w-full px-4 py-3 bg-[#F7F8FA] border-2 border-transparent rounded-lg text-[#0F4F3F] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0F4F3F] transition"
             />
             {errors.email && (
               <p className="mt-1 text-sm text-red-600">{errors.email}</p>
@@ -157,7 +150,7 @@ export default function ContactPage() {
               value={formData.phone}
               onChange={handleChange}
               placeholder="Phone Number"
-              className="w-full px-4 py-3 bg-[#F7F8FA] border-2 border-transparent rounded-lg text-[#0F4F3F] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0F4F3F] focus:border-transparent transition"
+              className="w-full px-4 py-3 bg-[#F7F8FA] border-2 border-transparent rounded-lg text-[#0F4F3F] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0F4F3F] transition"
             />
           </div>
 
@@ -169,24 +162,24 @@ export default function ContactPage() {
               value={formData.message}
               onChange={handleChange}
               placeholder="Message"
-              className="w-full px-4 py-3 bg-[#F7F8FA] border-2 border-transparent rounded-lg text-[#0F4F3F] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0F4F3F] focus:border-transparent transition"
+              className="w-full px-4 py-3 bg-[#F7F8FA] border-2 border-transparent rounded-lg text-[#0F4F3F] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0F4F3F] transition"
             ></textarea>
           </div>
 
           <div>
             <button
               type="submit"
-              disabled={status.submitting}
-              className="w-full px-4 py-3 font-semibold text-white bg-[#0F4F3F] rounded-lg hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0F4F3F] transition-all duration-300 ease-in-out active:scale-[0.98] disabled:bg-opacity-70 disabled:cursor-not-allowed"
+              className="w-full px-4 py-3 font-semibold text-white bg-[#0F4F3F] rounded-lg hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0F4F3F] transition active:scale-[0.98]"
             >
               {status.submitting ? "Sending..." : "Submit"}
             </button>
           </div>
         </form>
 
+        {/* SUCCESS MESSAGE */}
         {status.message && !status.submitting && (
           <div
-            className={`text-center p-3 rounded-lg ${
+            className={`text-center p-3 rounded-lg text-sm sm:text-base ${
               status.success
                 ? "bg-green-100 text-green-800"
                 : "bg-red-100 text-red-800"

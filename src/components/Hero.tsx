@@ -40,6 +40,8 @@ export default function ScrollShowcase() {
     const root = rootRef.current;
     if (!root) return;
 
+    const triggers: ScrollTrigger[] = [];
+
     const mm = gsap.matchMedia();
     const triggers: ScrollTrigger[] = [];
 
