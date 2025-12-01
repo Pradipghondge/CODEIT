@@ -9,15 +9,24 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  // Scroll effect
   useEffect(() => {
     const handleScroll = () => {
-      // Change state if scrolled more than 50px
       setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Prevent body scroll on mobile menu open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add("menu-open");
+    } else {
+      document.body.classList.remove("menu-open");
+    }
+  }, [isMenuOpen]);
 
   const navLinks = [
     { name: 'Home', href: '/' },
@@ -31,7 +40,6 @@ export default function Header() {
     { name: 'Blog', href: '/blog' },
   ];
 
-  // LOGIC: If Scrolled -> Text White. If Top -> Text Dark Gray.
   const textColorClass = 'text-gray-800';
   const hoverColorClass = 'hover:text-[#0F4F3F]';
 
@@ -40,15 +48,15 @@ export default function Header() {
       <nav
         className={`fixed top-0 z-50 w-full transition-all duration-500 ease-in-out ${
           isScrolled 
-            ? 'bg-gray-100  backdrop-blur-md py-4 shadow-md' // Slimmer (py-1), Softer Color, Glass Effect
-            : 'bg-transparent py-6' // Taller when transparent
+            ? 'bg-gray-100 backdrop-blur-md py-4 shadow-md'
+            : 'bg-transparent py-6'
         }`}
       >
         <div className="container mx-auto flex items-center justify-between px-6">
           
           {/* LOGO */}
           <div className="logo flex items-center">
-            <img src="/images/logo.png" alt="IMG" className='h-8' w-8 />
+            <img src="/images/logo.png" alt="IMG" className="h-8 w-auto" />
             <Link 
               href="/" 
               className={`text-2xl font-bold transition-colors duration-300 ${textColorClass} ${hoverColorClass}`}
@@ -73,9 +81,10 @@ export default function Header() {
                     >
                       {link.name}
                     </Link>
-                    {/* Sliding Underline Effect */}
+
+                    {/* Underline */}
                     <span
-                      className={`absolute -bottom-2 left-0 h-[2px] w-full text-[#0F4F3F] transition-transform duration-300 ${
+                      className={`absolute -bottom-2 left-0 h-[2px] w-full bg-[#0F4F3F] transition-transform duration-300 ${
                         isActive ? 'scale-x-100' : 'scale-x-0'
                       }`}
                     ></span>
@@ -87,12 +96,12 @@ export default function Header() {
 
           {/* CONTACT BUTTON (Desktop) */}
           <div className="hidden md:block">
-              <Link 
-                  href="/contact" 
-                  className="rounded-full border border-[#0F4F3F] px-6 py-1.5 text-base font-semibold text-gray-800 transition-all hover:bg-[#0F4F3F] hover:text-white"
-              >
-                  Contact
-              </Link>
+            <Link 
+              href="/contact" 
+              className="rounded-full border border-[#0F4F3F] px-6 py-1.5 text-base font-semibold text-gray-800 transition-all hover:bg-[#0F4F3F] hover:text-white"
+            >
+              Contact
+            </Link>
           </div>
 
           {/* MOBILE HAMBURGER ICON */}
@@ -103,20 +112,20 @@ export default function Header() {
             >
               <span
                 className={`absolute left-0 top-0 block h-[3px] w-full rounded-sm transition-all duration-300 ${
-                   isMenuOpen ? 'bg-white' : 'bg-gray-800'
-                } ${isMenuOpen ? 'top-3 rotate-45 transform' : ''}`}
+                  isMenuOpen ? 'bg-white top-3 rotate-45 transform' : 'bg-gray-800'
+                }`}
               ></span>
               
               <span
                 className={`absolute left-0 top-3 block h-[3px] w-full rounded-sm transition-all duration-300 ${
-                   isMenuOpen ? 'bg-white' : 'bg-gray-800'
-                } ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}
+                  isMenuOpen ? 'opacity-0' : 'opacity-100 bg-gray-800'
+                }`}
               ></span>
               
               <span
                 className={`absolute bottom-0 left-0 block h-[3px] w-full rounded-sm transition-all duration-300 ${
-                   isMenuOpen ? 'bg-white' : 'bg-gray-800'
-                } ${isMenuOpen ? 'bottom-2.5 -rotate-45 transform' : ''}`}
+                  isMenuOpen ? 'bg-white bottom-2.5 -rotate-45 transform' : 'bg-gray-800'
+                }`}
               ></span>
             </button>
           </div>
@@ -129,26 +138,27 @@ export default function Header() {
           }`}
         >
           {navLinks.map((link) => {
-             const isActive = pathname === link.href;
-             return (
+            const isActive = pathname === link.href;
+            return (
               <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`text-3xl font-bold transition-colors ${
-                      isActive ? 'text-[#0F4F3F]' : 'text-white hover:text-[#0F4F3F]'
-                  }`}
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsMenuOpen(false)}
+                className={`text-3xl font-bold transition-colors ${
+                  isActive ? 'text-[#0F4F3F]' : 'text-white hover:text-[#0F4F3F]'
+                }`}
               >
-                  {link.name}
+                {link.name}
               </Link>
-             )
+            );
           })}
+
           <Link
-              href="/contact"
-              onClick={() => setIsMenuOpen(false)}
-              className="mt-4 rounded-full border-2 border-[#0F4F3F] px-8 py-3 text-xl text-white hover:bg-[#0F4F3F]"
+            href="/contact"
+            onClick={() => setIsMenuOpen(false)}
+            className="mt-4 rounded-full border-2 border-[#0F4F3F] px-8 py-3 text-xl text-white hover:bg-[#0F4F3F]"
           >
-              Contact Us
+            Contact Us
           </Link>
         </div>
       </nav>
