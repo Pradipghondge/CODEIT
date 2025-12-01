@@ -2,7 +2,7 @@
 
 import { CheckCircle, Users, Headset, Briefcase, GraduationCap } from "lucide-react";
 import Link from "next/link";
-// Import motion from 'framer-motion' for simple animations
+import { ReactNode } from "react";
 import { motion } from "framer-motion";
 
 // --- Animation Variants ---
@@ -29,18 +29,26 @@ const itemVariants = {
 };
 
 const iconCardVariants = {
-    hover: { scale: 1.03, boxShadow: "0 10px 15px -3px rgba(15, 79, 63, 0.1), 0 4px 6px -2px rgba(15, 79, 63, 0.05)" },
+  hover: {
+    scale: 1.03,
+    boxShadow: "0 10px 15px -3px rgba(15, 79, 63, 0.1), 0 4px 6px -2px rgba(15, 79, 63, 0.05)",
+  },
 };
 
+// 🟢 Required type fix for children
+interface ServiceBlockProps {
+  children: ReactNode[];
+  reverse?: boolean;
+}
 
 export default function ServicesPage() {
   const PRIMARY_COLOR = "#0F4F3F"; // Dark Green
   const SECONDARY_BG = "#F7F8FA"; // Light Gray Background
 
   // --- Utility Component for Service Blocks ---
-  const ServiceBlock = ({ children, reverse = false }) => (
+  const ServiceBlock = ({ children, reverse = false }: ServiceBlockProps) => (
     <motion.div
-      className={`grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 items-center`}
+      className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 items-center"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -49,20 +57,14 @@ export default function ServicesPage() {
       {reverse ? (
         <>
           <div className="flex justify-center order-last lg:order-first">
-            {children[0]} {/* Icon Block */}
+            {children[0]}
           </div>
-          <div>
-            {children[1]} {/* Text Block */}
-          </div>
+          <div>{children[1]}</div>
         </>
       ) : (
         <>
-          <div>
-            {children[1]} {/* Text Block */}
-          </div>
-          <div className="flex justify-center">
-            {children[0]} {/* Icon Block */}
-          </div>
+          <div>{children[1]}</div>
+          <div className="flex justify-center">{children[0]}</div>
         </>
       )}
     </motion.div>
@@ -82,7 +84,8 @@ export default function ServicesPage() {
             <span className="block animate-fade-in">Our Professional Services</span>
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Code IT Pvt. Ltd. delivers professional IT outsourcing, reliable application support, and result-driven recruitment solutions to help businesses scale efficiently and operate seamlessly.
+            Code IT Pvt. Ltd. delivers professional IT outsourcing, reliable application support,
+            and result-driven recruitment solutions to help businesses scale efficiently and operate seamlessly.
           </p>
         </div>
       </motion.section>
@@ -115,7 +118,9 @@ export default function ServicesPage() {
                 IT Outsourcing Solutions
               </h2>
               <p className="text-gray-600 leading-relaxed text-lg">
-                We provide **skilled, trained, and dependable professionals** to support development, operations, analytics, cloud, testing, and more—helping companies reduce operational burden and accelerate project delivery with **SLA-driven execution**.
+                We provide **skilled, trained, and dependable professionals** to support development,
+                operations, analytics, cloud, testing, and more—helping companies reduce operational burden
+                and accelerate project delivery with **SLA-driven execution**.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -134,14 +139,14 @@ export default function ServicesPage() {
                     Roles Provided
                   </h3>
                   <p className="mt-4 text-gray-600 leading-relaxed">
-                    Developers (Java, Python, .NET), QA Engineers, DevOps, Cloud Engineers, UI/UX Designers, Data Analysts, and Technical Support.
+                    Developers (Java, Python, .NET), QA Engineers, DevOps, Cloud Engineers,
+                    UI/UX Designers, Data Analysts, and Technical Support.
                   </p>
                 </div>
               </div>
             </motion.div>
           </ServiceBlock>
 
-          {/* --- Separator --- */}
           <hr className="border-gray-200" />
 
           {/* 2. APPLICATION SUPPORT SECTION */}
@@ -156,7 +161,8 @@ export default function ServicesPage() {
                 Responsive 24/7 Support
               </h3>
               <p className="mt-4 text-gray-600">
-                Always-on monitoring, troubleshooting, and performance optimization to ensure maximum application stability and minimal downtime.
+                Always-on monitoring, troubleshooting, and performance optimization to ensure
+                maximum application stability and minimal downtime.
               </p>
               <Link href="#contact" className={`mt-4 inline-block text-[${PRIMARY_COLOR}] font-semibold hover:underline`}>
                 Get Expert Support →
@@ -168,7 +174,8 @@ export default function ServicesPage() {
                 Application Support Services
               </h2>
               <p className="text-gray-600 leading-relaxed text-lg">
-                We provide **reliable, round-the-clock support** to ensure your applications are stable, optimized, and secure, reducing downtime and improving user experience with proactive maintenance.
+                We provide **reliable, round-the-clock support** ensuring your applications remain stable,
+                optimized, and secure — boosting user experience and reducing downtime.
               </p>
 
               <h3 className={`mt-8 text-xl font-semibold text-[${PRIMARY_COLOR}]`}>
@@ -178,12 +185,11 @@ export default function ServicesPage() {
                 <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> **L1, L2 & L3 Technical Support**</li>
                 <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> 24/7 Monitoring & Incident Management</li>
                 <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> Bug Fixing, Patch Deployment & Upgrades</li>
-                <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> Performance Optimization & Root-Cause Analysis (RCA)</li>
+                <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> Performance Optimization & RCA</li>
               </ul>
             </motion.div>
           </ServiceBlock>
 
-          {/* --- Separator --- */}
           <hr className="border-gray-200" />
 
           {/* 3. RECRUITMENT SECTION */}
@@ -198,7 +204,7 @@ export default function ServicesPage() {
                 Result-Driven Recruitment
               </h3>
               <p className="mt-4 text-gray-600">
-                High-quality, pre-screened candidates delivered quickly through a domain-expert hiring process, ensuring a high joining ratio.
+                High-quality, pre-screened candidates delivered quickly through a domain-expert hiring process.
               </p>
               <Link href="#contact" className={`mt-4 inline-block text-[${PRIMARY_COLOR}] font-semibold hover:underline`}>
                 Find Your Talent →
@@ -210,14 +216,16 @@ export default function ServicesPage() {
                 Recruitment & Staffing Solutions
               </h2>
               <p className="text-gray-600 leading-relaxed text-lg">
-                We offer **end-to-end hiring solutions** to help organizations build skilled, reliable, and high-performing teams across **IT and non-IT domains** using expert technical screening.
+                We offer **end-to-end hiring solutions** — helping organizations build highly skilled,
+                reliable teams across **IT & non-IT domains** using structured technical screening.
               </p>
 
               <h3 className={`mt-8 text-xl font-semibold text-[${PRIMARY_COLOR}]`}>
                 Official Recruitment Partner
               </h3>
               <p className="mt-4 text-gray-600 leading-relaxed">
-                We proudly serve as the official recruitment partner for **Kudzu Pvt. Ltd., CAIT Pvt. Ltd.,** and several other reputed organizations, delivering fast and reliable hiring support.
+                Proudly partnered with **Kudzu Pvt. Ltd., CAIT Pvt. Ltd.,** and other reputed organizations
+                for fast, reliable recruitment.
               </p>
 
               <h3 className={`mt-8 text-xl font-semibold text-[${PRIMARY_COLOR}]`}>
@@ -231,10 +239,9 @@ export default function ServicesPage() {
             </motion.div>
           </ServiceBlock>
 
-          {/* --- Separator --- */}
           <hr className="border-gray-200" />
 
-          {/* 4. TRAINING & DEVELOPMENT SECTION (New Content Added) */}
+          {/* 4. TRAINING & DEVELOPMENT SECTION */}
           <ServiceBlock reverse={true}>
             <motion.div
               className={`p-10 rounded-2xl bg-[${SECONDARY_BG}] shadow-xl hover:shadow-2xl transition-shadow w-full max-w-md text-center border-b-4 border-[${PRIMARY_COLOR}]`}
@@ -246,7 +253,7 @@ export default function ServicesPage() {
                 CODEIT Training Institute
               </h3>
               <p className="mt-4 text-gray-600">
-                Skill development programs for students and professionals, offering hands-on training and **100% placement support** for job-ready talent.
+                Hands-on, job-oriented courses with **100% placement support** for a future-ready workforce.
               </p>
               <Link href="#contact" className={`mt-4 inline-block text-[${PRIMARY_COLOR}] font-semibold hover:underline`}>
                 View Courses →
@@ -258,7 +265,8 @@ export default function ServicesPage() {
                 Training & Skill Development
               </h2>
               <p className="text-gray-600 leading-relaxed text-lg">
-                Through **CODEIT Software Training Institute**, we offer practical, industry-expert led training programs to build a pipeline of highly skilled, job-ready professionals for the industry and our corporate clients.
+                Practical, industry-led training programs designed to develop skilled professionals
+                ready for corporate challenges.
               </p>
 
               <h3 className={`mt-8 text-xl font-semibold text-[${PRIMARY_COLOR}]`}>
@@ -267,8 +275,8 @@ export default function ServicesPage() {
               <ul className="mt-4 space-y-3 text-gray-600 grid grid-cols-1 sm:grid-cols-2">
                 <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> Full Stack Development</li>
                 <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> Software Testing (Manual/Automation)</li>
-                <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> Data Science & Analytics (Power BI)</li>
-                <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> Business Analyst & Core Programming</li>
+                <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> Data Science & Analytics</li>
+                <li className="flex items-center gap-2"><CheckCircle className={`text-[${PRIMARY_COLOR}] w-5 h-5`} /> Business Analyst & Programming</li>
               </ul>
             </motion.div>
           </ServiceBlock>
@@ -276,7 +284,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* CTA (Call to Action) */}
+      {/* CTA */}
       <motion.section
         className={`py-20 bg-[${PRIMARY_COLOR}] text-white`}
         initial={{ opacity: 0 }}
