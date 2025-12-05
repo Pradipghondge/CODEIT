@@ -74,6 +74,7 @@ export default function PlacementPage() {
             ))}
           </div>
         </div>
+        <div></div>
       </section>
 
       {/* PARTNERS */}
