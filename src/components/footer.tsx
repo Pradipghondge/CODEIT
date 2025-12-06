@@ -9,7 +9,7 @@ const Footer = () => {
         {/* Section 1: Newsletter Signup */}
         <div className="mb-10 sm:mb-12">
           <h2 className="mb-6 text-2xl sm:text-3xl md:text-4xl font-bold text-[#0F4F3F]">
-            Get tech and hiring updates from Code IT!
+            Get tech and hiring updates from CodeIT!
           </h2>
 
           <form className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
@@ -32,7 +32,7 @@ const Footer = () => {
 
           {/* Column 1 */}
           <div>
-            <h3 className="text-2xl font-bold text-[#0F4F3F]">CODE IT</h3>
+            <h3 className="text-2xl font-bold text-[#0F4F3F]">CODEIT</h3>
             <p className="mt-4 max-w-sm text-gray-600 text-sm sm:text-base">
               Transforming businesses with reliable outsourcing, application support, and smart recruitment solutions.
             </p>
@@ -64,7 +64,7 @@ const Footer = () => {
         <div className="flex flex-col-reverse items-center justify-between pt-10 sm:pt-12 sm:flex-row">
 
           <p className="mt-6 sm:mt-0 text-xs sm:text-sm text-gray-600 text-center sm:text-left">
-            © 2025 Code It Private Limited. All Rights Reserved.
+            © 2025 CodeIt Private Limited. All Rights Reserved.
           </p>
 
           <div className="flex space-x-5">

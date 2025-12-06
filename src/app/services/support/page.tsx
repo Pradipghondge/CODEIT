@@ -197,7 +197,7 @@ export default function ApplicationSupportPage() {
         <Section>
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12" style={{ color: PRIMARY_COLOR }}>
-              Why Choose CODE IT for Support?
+              Why Choose CODEIT for Support?
             </h2>
             <div className="grid grid-cols-2 gap-6 text-lg">
               {whyChooseUs.map((reason) => (

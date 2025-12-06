@@ -47,7 +47,7 @@ ${message || "-"}
 
     // Email content for User
     const userMailOptions = {
-      from: `"Code IT Pvt. Ltd." <${process.env.EMAIL_USER}>`,
+      from: `"CodeIT Pvt. Ltd." <${process.env.EMAIL_USER}>`,
       to: email, // Send to the user who filled the form
       subject: `We've received your message!`,
       html: `

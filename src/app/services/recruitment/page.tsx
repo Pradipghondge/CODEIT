@@ -152,7 +152,7 @@ export default function RecruitmentDetailsPage() {
         {/* SECTION 1 — Our Value Proposition */}
         <motion.section variants={itemVariants}>
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12" style={{ color: PRIMARY_COLOR }}>
-            Why Choose CODE IT?
+            Why Choose CODEIT?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {valuePropositions.map((item) => (

@@ -86,7 +86,7 @@ export default function ServicesPage() {
             Our Professional Services
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Code IT Pvt. Ltd. delivers professional IT outsourcing, reliable application support,
+            CodeIT Pvt. Ltd. delivers professional IT outsourcing, reliable application support,
             and result-driven recruitment solutions to help businesses scale efficiently.
           </p>
         </div>

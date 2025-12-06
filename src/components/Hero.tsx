@@ -36,7 +36,7 @@ const SCENES: Scene[] = [
   {
     id: 's4',
     image: '/images/hero-img-4.png',
-    title: 'Why Choose Code IT Pvt. Ltd.?',
+    title: 'Why Choose CodeIT Pvt. Ltd.?',
     lineA: 'Delivering professional expertise and industry experience with high response efficiency, strict SLAs, transparent communication, quality delivery, and measurable, client-centric outcomes.',
   },
   {
@@ -146,7 +146,7 @@ export default function ScrollShowcase() {
           {/* LEFT SIDE STATIC TEXT */}
           <div className="sticky top-32 w-[55%] min-h-[300px]">
             <h2 className="text-6xl font-extrabold text-[#133B31] mb-8">
-              CODE IT
+              CODEIT
             </h2>
 
             <p className="text-3xl font-semibold text-slate-800 mb-4">

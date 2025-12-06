@@ -161,7 +161,7 @@ export default function HireFromCodeITPage() {
             className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold"
             style={{ color: PRIMARY_COLOR }}
           >
-            Hire Skilled Talent from CODE IT
+            Hire Skilled Talent from CODEIT
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-3xl leading-relaxed">
             Access a pipeline of pre-vetted, project-trained professionals ready to contribute from day one.
@@ -176,10 +176,10 @@ export default function HireFromCodeITPage() {
         initial="hidden"
         animate="visible"
       >
-        {/* SECTION 1 — Why Hire From CODE IT? */}
+        {/* SECTION 1 — Why Hire From ? */}
         <Section>
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12" style={{ color: PRIMARY_COLOR }}>
-            Why Hire From CODE IT?
+            Why Hire From CODEIT?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {valuePropositions.map((item) => (

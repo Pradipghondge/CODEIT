@@ -6,17 +6,17 @@ import { ChevronDown } from 'lucide-react';
 
 const faqData = [
   {
-    question: 'How can Code IT support my business with skilled IT resources?',
+    question: 'How can CodeIT support my business with skilled IT resources?',
     answer:
       'We provide trained and experienced IT professionals through outsourcing, staff augmentation, and dedicated teams. This helps your business scale faster, reduce hiring efforts, and maintain continuous productivity.',
   },
   {
     question: 'Do you offer 24/7 application support services?',
     answer:
-      'Yes, Code IT offers round-the-clock L1, L2, and L3 support, including monitoring, incident handling, bug fixing, patch updates, and performance optimization — ensuring your applications run smoothly and securely.',
+      'Yes, CodeIT offers round-the-clock L1, L2, and L3 support, including monitoring, incident handling, bug fixing, patch updates, and performance optimization — ensuring your applications run smoothly and securely.',
   },
   {
-    question: 'How does Code IT handle recruitment and staffing for companies?',
+    question: 'How does CodeIT handle recruitment and staffing for companies?',
     answer:
       'We offer end-to-end recruitment for IT & Non-IT roles including sourcing, technical screening, shortlisting, and onboarding support. As an official hiring partner for multiple companies, we ensure fast hiring and a high joining ratio.',
   },
@@ -26,7 +26,7 @@ const faqData = [
       'Yes, through our CODEIT Software Training Institute, we offer practical IT courses like Java, Python, Full Stack Development, Software Testing, Data Analytics, and more — with 100% placement support.',
   },
   {
-    question: 'Can Code IT customize services based on our business needs?',
+    question: 'Can CodeIT customize services based on our business needs?',
     answer:
       'Absolutely. We design flexible and scalable engagement models — whether you need outsourced teams, long-term staffing support, or customized application support services tailored to your goals.',
   },

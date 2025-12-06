@@ -61,7 +61,7 @@ export default function Header() {
               href="/" 
               className={`text-2xl font-bold transition-colors duration-300 ${textColorClass} ${hoverColorClass}`}
             >
-              CODE IT
+              CODEIT
             </Link>
           </div>
 

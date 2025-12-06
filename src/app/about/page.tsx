@@ -57,7 +57,7 @@ export default function AboutUsPage() {
           {/* Title + Intro */}
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0F4F3F]">
-              About Code IT Pvt. Ltd.
+              About CodeIT Pvt. Ltd.
             </h1>
             <p className="mt-6 text-base sm:text-lg leading-relaxed text-gray-600">
               We are a technology and talent solutions company delivering IT outsourcing,
@@ -94,7 +94,7 @@ export default function AboutUsPage() {
                 From Vision to Venture
               </h2>
               <p className="mt-6 text-base sm:text-lg leading-relaxed text-gray-600">
-                Code IT was founded on the principle of bridging the gap between business needs
+                CodeIT was founded on the principle of bridging the gap between business needs
                 and technology solutions. Our journey began with a commitment to build partnerships
                 that foster growth, innovation, and long-term success for everyone involved.
               </p>
