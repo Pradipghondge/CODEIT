@@ -24,22 +24,22 @@ const Landing2: React.FC = () => {
     {
       icon: <Lightbulb className="h-10 w-10 text-[#0F4F3F]" />,
       title: 'Strategic Planning',
-      text: 'Developing and executing strategies that stimulate business expansion.',
+      text: 'Developing and Executing Strategies that stimulate business expansion.',
     },
     {
       icon: <Briefcase className="h-10 w-10 text-[#0F4F3F]" />,
       title: 'HR Consulting',
-      text: 'Talent management, leadership development, and HR strategy.',
+      text: 'Talent management, Leadership development, and HR strategy.',
     },
     {
       icon: <Zap className="h-10 w-10 text-[#0F4F3F]" />,
       title: 'Operational Efficiency',
-      text: 'Streamlining processes and improving operational effectiveness.',
+      text: 'Streamlining processes and Improving operational effectiveness.',
     },
     {
       icon: <Laptop className="h-10 w-10 text-[#0F4F3F]" />,
       title: 'Hands-on practice',
-      text: 'Engage in immersive, practical learning experience with hands-on.',
+      text: 'Engage in immersive, Practical learning experience with hands-on.',
     },
     {
       icon: <Award className="h-10 w-10 text-[#0F4F3F]" />,
@@ -118,14 +118,15 @@ const Landing2: React.FC = () => {
     'Trending & Future-Ready Technologies': {
       icon: <TrendingUp className="h-8 w-8 text-[#0F4F3F]" />,
       list: [
+        'DevOps and Cloud-Native Architectures',
         'Artificial Intelligence (AI) & Machine Learning (ML)',
-        'Blockchain Development',
         'Cybersecurity and Ethical Hacking',
         'Internet of Things (IoT)',
-        'DevOps and Cloud-Native Architectures',
+        'Blockchain Development',
         'Big Data & Advanced Analytics',
         'AR/VR Development',
         'Quantum Computing Basics',
+        'SAP',
       ],
     },
     'Specialized Training': {
@@ -154,7 +155,7 @@ const Landing2: React.FC = () => {
     { name: 'Krishna College of Pharmacy, Karad', logo: '/images/colleges/krishna-college-of-pharmacy-karad.png' },
     { name: 'Mahadev Kanchan College, Urli Kanchan', logo: '/images/colleges/mahadev-kanchan-college-urli-kanchan.png' },
     { name: 'Annasaheb Magar College of Engineering, Hadapsar', logo: '/images/colleges/annasaheb-magar-college-of-engineering-hadapsar.png' },
-    { name: 'Prithviraj Kapoor Memorial High School, Loni Kalbhor', logo: '/images/colleges/prithviraj-kapoor-memorial-high-school-loni-kalbhor.png' },
+    { name: 'Prithviraj Kapoor Memorial High School, Loni Kalbhor', logo: '/images/colleges/prithviraj.jpg' },
   ];
   
   const companies = [
@@ -189,38 +190,44 @@ const Landing2: React.FC = () => {
   return (
     <div className="bg-white text-gray-800">
 
-        {/* Section 3: CTO Message */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-1/3 w-full flex justify-center">
-              <img
-                src="/images/member1.jpg"
-                alt="Preeti Kalra, CTO"
-                className="rounded-lg shadow-2xl w-full max-w-sm object-cover"
-              />
-            </div>
-            <div className="lg:w-2/3 w-full text-left">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Dear Associates,</h2>
-              <div className="space-y-4 text-gray-600 leading-relaxed">
-                <p>
-                  At <strong className="text-gray-800">CODEIT</strong> Software Training Institute, our mission has always been to empower individuals with cutting-edge IT skills, and this remains our top priority. Under the leadership of Preeti Kalra, our CTO, we continue to deliver high-quality education, focusing on both technical proficiency and professional development.
-                </p>
-                <p>
-                  Throughout the years, <strong className="text-gray-800">CODEIT</strong> has maintained its commitment to excellence by offering a diverse range of industry-aligned courses, fostering real-world learning experiences, and providing strong industry connections for our students. We are dedicated to shaping the future of tech talent and ensuring their success in the competitive IT landscape.
-                </p>
-                <p>
-                  Thank you for your ongoing trust and support as we work together toward a brighter, technology-driven future.
-                </p>
-              </div>
-              <div className="mt-8">
-                <p className="font-bold text-lg text-gray-900">Preeti Kalra</p>
-                <p className="text-md text-[#0F4F3F] font-semibold">CTO</p>
-              </div>
-            </div>
-          </div>
+        {/* Section 3: Founder & Director Message */}
+<section className="py-16 lg:py-24 bg-white">
+  <div className="container mx-auto px-4">
+    <div className="flex flex-col lg:flex-row items-center gap-12">
+      <div className="lg:w-1/3 w-full flex justify-center">
+        <img
+          src="/images/member1.jpg"
+          alt="Preeti Kalra, Founder & Director"
+          className="rounded-lg shadow-2xl w-full max-w-sm object-cover"
+        />
+      </div>
+      <div className="lg:w-2/3 w-full text-left">
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">Dear Associates,</h2>
+        <div className="space-y-4 text-gray-600 leading-relaxed">
+          <p>
+            At <strong className="text-gray-800">CODEIT Pvt. Ltd.</strong>, we are driven by a powerful mission — to transform talent into industry-ready professionals through the strength of skill. We believe that skill development is not just training; it is a movement that empowers youth, elevates industries, and directly combats unemployment.
+          </p>
+          <p>
+            Our commitment extends beyond classrooms. With robust capabilities in Outsourcing, Application Support, Training & Placement, and Recruitment, we provide end-to-end solutions that support both talent and industry. We ensure students are not only skilled — but strategically prepared to secure their dream careers in a highly competitive world.
+          </p>
+          <p>
+            Every program we deliver, every partnership we build, and every student we train reflects our dedication to creating a future where capability meets opportunity. At <strong className="text-gray-800">CODE IT</strong>, excellence is our culture, and impact is our promise.
+          </p>
+          <p>
+            Together, let’s build a workforce that leads with skill, confidence, and purpose — and shape an India where every deserving student has a pathway to success.
+          </p>
         </div>
-      </section>
+        <div className="mt-8">
+          <p className="font-bold text-lg text-gray-900">— Preeti Kalra</p>
+          <p className="text-md text-[#0F4F3F] font-semibold">
+            Founder & Director, CODE IT Pvt. Ltd.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Section 1: Key Factors */}
       <section className="py-16 lg:py-24 bg-white">
@@ -248,27 +255,31 @@ const Landing2: React.FC = () => {
       {/* Section 2: Vision & Mission */}
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div className="bg-white p-8 rounded-lg">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="bg-white p-8 rounded-lg h-full">
               <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center">
                 <Eye className="h-8 w-8 mr-3 text-[#0F4F3F]" /> VISION
               </h2>
               <p className="text-gray-600 leading-relaxed">
-                To be a leading institution in IT education, empowering individuals with the skills and knowledge to excel in the ever-evolving tech landscape. We aim to bridge the gap between industry demands and academic learning, fostering innovation, driving career success, and shaping the next generation of tech leaders.
+                To become a leading force in transforming India into a highly skilled, future-ready workforce by empowering students with industry-driven skills, innovative learning, and impactful career opportunities.
+We envision a world where every learner is job-ready, every company is talent-ready, and where skill becomes the foundation of growth, confidence, and success.
+At CODE IT Pvt. Ltd., our vision is to bridge the gap between education and industry — creating opportunities, reducing unemployment, and shaping professionals who lead with knowledge, capability, and purpose.
               </p>
             </div>
-            <div className="bg-white p-8 rounded-lg">
+            <div className="bg-white p-8 rounded-lg h-full">
               <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center">
                 <Goal className="h-8 w-8 mr-3 text-[#0F4F3F]" /> MISSION
               </h2>
-              <ul className="space-y-4">
+              {/* <ul className="space-y-4">
                 {missionPoints.map((point, index) => (
                   <li key={index} className="flex items-start">
                     <span className="text-[#0F4F3F] font-bold mr-3 mt-1">&#10003;</span>
                     <p className="text-gray-600">{point}</p>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
+              <p className="text-gray-600 leading-relaxed">To strengthen India’s skill development ecosystem by providing standardized, scalable, and industry-driven training that enhances employability and prepares a future-ready workforce. We are committed to delivering measurable outcomes through high-quality skill programs, robust placement support, and strategic collaborations with government bodies, corporates, and educational institutions. By empowering youth with industry-relevant skills and fostering innovation, discipline, and practical expertise, our mission is to reduce unemployment, bridge the talent gap, and contribute to national growth and sustainable economic development.</p>
+
             </div>
           </div>
         </div>
@@ -408,7 +419,7 @@ const Landing2: React.FC = () => {
             <img
               src="/images/congratulations.png"
               alt="Congratulations"
-              className="mx-auto"
+              className="mx-auto w-70"
             />
           </div>
         </div>

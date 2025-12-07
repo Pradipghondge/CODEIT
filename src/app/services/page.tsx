@@ -113,7 +113,7 @@ export default function ServicesPage() {
             Empowering Your IT Career & Business Growth 
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            CODE IT Software Training Institute is a premier destination for IT education, founded in Rajasthan in 2021. Under the leadership of CTO Preeti Kalra, we offer a blend of foundational programming, advanced technologies, and industry-focused training. Our mission is to empower individuals with cutting-edge IT skills and ensure career success.
+            CODE IT Software Training Institute is a premier destination for IT education, founded in Rajasthan in 2021. Under the leadership of Founder & Director Preeti Kalra, we offer a blend of foundational programming, advanced technologies, and industry-focused training. Our mission is to empower individuals with cutting-edge IT skills and ensure career success.
           </p>
         </div>
       </motion.section>

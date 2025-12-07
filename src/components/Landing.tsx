@@ -56,9 +56,9 @@ const Landing = () => {
                 className="mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600 max-w-xl mx-auto lg:mx-0"
                 variants={itemVariants}
               >
-                We deliver premier IT outsourcing, application support,
-                professional training, and recruitment services to accelerate
-                your growth and success.
+                We deliver premier IT outsourcing, Application Support,
+                Professional Training, and Recruitment services to accelerate
+                your Growth and Success.
               </motion.p>
 
               {/* CTA BUTTONS */}

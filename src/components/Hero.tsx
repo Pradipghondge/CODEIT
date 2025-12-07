@@ -36,7 +36,7 @@ const SCENES: Scene[] = [
   {
     id: 's4',
     image: '/images/hero-img-4.png',
-    title: 'Why Choose CodeIT Pvt. Ltd.?',
+    title: 'Why Choose CODEIT Pvt. Ltd.?',
     lineA: 'Delivering professional expertise and industry experience with high response efficiency, strict SLAs, transparent communication, quality delivery, and measurable, client-centric outcomes.',
   },
   {

@@ -16,7 +16,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "CODEIT",
-  description: "CODEIT pvt ltd",
+  description: "CODEIT Pvt.Ltd.",
+  icons: {
+    icon: '/images/logo.png',
+  },
 };
 
 export default function RootLayout({

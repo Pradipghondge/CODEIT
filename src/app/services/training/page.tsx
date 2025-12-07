@@ -355,7 +355,7 @@ export default function ComprehensiveTrainingPage() {
               Leadership & Vision
             </h3>
             <p className="text-lg max-w-3xl mx-auto text-gray-700">
-              Founded in <strong>Rajasthan in 2021</strong>, guided by CTO <strong>Preeti Kalra</strong>, CODE IT is committed to delivering high-quality technical and professional education.
+              Founded in <strong>Rajasthan in 2021</strong>, guided by Founder & Director <strong>Preeti Kalra</strong>, CODE IT is committed to delivering high-quality technical and professional education.
             </p>
           </div>
         </Section>
