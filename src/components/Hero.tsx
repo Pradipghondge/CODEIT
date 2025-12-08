@@ -15,23 +15,25 @@ type Scene = {
 };
 
 const SCENES: Scene[] = [
-  {
+
+    {
     id: 's1',
-    image: '/images/hero-img-1.png',
-    title: 'IT Outsourcing',
-    lineA: 'Scale your business with cost-effective, high-quality execution through dedicated development teams and end-to-end project delivery.',
+    image: '/images/hero-img-3.png',
+    title: 'Recruitment Services',
+    lineA: 'Hire the right talent faster and smarter with specialized sourcing, technical screening, bulk and niche hiring, and seamless onboarding coordination.',
   },
+  
   {
     id: 's2',
     image: '/images/hero-img-2.png',
     title: 'Application Support',
     lineA: 'Ensure smooth application performance every hour, every day with 24/7 monitoring, rapid incident resolution, root-cause analysis, and preventive optimization.',
   },
-  {
+ {
     id: 's3',
-    image: '/images/hero-img-3.png',
-    title: 'Recruitment Services',
-    lineA: 'Hire the right talent faster and smarter with specialized sourcing, technical screening, bulk and niche hiring, and seamless onboarding coordination.',
+    image: '/images/hero-img-1.png',
+    title: 'IT Outsourcing',
+    lineA: 'Scale your business with cost-effective, high-quality execution through dedicated development teams and end-to-end project delivery.',
   },
   {
     id: 's4',
