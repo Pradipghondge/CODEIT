@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
 
         {/* Section 1: Newsletter Signup */}
-        <div className="mb-10 sm:mb-12">
+        {/* <div className="mb-10 sm:mb-12">
           <h2 className="mb-6 text-2xl sm:text-3xl md:text-4xl font-bold text-[#0F4F3F]">
             Get tech and hiring updates from CODEIT!
           </h2>
@@ -25,7 +25,7 @@ const Footer = () => {
               Subscribe
             </button>
           </form>
-        </div>
+        </div> */}
 
         {/* Section 2: Three Columns */}
         <div className="grid grid-cols-1 gap-10 sm:gap-12 border-y border-gray-200 py-10 sm:py-12 md:grid-cols-3">
