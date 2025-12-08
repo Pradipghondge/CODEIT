@@ -3,6 +3,8 @@
 import React, { ReactNode, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import Hero from "@/components/Hero";
+
 import {
   CheckCircle,
   Users,
@@ -22,7 +24,7 @@ const SECONDARY_BG = "#F7F8FA";
 const ACCENT_COLOR = "#FFC72C";
 
 // -------------------------
-// TRAINING CONTENT (FINAL)
+// TRAINING CONTENT (UPDATED)
 // -------------------------
 const TrainingContent = () => {
   // Intro paragraph
@@ -107,7 +109,7 @@ const TrainingContent = () => {
     "Live Industry Projects",
   ];
 
-  // Internship Programs (MOVED from Recruitment)
+  // Internship Programs
   const internships = [
     "Artificial Intelligence & Machine Learning (AI/ML)",
     "Data Science",
@@ -127,7 +129,7 @@ const TrainingContent = () => {
     "Team-based project experience",
   ];
 
-  // Placed Students (MOVED from Recruitment)
+  // Placed Students
   const students = [
     { name: "Amit Sharma", role: "Java Developer", company: "TCS", package: "4.5 LPA" },
     { name: "Priya Nair", role: "Python Developer", company: "Accenture", package: "5 LPA" },
@@ -262,35 +264,10 @@ const TrainingContent = () => {
           ))}
         </div>
       </section>
-    </motion.div>
-  );
-};
 
-// -------------------------
-// RECRUITMENT CONTENT (FINAL)
-// -------------------------
-const RecruitmentContent = () => {
-  const partners = [
-    { name: "Accenture", logo: "/images/companies/accenture.png" },
-    { name: "TCS", logo: "/images/companies/tcs.png" },
-    { name: "Tech Mahindra", logo: "/images/companies/tech-mahindra.png" },
-    { name: "Sutherland", logo: "/images/companies/sutherland.png" },
-    { name: "Infosys", logo: "/images/companies/infosys.jpg" },
-    { name: "Zensar", logo: "/images/companies/zensar.png" },
-    {
-      name: "Kudzu Infotech",
-      logo: "/images/companies/kudzo.png",
-      url: "https://www.kudzuinfotech.com/en/",
-    },
-    { name: "Bpointers", logo: "/images/companies/bpointers.png" },
-    { name: "Pisyst India", logo: "/images/companies/pisyst-india-pvt-ltd.png" },
-    { name: "Sumasoft", logo: "/images/companies/sumasoft.png" },
-    { name: "SynITelligence", logo: "/images/companies/syntelligence-tech-pune.png" },
-  ];
+      <hr />
 
-  return (
-    <motion.div className="space-y-16 pt-10">
-      {/* WHY HIRE */}
+      {/* ⭐ ADDED HERE ⭐ WHY COMPANIES HIRE FROM CODE IT */}
       <section>
         <h2 className="text-3xl font-bold text-center mb-12" style={{ color: PRIMARY_COLOR }}>
           Why Companies Hire From CODE IT
@@ -303,15 +280,45 @@ const RecruitmentContent = () => {
             { icon: Users, text: "Soft Skills & Interview Prep" },
             { icon: Briefcase, text: "Dedicated Placement Assistance" },
           ].map((item, i) => (
-            <motion.div key={i} whileHover={{ scale: 1.03 }} className="p-6 rounded-xl shadow bg-white text-center border-b-4" style={{ borderColor: PRIMARY_COLOR }}>
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.03 }}
+              className="p-6 rounded-xl shadow bg-white text-center border-b-4"
+              style={{ borderColor: PRIMARY_COLOR }}
+            >
               <item.icon className="w-12 h-12 mx-auto mb-4" style={{ color: PRIMARY_COLOR }} />
               <p className="text-lg font-semibold text-gray-700">{item.text}</p>
             </motion.div>
           ))}
         </div>
       </section>
+    </motion.div>
+  );
+};
 
-      <hr />
+// -------------------------
+// RECRUITMENT CONTENT (UPDATED - REMOVED WHY HIRE)
+// -------------------------
+const RecruitmentContent = () => {
+  const partners = [
+    { name: "Accenture", logo: "/images/companies/accenture.png" },
+    { name: "TCS", logo: "/images/companies/tcs.png" },
+    { name: "Tech Mahindra", logo: "/images/companies/tech-mahindra.png" },
+    { name: "Sutherland", logo: "/images/companies/sutherland.png" },
+    { name: "Infosys", logo: "/images/companies/infosys.jpg" },
+    { name: "Zensar", logo: "/images/companies/zensar.png" },
+    { name: "Kudzu Infotech", logo: "/images/companies/kudzo.png", url: "https://www.kudzuinfotech.com/en/" },
+    { name: "Bpointers", logo: "/images/companies/bpointers.png" },
+    { name: "Pisyst India", logo: "/images/companies/pisyst-india-pvt-ltd.png" },
+    { name: "Sumasoft", logo: "/images/companies/sumasoft.png" },
+    { name: "SynITelligence", logo: "/images/companies/syntelligence-tech-pune.png" },
+  ];
+
+  return (
+    <motion.div className="space-y-16 pt-10">
+
+      {/* ⭐ HERO SECTION ADDED TO RECRUITMENT TAB ⭐ */}
+      <Hero />
 
       {/* HIRING PARTNERS */}
       <section style={{ backgroundColor: SECONDARY_BG }} className="py-10">
@@ -333,9 +340,11 @@ const RecruitmentContent = () => {
           ))}
         </div>
       </section>
+
     </motion.div>
   );
 };
+
 
 // -------------------------
 // MAIN PAGE
@@ -364,10 +373,13 @@ export default function ServicesPage() {
       {/* TAB SWITCHER */}
       <section className="pt-24 pb-12">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex justify-center rounded-lg overflow-hidden shadow-lg mb-12" style={{ backgroundColor: PRIMARY_COLOR }}>
+          <div
+            className="flex justify-center rounded-lg overflow-hidden shadow-lg mb-12"
+            style={{ backgroundColor: PRIMARY_COLOR }}
+          >
             <NavItem
               id="training"
-              label="Training & Placments"
+              label="Training & Placements"
               icon={<BookOpen className="w-6 h-6" />}
               isActive={activeService === "training"}
               onClick={() => setActiveService("training")}
@@ -392,8 +404,14 @@ export default function ServicesPage() {
       <motion.section className="py-20 text-white" style={{ backgroundColor: PRIMARY_COLOR }}>
         <div className="max-w-7xl mx-auto text-center px-6">
           <h2 className="text-3xl font-extrabold">Ready to Shape Your Future in Tech?</h2>
-          <p className="mt-4 text-lg opacity-90">Contact CODE IT today for admission, placement queries, or corporate collaboration.</p>
-          <Link href="/contact" className="mt-8 inline-block bg-white px-10 py-4 rounded-full font-semibold text-lg shadow-xl hover:scale-105" style={{ color: PRIMARY_COLOR }}>
+          <p className="mt-4 text-lg opacity-90">
+            Contact CODE IT today for admission, placement queries, or corporate collaboration.
+          </p>
+          <Link
+            href="/contact"
+            className="mt-8 inline-block bg-white px-10 py-4 rounded-full font-semibold text-lg shadow-xl hover:scale-105"
+            style={{ color: PRIMARY_COLOR }}
+          >
             Contact Our Experts
           </Link>
         </div>
