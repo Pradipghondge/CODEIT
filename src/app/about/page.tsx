@@ -94,28 +94,17 @@ export default function AboutUsPage() {
                 From Vision to Venture
               </h2>
               <p className="mt-6 text-base sm:text-lg leading-relaxed text-gray-600">
-                CODEIT was founded on the principle of bridging the gap between business needs
-                and technology solutions. Our journey began with a commitment to build partnerships
-                that foster growth, innovation, and long-term success for everyone involved.
+                To strengthen India’s skill development ecosystem by providing standardized, scalable, and industry-driven training that enhances employability and prepares a future-ready workforce. We are committed to delivering measurable outcomes through high-quality skill programs, robust placement support, and strategic collaborations with government bodies, corporates, and educational institutions. By empowering youth with industry-relevant skills and fostering innovation, discipline, and practical expertise, our mission is to reduce unemployment, bridge the talent gap, and contribute to national growth and sustainable economic development.
               </p>
             </div>
           </div>
 
           {/* Mission + Guarantees */}
-          <div className="mx-auto mt-20 sm:mt-24 grid gap-8 lg:grid-cols-2 max-w-5xl">
+          <div className="mx-auto mt-20 sm:mt-24 max-w-5xl">
             <div className="p-8 sm:p-10 border border-gray-200 rounded-2xl">
               <h2 className="text-xl sm:text-2xl font-bold text-[#0F4F3F]">Our Mission</h2>
               <p className="mt-4 text-gray-600 leading-relaxed">
-                To be the most creative, effective and honest company in the business.
-                We are committed to providing our clients with the highest quality work.
-              </p>
-            </div>
-
-            <div className="p-8 sm:p-10 border border-gray-200 rounded-2xl">
-              <h2 className="text-xl sm:text-2xl font-bold text-[#0F4F3F]">Our Guarantees</h2>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                We guarantee reliable service delivery, transparent communication, and measurable results.
-                If anything falls short, we take quick action to ensure your complete satisfaction.
+                To strengthen India’s skill development ecosystem by providing standardized, scalable, and industry-driven training that enhances employability and prepares a future-ready workforce. We are committed to delivering measurable outcomes through high-quality skill programs, robust placement support, and strategic collaborations with government bodies, corporates, and educational institutions. By empowering youth with industry-relevant skills and fostering innovation, discipline, and practical expertise, our mission is to reduce unemployment, bridge the talent gap, and contribute to national growth and sustainable economic development.
               </p>
             </div>
           </div>
