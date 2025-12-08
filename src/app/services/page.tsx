@@ -1,352 +1,399 @@
 "use client";
 
-import { CheckCircle, Users, Headset, Briefcase, GraduationCap, Code, Cloud, Search, Link as LinkIcon, Heart } from "lucide-react";
+import React, { ReactNode, useState } from "react";
 import Link from "next/link";
-import { ReactNode } from "react";
-import { motion, Variants } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  CheckCircle,
+  Users,
+  Briefcase,
+  GraduationCap,
+  Code,
+  BookOpen,
+  FileText,
+  Award,
+  HeartPulse,
+  Cloud,
+} from "lucide-react";
 
-// --- Configuration ---
-const PRIMARY_COLOR = "#0F4F3F"; // Deep Green (From the document's design/branding)
-const SECONDARY_BG = "#F7F8FA"; // Light Gray Background
-const ACCENT_COLOR = "#FFC72C"; // Gold/Yellow accent
+// CONFIG
+const PRIMARY_COLOR = "#0F4F3F";
+const SECONDARY_BG = "#F7F8FA";
+const ACCENT_COLOR = "#FFC72C";
 
-// --- Animation Variants ---
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
+// -------------------------
+// TRAINING CONTENT (FINAL)
+// -------------------------
+const TrainingContent = () => {
+  // Intro paragraph
+  const introText =
+    "At CODE IT, our training programs are designed to build strong technical foundations while preparing students for real-world industry environments. We focus on practical learning, hands-on projects, modern technologies, and placement-oriented skill development. Our mission is to transform every learner into a confident, job-ready professional.";
+
+  // Core Programming
+  const coreProgrammingDetails = [
+    { title: "C & C++", icon: <Code size={24} />, description: "Master procedural & OOP programming." },
+    { title: "Java Development", icon: <Code size={24} />, description: "Complete Java training for enterprise apps." },
+    { title: "Python & Data Languages", icon: <Code size={24} />, description: "Python + R training for analytics & automation." },
+    { title: "PHP", icon: <Code size={24} />, description: "Backend development using PHP." },
+    { title: "SQL & Databases", icon: <Code size={24} />, description: "MySQL, PostgreSQL, DB modeling & optimization." },
+    { title: "JavaScript", icon: <Code size={24} />, description: "Modern JS, ES6+, DOM & async programming." },
+    { title: "Ruby", icon: <Code size={24} />, description: "Backend scripting fundamentals." },
+    { title: "Swift", icon: <Code size={24} />, description: "iOS app development basics." },
+    { title: "Go (Golang)", icon: <Code size={24} />, description: "High-performance backend programming." },
+  ];
+
+  // Advanced Courses
+  const advancedCourses = [
+    {
+      icon: <GraduationCap size={32} />,
+      title: "Advanced IT & Full Stack Development",
+      description: "Master full-stack frameworks and industry workflows.",
+      skills: [
+        "Full Stack Java Development",
+        "Full Stack ASP.NET Development",
+        "Full Stack Python Development",
+        "Full Stack Web Development",
+        "MEAN / MERN Stack",
+        "Android App Development",
+        "Software Testing & QA",
+        "Business Analytics",
+        "Data Analytics",
+        "System Design Basics",
+      ],
     },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { y: 30, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      stiffness: 80,
+    {
+      icon: <Cloud size={32} />,
+      title: "Trending & Future-Ready Technologies",
+      description: "Build expertise in modern and emerging tech domains.",
+      skills: [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Cybersecurity",
+        "Blockchain",
+        "IoT",
+        "DevOps",
+        "Cloud Computing (AWS / Azure / GCP)",
+        "AR / VR Development",
+        "Big Data",
+      ],
     },
-  },
-};
+    {
+      icon: <HeartPulse size={32} />,
+      title: "Healthcare & Life Science IT",
+      description: "Industry-ready professional healthcare technology training.",
+      skills: [
+        "Medical Coding",
+        "Pharmacovigilance",
+        "SAS Programming",
+        "Clinical Research",
+        "Health Informatics",
+        "Bioinformatics",
+        "Pharma Analytics",
+      ],
+    },
+  ];
 
-const cardVariants: Variants = {
-  hover: {
-    y: -5,
-    boxShadow: "0 15px 25px -5px rgba(15, 79, 63, 0.2), 0 8px 10px -6px rgba(15, 79, 63, 0.1)",
-  },
-};
+  // Additional Skills
+  const additionalSkills = [
+    "Data Structures & Algorithms",
+    "Git & GitHub Version Control",
+    "Linux Commands & Shell Scripting",
+    "REST API Fundamentals",
+    "Debugging & Optimization",
+    "Microservices Basics",
+    "CI/CD Foundations",
+    "Soft Skills & Communication",
+    "Mock Interviews & Resume Building",
+    "Live Industry Projects",
+  ];
 
-// Type for children props
-interface ServiceBlockProps {
-  children: ReactNode[];
-  reverse?: boolean;
-}
+  // Internship Programs (MOVED from Recruitment)
+  const internships = [
+    "Artificial Intelligence & Machine Learning (AI/ML)",
+    "Data Science",
+    "Full Stack Development (Java / Python / PHP / .NET)",
+    "Cyber Security",
+    "Cloud Computing (AWS / Azure / GCP)",
+    "SAP – FICO, MM, HR, ABAP, Basis",
+  ];
 
-// Custom Card Component for Key Factors
-interface KeyFactorCardProps {
-  icon: ReactNode;
-  title: string;
-  description: string;
-}
+  const internshipBenefits = [
+    "Hands-on training with real industry projects",
+    "Guidance from industry professionals",
+    "Build job-ready skills",
+    "Certification after completion",
+    "Placement Assistance",
+    "Portfolio & resume building",
+    "Team-based project experience",
+  ];
 
-const KeyFactorCard = ({ icon, title, description }: KeyFactorCardProps) => (
-  <motion.div 
-    className="p-6 rounded-xl border border-gray-200 shadow-sm transition-all text-center"
-    style={{ backgroundColor: 'white' }}
-    variants={cardVariants}
-    whileHover="hover"
-  >
-    <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-full" style={{ backgroundColor: PRIMARY_COLOR, color: 'white' }}>
-      {icon}
-    </div>
-    <h4 className="text-lg font-bold" style={{ color: PRIMARY_COLOR }}>{title}</h4>
-    <p className="mt-2 text-sm text-gray-600">{description}</p>
-  </motion.div>
-);
+  // Placed Students (MOVED from Recruitment)
+  const students = [
+    { name: "Amit Sharma", role: "Java Developer", company: "TCS", package: "4.5 LPA" },
+    { name: "Priya Nair", role: "Python Developer", company: "Accenture", package: "5 LPA" },
+    { name: "Rohit Verma", role: "Full Stack Developer", company: "Sutherland", package: "4 LPA" },
+    { name: "Sneha Patel", role: "Tester", company: "Tech Mahindra", package: "3.6 LPA" },
+  ];
 
-export default function ServicesPage() {
-  const ServiceBlock = ({ children, reverse = false }: ServiceBlockProps) => (
-    <motion.div
-      // Responsive grid setup: single column on mobile, two columns on large screens
-      className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 items-center" 
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-    >
-      {/* Dynamic ordering based on reverse prop, ensuring correct stacking on mobile */}
-      {reverse ? (
-        <>
-          <div className="flex justify-center order-last lg:order-first">{children[0]}</div>
-          <div>{children[1]}</div>
-        </>
-      ) : (
-        <>
-          <div>{children[1]}</div>
-          <div className="flex justify-center">{children[0]}</div>
-        </>
-      )}
+  return (
+    <motion.div className="space-y-16 pt-10">
+      {/* INTRO TEXT */}
+      <p className="text-lg text-gray-700 max-w-4xl mx-auto text-center">{introText}</p>
+
+      {/* CORE PROGRAMMING */}
+      <section>
+        <h2 className="text-3xl font-bold text-center mb-8" style={{ color: PRIMARY_COLOR }}>
+          Core Programming & Foundations
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {coreProgrammingDetails.map((item) => (
+            <div key={item.title} className="p-5 rounded-xl border shadow bg-white">
+              <div className="flex items-center gap-3 mb-3" style={{ color: PRIMARY_COLOR }}>
+                {item.icon}
+                <h3 className="text-xl font-bold">{item.title}</h3>
+              </div>
+              <p className="text-gray-600 text-sm">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <hr />
+
+      {/* ADVANCED COURSES */}
+      <section>
+        <h2 className="text-3xl font-bold text-center mb-8" style={{ color: PRIMARY_COLOR }}>
+          Advanced & Specialized Courses
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {advancedCourses.map((course) => (
+            <div key={course.title} className="p-5 rounded-xl border shadow bg-white">
+              <div className="flex items-center gap-3 mb-3" style={{ color: PRIMARY_COLOR }}>
+                {course.icon}
+                <h3 className="text-xl font-bold">{course.title}</h3>
+              </div>
+              <p className="text-gray-600 text-sm mb-3">{course.description}</p>
+
+              <ul className="space-y-1">
+                {course.skills.map((s) => (
+                  <li key={s} className="flex items-start text-sm text-gray-700">
+                    <CheckCircle className="w-4 h-4 mt-1 mr-2" style={{ color: ACCENT_COLOR }} />
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <hr />
+
+      {/* ADDITIONAL SKILLS */}
+      <section>
+        <h2 className="text-3xl font-bold text-center mb-8" style={{ color: PRIMARY_COLOR }}>
+          Additional Skills You Will Learn
+        </h2>
+
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+          {additionalSkills.map((skill) => (
+            <p key={skill} className="flex items-start gap-2 text-gray-700">
+              <CheckCircle className="w-5 h-5 mt-1" style={{ color: ACCENT_COLOR }} />
+              {skill}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <hr />
+
+      {/* INTERNSHIP PROGRAMS */}
+      <section>
+        <h2 className="text-3xl font-bold text-center mb-8" style={{ color: PRIMARY_COLOR }}>
+          Internship Programs
+        </h2>
+
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-4">
+          {internships.map((it) => (
+            <p key={it} className="flex items-start gap-2 text-gray-700">
+              <CheckCircle className="w-5 h-5 mt-1" style={{ color: PRIMARY_COLOR }} />
+              {it}
+            </p>
+          ))}
+        </div>
+
+        <h3 className="text-2xl font-bold text-center mt-12 mb-6" style={{ color: PRIMARY_COLOR }}>
+          Internship Benefits
+        </h3>
+
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-4">
+          {internshipBenefits.map((b) => (
+            <p key={b} className="flex items-start gap-2 text-gray-700">
+              <CheckCircle className="w-5 h-5 mt-1" style={{ color: ACCENT_COLOR }} />
+              {b}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <hr />
+
+      {/* PLACED STUDENTS */}
+      <section>
+        <h2 className="text-3xl font-bold text-center mb-12" style={{ color: PRIMARY_COLOR }}>
+          Our Successfully Placed Students
+        </h2>
+
+        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10 px-6">
+          {students.map((s, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.03 }}
+              className="p-6 text-center bg-white shadow rounded-xl border-b-4"
+              style={{ borderColor: PRIMARY_COLOR }}
+            >
+              <h3 className="text-xl font-bold" style={{ color: PRIMARY_COLOR }}>{s.name}</h3>
+              <p className="text-gray-600 mt-2">{s.role}</p>
+              <p className="text-gray-700 font-semibold">{s.company}</p>
+              <p className="text-green-600 font-bold mt-2">{s.package}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
     </motion.div>
+  );
+};
+
+// -------------------------
+// RECRUITMENT CONTENT (FINAL)
+// -------------------------
+const RecruitmentContent = () => {
+  const partners = [
+    { name: "Accenture", logo: "/images/companies/accenture.png" },
+    { name: "TCS", logo: "/images/companies/tcs.png" },
+    { name: "Tech Mahindra", logo: "/images/companies/tech-mahindra.png" },
+    { name: "Sutherland", logo: "/images/companies/sutherland.png" },
+    { name: "Infosys", logo: "/images/companies/infosys.jpg" },
+    { name: "Zensar", logo: "/images/companies/zensar.png" },
+    {
+      name: "Kudzu Infotech",
+      logo: "/images/companies/kudzo.png",
+      url: "https://www.kudzuinfotech.com/en/",
+    },
+    { name: "Bpointers", logo: "/images/companies/bpointers.png" },
+    { name: "Pisyst India", logo: "/images/companies/pisyst-india-pvt-ltd.png" },
+    { name: "Sumasoft", logo: "/images/companies/sumasoft.png" },
+    { name: "SynITelligence", logo: "/images/companies/syntelligence-tech-pune.png" },
+  ];
+
+  return (
+    <motion.div className="space-y-16 pt-10">
+      {/* WHY HIRE */}
+      <section>
+        <h2 className="text-3xl font-bold text-center mb-12" style={{ color: PRIMARY_COLOR }}>
+          Why Companies Hire From CODE IT
+        </h2>
+
+        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8 px-6">
+          {[
+            { icon: Award, text: "Industry-Ready Skills" },
+            { icon: CheckCircle, text: "Project-Based Training" },
+            { icon: Users, text: "Soft Skills & Interview Prep" },
+            { icon: Briefcase, text: "Dedicated Placement Assistance" },
+          ].map((item, i) => (
+            <motion.div key={i} whileHover={{ scale: 1.03 }} className="p-6 rounded-xl shadow bg-white text-center border-b-4" style={{ borderColor: PRIMARY_COLOR }}>
+              <item.icon className="w-12 h-12 mx-auto mb-4" style={{ color: PRIMARY_COLOR }} />
+              <p className="text-lg font-semibold text-gray-700">{item.text}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <hr />
+
+      {/* HIRING PARTNERS */}
+      <section style={{ backgroundColor: SECONDARY_BG }} className="py-10">
+        <h2 className="text-3xl font-bold text-center mb-12" style={{ color: PRIMARY_COLOR }}>
+          Our Hiring Partners
+        </h2>
+
+        <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 px-6">
+          {partners.map((partner, index) => (
+            <motion.a
+              key={index}
+              href={partner.url || "#"}
+              target={partner.url ? "_blank" : undefined}
+              className="p-4 bg-white rounded-xl shadow flex flex-col items-center"
+            >
+              <img src={partner.logo} alt={partner.name} className="w-20 h-20 object-contain mb-3" />
+              <p className="text-md font-semibold text-gray-700 text-center">{partner.name}</p>
+            </motion.a>
+          ))}
+        </div>
+      </section>
+    </motion.div>
+  );
+};
+
+// -------------------------
+// MAIN PAGE
+// -------------------------
+export default function ServicesPage() {
+  const [activeService, setActiveService] = useState<"training" | "recruitment">("training");
+
+  const NavItem = ({ id, label, icon, isActive, onClick }: any) => (
+    <button
+      className={`flex-1 flex items-center justify-center p-5 rounded-t-lg transition-all ${
+        isActive ? "text-white font-bold border-b-4" : "text-gray-300"
+      }`}
+      style={{
+        borderColor: isActive ? ACCENT_COLOR : "transparent",
+        backgroundColor: isActive ? PRIMARY_COLOR : PRIMARY_COLOR + "E0",
+      }}
+      onClick={onClick}
+    >
+      <span className="mr-3">{icon}</span>
+      <span className="text-lg">{label}</span>
+    </button>
   );
 
   return (
     <div className="bg-white min-h-screen">
-
-      {/* HERO SECTION */}
-      <motion.section
-        // Using responsive padding classes
-        className="py-20 sm:py-28" 
-        style={{ backgroundColor: SECONDARY_BG }}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold" // Responsive text size
-            style={{ color: PRIMARY_COLOR }}
-          >
-            Empowering Your IT Career & Business Growth 
-          </h1>
-          <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            CODE IT Software Training Institute is a premier destination for IT education, founded in Rajasthan in 2021. Under the leadership of Founder & Director Preeti Kalra, we offer a blend of foundational programming, advanced technologies, and industry-focused training. Our mission is to empower individuals with cutting-edge IT skills and ensure career success.
-          </p>
-        </div>
-      </motion.section>
-
-      {/* --- CORE SERVICE 1: SKILL DEVELOPMENT & TRAINING --- */}
-      <section className="py-6 sm:py-8"> 
+      {/* TAB SWITCHER */}
+      <section className="pt-24 pb-12">
         <div className="max-w-7xl mx-auto px-6">
-          <ServiceBlock reverse>
-            <motion.div
-              className="p-10 rounded-2xl shadow-2xl w-full max-w-md text-left border-t-4"
-              style={{ backgroundColor: SECONDARY_BG, borderColor: PRIMARY_COLOR }}
-              variants={cardVariants}
-              whileHover="hover"
-            >
-              <GraduationCap className="w-12 h-12 mb-4" style={{ color: PRIMARY_COLOR }} />
-              <h3 className="text-3xl font-extrabold" style={{ color: PRIMARY_COLOR }} >
-                Industry-Aligned Training
-              </h3>
-              <p className="mt-3 text-gray-600 leading-relaxed">
-                Our programs bridge the gap between academia and industry needs by offering a diverse range of industry-aligned courses.
-              </p>
-
-              <ul className="mt-4 space-y-2 text-gray-700">
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 mr-3 mt-1 shrink-0" style={{ color: ACCENT_COLOR }} />
-                  <span>Core Programming (Java, Python, C++, PHP, SQL, Go)</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 mr-3 mt-1 shrink-0" style={{ color: ACCENT_COLOR }} />
-                  <span>Advanced IT: Full Stack Development (MEAN/MERN), Cloud Computing, Software Testing</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 mr-3 mt-1 shrink-0" style={{ color: ACCENT_COLOR }} />
-                  <span>Future-Ready Tech: AI, Machine Learning, Data Science, Blockchain, Cybersecurity</span>
-                </li>
-              </ul>
-              <Link href="/services/training" className="mt-6 inline-block font-semibold hover:underline" style={{ color: PRIMARY_COLOR }}>
-                Explore All Courses →
-              </Link>
-            </motion.div>
-
-            <motion.div className="space-y-6" variants={itemVariants}>
-              <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight" style={{ color: PRIMARY_COLOR }}>
-                Advanced Skill Development Training
-              </h2>
-              <p className="text-gray-600 text-xl leading-relaxed">
-                We are dedicated to shaping the future of tech talent. Our curriculum is designed by **expert trainers** focusing on technical proficiency and professional development.
-              </p>
-              <div className="mt-6">
-                <h3 className="text-2xl font-bold mb-4" style={{ color: PRIMARY_COLOR }}>Why Train With Us?</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-center text-lg text-gray-700">
-                    <CheckCircle className="w-6 h-6 mr-3 shrink-0" style={{ color: ACCENT_COLOR }} />
-                    Hands-on learning & Real-world projects
-                  </li>
-                  <li className="flex items-center text-lg text-gray-700">
-                    <CheckCircle className="w-6 h-6 mr-3 shrink-0" style={{ color: ACCENT_COLOR }} />
-                    Curriculum relevant and forward-thinking in emerging technologies
-                  </li>
-                  <li className="flex items-center text-lg text-gray-700">
-                    <CheckCircle className="w-6 h-6 mr-3 shrink-0" style={{ color: ACCENT_COLOR }} />
-                    Industry connections and placement support
-                  </li>
-                </ul>
-              </div>
-            </motion.div>
-          </ServiceBlock>
-        </div>
-      </section>
-
-      <hr className="border-gray-200 max-w-7xl mx-auto" />
-
-      {/* --- CORE SERVICE 2: PLACEMENT & RECRUITMENT --- */}
-      <section className="py-6 sm:py-8" style={{ backgroundColor: SECONDARY_BG }}> 
-        <div className="max-w-7xl mx-auto px-6">
-          <ServiceBlock>
-            <motion.div
-              className="p-10 rounded-2xl shadow-2xl w-full max-w-md text-left border-t-4"
-              style={{ backgroundColor: 'white', borderColor: ACCENT_COLOR }}
-              variants={cardVariants}
-              whileHover="hover"
-            >
-              <Briefcase className="w-12 h-12 mb-4" style={{ color: PRIMARY_COLOR }} />
-              <h3 className="text-3xl font-extrabold" style={{ color: PRIMARY_COLOR }}>
-                100% Placement Guarantee
-              </h3>
-              <p className="mt-3 text-gray-600 leading-relaxed">
-                We are committed to comprehensive support ensuring **100% placement assistance** for all graduates.
-              </p>
-
-              <div className="mt-4">
-                <p className="font-semibold text-gray-700">Key Placement Partners:</p>
-                <ul className="mt-2 text-sm text-gray-600 list-disc list-inside space-y-1">
-                  <li>Major MNCs: Accenture, TCS, Tech Mahindra, Sutherland, Zensar</li>
-                  <li>Industry Partners: Work Together Group, PiSyst India, Syntelligence Tech</li>
-                </ul>
-              </div>
-              <Link href="/services/recruitment" className="mt-6 inline-block font-semibold hover:underline" style={{ color: PRIMARY_COLOR }}>
-                View Partner Network →
-              </Link>
-            </motion.div>
-
-            <motion.div className="space-y-6" variants={itemVariants}>
-              <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight" style={{ color: PRIMARY_COLOR }}>
-                Career Success & Corporate Recruitment
-              </h2>
-              <p className="text-gray-600 text-xl leading-relaxed">
-                Our focus is on building a strong network of industry partners, creating direct placement opportunities for our students and helping companies access pre-screened, job-ready talent.
-              </p>
-              <div className="mt-6">
-                <h3 className="text-2xl font-bold mb-4" style={{ color: PRIMARY_COLOR }}>Internship Programs</h3>
-                <p className="text-gray-700">
-                  We run ongoing industry programs, such as the **Automation & Robotics internship** in collaboration with **JSPM College**, focusing on Robotics Programming and Embedded Systems.
-                </p>
-              </div>
-            </motion.div>
-          </ServiceBlock>
-        </div>
-      </section>
-
-      <hr className="border-gray-200 max-w-7xl mx-auto" />
-
-      {/* --- CORE SERVICE 3: INSTITUTIONAL & CORPORATE COLLABORATION --- */}
-      <section className="py-6 sm:py-8">
-        <div className="max-w-7xl mx-auto px-6">
-          <ServiceBlock reverse>
-            <motion.div
-              className="p-10 rounded-2xl shadow-2xl w-full max-w-md text-left border-t-4"
-              style={{ backgroundColor: SECONDARY_BG, borderColor: PRIMARY_COLOR }}
-              variants={cardVariants}
-              whileHover="hover"
-            >
-              <LinkIcon className="w-12 h-12 mb-4" style={{ color: PRIMARY_COLOR }} />
-              <h3 className="text-3xl font-extrabold" style={{ color: PRIMARY_COLOR }}>
-                Academic Partnerships
-              </h3>
-              <p className="mt-3 text-gray-600 leading-relaxed">
-                We collaborate with top colleges and universities to enhance academic learning with industry exposure and practical experience.
-              </p>
-              <ul className="mt-4 space-y-2 text-gray-700 list-disc list-inside">
-                  <li>Angel College of Pharmacy, Hadapsar</li>
-                  <li>PDEA Colleges (Manjari & Pune)</li>
-                  <li>Jayawantrao Sawant Group</li>
-                  <li>Dr. Jadhavar College, Narhe</li>
-              </ul>
-              <Link href="/services/support" className="mt-6 inline-block font-semibold hover:underline" style={{ color: PRIMARY_COLOR }}>
-                View All Affiliations →
-              </Link>
-            </motion.div>
-
-            <motion.div className="space-y-6" variants={itemVariants}>
-              <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight" style={{ color: PRIMARY_COLOR }}>
-                Institutional & Corporate Collaboration
-              </h2>
-              <p className="text-gray-600 text-xl leading-relaxed">
-                We partner with educational institutions to embed real-world projects and industry standards into student curricula, fostering hands-on learning environments.
-              </p>
-              <div className="mt-6">
-                <h3 className="text-2xl font-bold mb-4" style={{ color: PRIMARY_COLOR }}>Bridging Academia & Industry</h3>
-                <p className="text-gray-700">
-                  Our partnerships are designed to provide students with placement opportunities, internships, and essential real-world exposure, fulfilling our commitment to career success.
-                </p>
-              </div>
-            </motion.div>
-          </ServiceBlock>
-        </div>
-      </section>
-
-      <hr className="border-gray-200 max-w-7xl mx-auto" />
-      
-      {/* --- CORE SERVICE 4: BUSINESS CONSULTING --- */}
-      <section className="py-6 sm:py-8" style={{ backgroundColor: SECONDARY_BG }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight" style={{ color: PRIMARY_COLOR }}>
-              Business & Management Consulting
-            </h2>
-            <p className="text-gray-600 text-xl max-w-3xl mx-auto mt-4">
-              Leveraging our strategic insight to drive organizational growth and efficiency for our partners.
-            </p>
+          <div className="flex justify-center rounded-lg overflow-hidden shadow-lg mb-12" style={{ backgroundColor: PRIMARY_COLOR }}>
+            <NavItem
+              id="training"
+              label="Training & Placments"
+              icon={<BookOpen className="w-6 h-6" />}
+              isActive={activeService === "training"}
+              onClick={() => setActiveService("training")}
+            />
+            <NavItem
+              id="recruitment"
+              label="Recruitment"
+              icon={<FileText className="w-6 h-6" />}
+              isActive={activeService === "recruitment"}
+              onClick={() => setActiveService("recruitment")}
+            />
           </div>
 
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            <motion.div variants={itemVariants}>
-              <KeyFactorCard 
-                icon={<Code />}
-                title="Strategic Planning"
-                description="Developing and executing strategies that stimulate business expansion."
-              /> 
-            </motion.div>
-            <motion.div variants={itemVariants}>
-              <KeyFactorCard 
-                icon={<Users />}
-                title="HR Consulting"
-                description="Specialized services in talent management, leadership development, and HR strategy."
-              />
-            </motion.div>
-            <motion.div variants={itemVariants}>
-              <KeyFactorCard 
-                icon={<Search />}
-                title="Operational Efficiency"
-                description="Streamlining processes and improving operational effectiveness."
-              />
-            </motion.div>
-          </motion.div>
+          <AnimatePresence mode="wait">
+            {activeService === "training" && <TrainingContent />}
+            {activeService === "recruitment" && <RecruitmentContent />}
+          </AnimatePresence>
         </div>
       </section>
 
       {/* CTA */}
-      <motion.section
-        className="py-20 text-white"
-        style={{ backgroundColor: PRIMARY_COLOR }}
-        id="contact"
-      >
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold">
-            Ready to Shape Your Future in Tech?
-          </h2>
-          <p className="mt-4 text-lg max-w-2xl mx-auto opacity-90">
-            Contact CODE IT today for admission, placement queries, or corporate collaboration.
-          </p>
-          <Link
-            href="/contact"
-            className="mt-8 inline-block bg-white px-10 py-4 rounded-full font-semibold text-lg shadow-xl 
-            hover:shadow-2xl transition hover:scale-105"
-            style={{ color: PRIMARY_COLOR }}
-          >
+      <motion.section className="py-20 text-white" style={{ backgroundColor: PRIMARY_COLOR }}>
+        <div className="max-w-7xl mx-auto text-center px-6">
+          <h2 className="text-3xl font-extrabold">Ready to Shape Your Future in Tech?</h2>
+          <p className="mt-4 text-lg opacity-90">Contact CODE IT today for admission, placement queries, or corporate collaboration.</p>
+          <Link href="/contact" className="mt-8 inline-block bg-white px-10 py-4 rounded-full font-semibold text-lg shadow-xl hover:scale-105" style={{ color: PRIMARY_COLOR }}>
             Contact Our Experts
           </Link>
         </div>
