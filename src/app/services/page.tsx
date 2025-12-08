@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Hero from "@/components/Hero";
@@ -24,10 +24,9 @@ const SECONDARY_BG = "#F7F8FA";
 const ACCENT_COLOR = "#FFC72C";
 
 // -------------------------
-// TRAINING CONTENT (UPDATED)
+// TRAINING CONTENT (UPDATED WITH REAL PLACED STUDENTS)
 // -------------------------
 const TrainingContent = () => {
-  // Intro paragraph
   const introText =
     "At CODE IT, our training programs are designed to build strong technical foundations while preparing students for real-world industry environments. We focus on practical learning, hands-on projects, modern technologies, and placement-oriented skill development. Our mission is to transform every learner into a confident, job-ready professional.";
 
@@ -95,7 +94,6 @@ const TrainingContent = () => {
     },
   ];
 
-  // Additional Skills
   const additionalSkills = [
     "Data Structures & Algorithms",
     "Git & GitHub Version Control",
@@ -109,7 +107,6 @@ const TrainingContent = () => {
     "Live Industry Projects",
   ];
 
-  // Internship Programs
   const internships = [
     "Artificial Intelligence & Machine Learning (AI/ML)",
     "Data Science",
@@ -129,22 +126,33 @@ const TrainingContent = () => {
     "Team-based project experience",
   ];
 
-  // Placed Students
-  const students = [
-    { name: "Amit Sharma", role: "Java Developer", company: "TCS", package: "4.5 LPA" },
-    { name: "Priya Nair", role: "Python Developer", company: "Accenture", package: "5 LPA" },
-    { name: "Rohit Verma", role: "Full Stack Developer", company: "Sutherland", package: "4 LPA" },
-    { name: "Sneha Patel", role: "Tester", company: "Tech Mahindra", package: "3.6 LPA" },
+  // REAL PLACED STUDENTS DATA
+  const placedStudents = [
+    { name: 'Mr. Atul Patil', role: 'Android Developer', company: 'Syntelligence Tech', lpa: '3.5 LPA', image: '/images/students/student1.jpg' },
+    { name: 'Ms. Shivani Jenna', role: 'Data Analyst', company: 'MD India', lpa: '4.8 LPA', image: '/images/students/student2.jpg' },
+    { name: 'Miss. Prachi Patil', role: 'Data Analyst', company: 'JKL', lpa: '5.5 LPA', image: '/images/students/student3.jpg' },
+    { name: 'Mr. Sunil Patil', role: 'Business Analyst', company: 'SumaSoft', lpa: '4.0 LPA', image: '/images/students/student4.jpg' },
+    { name: 'Ms. Pratiksha Jadhav', role: 'Flutter Developer', company: 'Syntelligence Tech', lpa: '3.0 LPA', image: '/images/students/student5.jpg' },
+    { name: 'Mr. Mangesh Chalode', role: 'Assi. Service Engineer', company: 'BitSoft', lpa: '4.5 LPA', image: '/images/students/student6.jpg' },
+    { name: 'Mr. Tukaramk Biradar', role: 'Data Analyst', company: 'WSN', lpa: '4.8 LPA', image: '/images/students/student7.jpg' },
+    { name: 'Mr. Sachin Honrao', role: 'Power BI Developer', company: 'Empyreal Solution', lpa: '3.5 LPA', image: '/images/students/student8.jpg' },
+    { name: 'Mr. Sagar Chennoji', role: 'Finance Manager', company: 'Angel Broking, Pune', lpa: '4.0 LPA', image: '/images/students/student9.jpg' },
+    { name: 'Miss. Akaksha More', role: 'Business Analyst', company: 'Piogio, Pune', lpa: '4.5 LPA', image: '/images/students/student10.jpg' },
+    { name: 'Mr. Prajwal Surewad', role: 'Data Analyst', company: 'MD India', lpa: '3.8 LPA', image: '/images/students/student11.jpg' },
   ];
 
   return (
     <motion.div className="space-y-16 pt-10">
-      {/* INTRO TEXT */}
+
+      {/* INTRO */}
       <p className="text-lg text-gray-700 max-w-4xl mx-auto text-center">{introText}</p>
 
       {/* CORE PROGRAMMING */}
       <section>
-        <h2 className="text-3xl font-bold text-center mb-8" style={{ color: PRIMARY_COLOR }}>
+        <h2
+          className="text-3xl font-bold text-center mb-8"
+          style={{ color: PRIMARY_COLOR }}
+        >
           Core Programming & Foundations
         </h2>
 
@@ -242,32 +250,49 @@ const TrainingContent = () => {
 
       <hr />
 
-      {/* PLACED STUDENTS */}
+      {/* ⭐ UPDATED PLACED STUDENTS SECTION ⭐ */}
       <section>
-        <h2 className="text-3xl font-bold text-center mb-12" style={{ color: PRIMARY_COLOR }}>
-          Our Successfully Placed Students
+        <h2
+          className="text-3xl font-bold text-center mb-12"
+          style={{ color: PRIMARY_COLOR }}
+        >
+          Our Placed Students
         </h2>
 
-        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10 px-6">
-          {students.map((s, i) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-6 max-w-7xl mx-auto">
+          {placedStudents.map((s, index) => (
             <motion.div
-              key={i}
-              whileHover={{ scale: 1.03 }}
-              className="p-6 text-center bg-white shadow rounded-xl border-b-4"
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              className="bg-gray-50 p-6 rounded-xl shadow text-center border-b-4"
               style={{ borderColor: PRIMARY_COLOR }}
             >
-              <h3 className="text-xl font-bold" style={{ color: PRIMARY_COLOR }}>{s.name}</h3>
-              <p className="text-gray-600 mt-2">{s.role}</p>
-              <p className="text-gray-700 font-semibold">{s.company}</p>
-              <p className="text-green-600 font-bold mt-2">{s.package}</p>
+              <img
+                src={s.image}
+                alt={s.name}
+                className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4"
+                style={{ borderColor: PRIMARY_COLOR }}
+              />
+              <h3 className="text-lg font-bold" style={{ color: PRIMARY_COLOR }}>
+                {s.name}
+              </h3>
+              <p className="text-gray-600 font-medium">{s.role}</p>
+              <p className="mt-2 text-gray-800">
+                at <span className="font-bold" style={{ color: PRIMARY_COLOR }}>{s.company}</span>
+              </p>
+              <p className="mt-1 text-green-600 font-bold">{s.lpa}</p>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <img src="/images/congratulations.png" className="mx-auto w-72" />
         </div>
       </section>
 
       <hr />
 
-      {/* ⭐ ADDED HERE ⭐ WHY COMPANIES HIRE FROM CODE IT */}
+      {/* WHY COMPANIES HIRE */}
       <section>
         <h2 className="text-3xl font-bold text-center mb-12" style={{ color: PRIMARY_COLOR }}>
           Why Companies Hire From CODE IT
@@ -292,12 +317,13 @@ const TrainingContent = () => {
           ))}
         </div>
       </section>
+
     </motion.div>
   );
 };
 
 // -------------------------
-// RECRUITMENT CONTENT (UPDATED - REMOVED WHY HIRE)
+// RECRUITMENT CONTENT TAB
 // -------------------------
 const RecruitmentContent = () => {
   const partners = [
@@ -317,12 +343,15 @@ const RecruitmentContent = () => {
   return (
     <motion.div className="space-y-16 pt-10">
 
-      {/* ⭐ HERO SECTION ADDED TO RECRUITMENT TAB ⭐ */}
+      {/* HERO INSIDE RECRUITMENT TAB */}
       <Hero />
 
       {/* HIRING PARTNERS */}
       <section style={{ backgroundColor: SECONDARY_BG }} className="py-10">
-        <h2 className="text-3xl font-bold text-center mb-12" style={{ color: PRIMARY_COLOR }}>
+        <h2
+          className="text-3xl font-bold text-center mb-12"
+          style={{ color: PRIMARY_COLOR }}
+        >
           Our Hiring Partners
         </h2>
 
@@ -334,25 +363,27 @@ const RecruitmentContent = () => {
               target={partner.url ? "_blank" : undefined}
               className="p-4 bg-white rounded-xl shadow flex flex-col items-center"
             >
-              <img src={partner.logo} alt={partner.name} className="w-20 h-20 object-contain mb-3" />
-              <p className="text-md font-semibold text-gray-700 text-center">{partner.name}</p>
+              <img src={partner.logo} className="w-20 h-20 object-contain mb-3" />
+              <p className="text-md font-semibold text-gray-700 text-center">
+                {partner.name}
+              </p>
             </motion.a>
           ))}
         </div>
       </section>
-
     </motion.div>
   );
 };
-
 
 // -------------------------
 // MAIN PAGE
 // -------------------------
 export default function ServicesPage() {
-  const [activeService, setActiveService] = useState<"training" | "recruitment">("training");
+  const [activeService, setActiveService] = useState<"training" | "recruitment">(
+    "training"
+  );
 
-  const NavItem = ({ id, label, icon, isActive, onClick }: any) => (
+  const NavItem = ({ label, icon, isActive, onClick }: any) => (
     <button
       className={`flex-1 flex items-center justify-center p-5 rounded-t-lg transition-all ${
         isActive ? "text-white font-bold border-b-4" : "text-gray-300"
@@ -378,14 +409,12 @@ export default function ServicesPage() {
             style={{ backgroundColor: PRIMARY_COLOR }}
           >
             <NavItem
-              id="training"
               label="Training & Placements"
               icon={<BookOpen className="w-6 h-6" />}
               isActive={activeService === "training"}
               onClick={() => setActiveService("training")}
             />
             <NavItem
-              id="recruitment"
               label="Recruitment"
               icon={<FileText className="w-6 h-6" />}
               isActive={activeService === "recruitment"}
@@ -401,11 +430,17 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <motion.section className="py-20 text-white" style={{ backgroundColor: PRIMARY_COLOR }}>
+      <motion.section
+        className="py-20 text-white"
+        style={{ backgroundColor: PRIMARY_COLOR }}
+      >
         <div className="max-w-7xl mx-auto text-center px-6">
-          <h2 className="text-3xl font-extrabold">Ready to Shape Your Future in Tech?</h2>
+          <h2 className="text-3xl font-extrabold">
+            Ready to Shape Your Future in Tech?
+          </h2>
           <p className="mt-4 text-lg opacity-90">
-            Contact CODE IT today for admission, placement queries, or corporate collaboration.
+            Contact CODE IT today for admission, placement queries, or corporate
+            collaboration.
           </p>
           <Link
             href="/contact"
