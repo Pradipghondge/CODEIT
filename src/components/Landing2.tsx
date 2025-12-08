@@ -182,9 +182,11 @@ const Landing2: React.FC = () => {
     { name: 'Mr. Sunil Patil', role: 'Business Analyst', company: 'SumaSoft', lpa: '4.0 LPA', image: '/images/students/student4.jpg' },
     { name: 'Ms. Pratiksha Jadhav', role: 'Flutter Developer', company: 'Syntelligence Tech', lpa: '3.0 LPA', image: '/images/students/student5.jpg' },
     { name: 'Mr. Mangesh Chalode', role: 'Assi. Service Engineer', company: 'BitSoft', lpa: '4.5 LPA', image: '/images/students/student6.jpg' },
-    { name: 'Mr. Ganesh Deshmukh', role: 'React Native Developer', company: 'Avanair Technologies', lpa: '11 LPA', image: '/images/students/student7.jpg' },
+    { name: 'Mr. Tukaramk Biradar', role: 'Data Analyst', company: 'WSN', lpa: ' 4.8 LPA', image: '/images/students/student7.jpg' },
     { name: 'Mr. Sachin Honrao', role: 'Power BI Developer', company: 'Empyreal Solution', lpa: '3.5 LPA', image: '/images/students/student8.jpg' },
-    { name: 'Miss. Aarti Nhalve', role: 'Full Stack Developer', company: 'Avanair Technologies', lpa: '6.5 LPA', image: '/images/students/student9.jpg' },
+    { name: 'Mr. Sagar Chennoji', role: 'Finance Manager', company: ' Angel Broking, Pune', lpa: '4.0 LPA',  image: '/images/students/student9.jpg' },
+    { name: 'Miss. Akaksha More', role: 'Business Analyst', company: 'Piogio, Puine', lpa: '4.5 LPA', image: '/images/students/student10.jpg' },
+    { name: 'Mr. Prajwal Surewad', role: 'Data Analyst', company: ' MD India', lpa: '3.8 LPA',  image: '/images/students/student11.jpg' },
   ];
 
   return (
