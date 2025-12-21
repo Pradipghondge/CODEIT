@@ -17,35 +17,35 @@ type Scene = {
 const SCENES: Scene[] = [
   {
     id: 's1',
-    image: '/images/hero-img-1.png',
+    image: '/images/hero-img-4.png',
     title: 'Software Development',
     lineA:
       '• Custom enterprise software solutions\n• Secure & scalable system architecture\n• API & system integrations\n\nGet Started',
   },
   {
     id: 's2',
-    image: '/images/hero-img-2.png',
+    image: '/images/hero-img-3.png',
     title: 'Web Development',
     lineA:
       '• Responsive & high-performance web applications\n• Front-end & back-end development\n• Performance optimization & security\n\nGet Started',
   },
   {
     id: 's3',
-    image: '/images/hero-img-3.png',
+    image: '/images/hero-img-5.png',
     title: 'iOS Application Development',
     lineA:
       '• Native iOS app development\n• UI/UX focused design\n• Secure and scalable architecture\n\nGet Started',
   },
   {
     id: 's4',
-    image: '/images/hero-img-4.png',
+    image: '/images/hero-img-2.png',
     title: 'Application Support & Maintenance',
     lineA:
       '• Application monitoring & issue resolution\n• Bug fixes & performance tuning\n• Security updates & enhancements\n\nGet Started',
   },
   {
     id: 's5',
-    image: '/images/hero-img-5.png',
+    image: '/images/hero-img-1.png',
     title: 'IT Outsourcing Services',
     lineA:
       '• Dedicated development teams\n• Project-based delivery models\n• Long-term technology partnerships\n\nGet Started',
