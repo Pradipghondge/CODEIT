@@ -16,36 +16,67 @@ const stats = [
 ];
 
 const delightCards = [
+
   {
-    title: 'Customer Delight',
+
+    title: 'Client Success & Reliability',
+
     icon: (
+
       <svg className="h-8 w-8 text-gray-600" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+
         <path strokeLinecap="round" strokeLinejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+
       </svg>
+
     ),
+
     description:
-      'We are committed to delivering high-quality outsourcing, support, and recruitment solutions that ensure operational excellence and complete client satisfaction.',
+
+      'We are committed to delivering secure, scalable, and high-quality IT solutions. Our focus on accountability and partnership ensures operational excellence and complete client satisfaction.',
+
   },
+
   {
-    title: 'Society Delight',
+
+    title: 'Business Impact & Digital Transformation',
+
     icon: (
+
       <svg className="h-8 w-8 text-gray-600" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2h10a2 2 0 002-2v-1a2 2 0 012-2h1.945M7.737 16.525l-.432.432a2 2 0 01-2.828 0l-1.414-1.414a2 2 0 010-2.828l.432-.432M16.263 16.525l.432.432a2 2 0 002.828 0l1.414-1.414a2 2 0 000-2.828l-.432-.432" />
+
       </svg>
+
     ),
+
     description:
-      'Through training, upskilling, and career opportunities, we help build a stronger workforce and make a positive contribution to the community.',
+
+      'We drive digital transformation by aligning technology with your business objectives. Our solutions are designed to create measurable impact and foster long-term growth.',
+
   },
+
   {
-    title: 'Employee Delight',
+
+    title: 'Team Excellence & Delivery Culture',
+
     icon: (
+
       <svg className="h-8 w-8 text-gray-600" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+
         <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+
       </svg>
+
     ),
+
     description:
-      'We believe in empowering our team with continuous learning, a collaborative culture, and rewarding career growth opportunities.',
+
+      'Our strength lies in our expert teams and a collaborative culture focused on execution. We are dedicated to consistent, high-quality delivery and continuous improvement.',
+
   },
+
 ];
 
 export default function AboutUsPage() {
@@ -59,10 +90,12 @@ export default function AboutUsPage() {
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0F4F3F]">
               About CODEIT Pvt. Ltd.
             </h1>
+            <p className="mt-4 inline-block text-lg font-semibold tracking-wide text-[#0F4F3F] pb-2 border-b-2 border-[#0F4F3F]/40">
+  Your Trusted Technology Partner
+</p>
+
             <p className="mt-6 text-base sm:text-lg leading-relaxed text-gray-600">
-              We are a technology and talent solutions company delivering IT outsourcing,
-              application support, recruitment services, and professional training
-              to help businesses scale and careers grow.
+              We provide enterprise-grade IT outsourcing and application support services designed to strengthen digital operations and support long-term business growth.
             </p>
           </div>
 
@@ -94,7 +127,13 @@ export default function AboutUsPage() {
                 From Vision to Venture
               </h2>
               <p className="mt-6 text-base sm:text-lg leading-relaxed text-gray-600">
-                To strengthen India’s skill development ecosystem by providing standardized, scalable, and industry-driven training that enhances employability and prepares a future-ready workforce. We are committed to delivering measurable outcomes through high-quality skill programs, robust placement support, and strategic collaborations with government bodies, corporates, and educational institutions. By empowering youth with industry-relevant skills and fostering innovation, discipline, and practical expertise, our mission is to reduce unemployment, bridge the talent gap, and contribute to national growth and sustainable economic development.
+               CODEIT Pvt. Ltd. was founded with a clear vision to deliver reliable and business-aligned technology solutions.
+What began as a focused idea has grown into a professional IT services organization serving diverse industries.
+We specialize in building secure, scalable, and high-performance digital platforms.
+Our approach is driven by structured processes, technical excellence, and accountability.
+We help enterprises improve operational efficiency and adapt to evolving digital needs.
+Through innovation and long-term partnerships, we create sustainable technology outcomes.
+CODEIT continues to transform business challenges into measurable, future-ready solutions.
               </p>
             </div>
           </div>
@@ -104,7 +143,9 @@ export default function AboutUsPage() {
             <div className="p-8 sm:p-10 border border-gray-200 rounded-2xl">
               <h2 className="text-xl sm:text-2xl font-bold text-[#0F4F3F]">Our Mission</h2>
               <p className="mt-4 text-gray-600 leading-relaxed">
-                To strengthen India’s skill development ecosystem by providing standardized, scalable, and industry-driven training that enhances employability and prepares a future-ready workforce. We are committed to delivering measurable outcomes through high-quality skill programs, robust placement support, and strategic collaborations with government bodies, corporates, and educational institutions. By empowering youth with industry-relevant skills and fostering innovation, discipline, and practical expertise, our mission is to reduce unemployment, bridge the talent gap, and contribute to national growth and sustainable economic development.
+                To deliver professional IT services and digital solutions that align technology with business objectives, while maintaining the highest standards of quality, security, and accountability.
+We are committed to designing, building, and supporting scalable, reliable, and future-ready technology platforms that enhance operational efficiency, drive innovation, and enable sustainable business growth.
+Through structured processes, experienced teams, and transparent engagement models, we ensure consistent value delivery and long-term partnerships with our clients.
               </p>
             </div>
           </div>

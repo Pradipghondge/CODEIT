@@ -85,12 +85,12 @@ export default function BlogPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#0F4F3F] leading-tight">
-            Learn. Grow. Lead The Future of IT.
+            Insight. Innovation. Driving Enterprise Technology.
           </h1>
 
           <p className="mt-6 mx-auto max-w-2xl text-base sm:text-lg leading-relaxed text-gray-600">
-            Stay ahead with insights on technology, career development, IT outsourcing,
-            and the latest innovations shaping the digital world.
+            Explore expert analysis on enterprise IT strategy, digital transformation,
+            and application services to drive business growth and operational excellence.
           </p>
 
           <div className="mt-8 sm:mt-10">

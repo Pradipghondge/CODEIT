@@ -8,48 +8,39 @@ import {
   Users,
   Eye,
   Goal,
-  BookOpen,
-  Building,
-  Rocket,
-  GraduationCap,
-  BriefcaseBusiness,
-  Cpu,
-  Code,
-  TrendingUp,
-  FlaskConical,
 } from 'lucide-react';
 
 const Landing2: React.FC = () => {
   const keyFactors = [
     {
-      icon: <Lightbulb className="h-10 w-10 text-[#0F4F3F]" />,
-      title: 'Strategic Planning',
-      text: 'Developing and Executing Strategies that stimulate business expansion.',
+      icon: <Zap className="h-10 w-10 text-[#0F4F3F]" />,
+      title: 'Secure & Scalable Solutions',
+      text: 'Delivering robust, enterprise-grade solutions that grow with your business and protect your data.',
     },
     {
       icon: <Briefcase className="h-10 w-10 text-[#0F4F3F]" />,
-      title: 'HR Consulting',
-      text: 'Talent management, Leadership development, and HR strategy.',
-    },
-    {
-      icon: <Zap className="h-10 w-10 text-[#0F4F3F]" />,
-      title: 'Operational Efficiency',
-      text: 'Streamlining processes and Improving operational effectiveness.',
-    },
-    {
-      icon: <Laptop className="h-10 w-10 text-[#0F4F3F]" />,
-      title: 'Hands-on practice',
-      text: 'Engage in immersive, Practical learning experience with hands-on.',
-    },
-    {
-      icon: <Award className="h-10 w-10 text-[#0F4F3F]" />,
-      title: 'Training And Certification',
-      text: 'Enhancing Skills & Knowledge and Validating Standardized Assessment.',
+      title: 'Structured Delivery Process',
+      text: 'Following proven methodologies to ensure projects are delivered on time, on budget, and to the highest quality standards.',
     },
     {
       icon: <Users className="h-10 w-10 text-[#0F4F3F]" />,
-      title: '100% Placement Assistance',
-      text: 'Comprehensive support ensuring 100% placement assistance for all graduates.',
+      title: 'Experienced Technology Teams',
+      text: 'Leveraging deep industry expertise and technical knowledge to solve complex business challenges.',
+    },
+    {
+      icon: <Goal className="h-10 w-10 text-[#0F4F3F]" />,
+      title: 'Business-Aligned Outcomes',
+      text: 'Ensuring every technology solution is directly tied to achieving measurable business goals and ROI.',
+    },
+    {
+      icon: <Award className="h-10 w-10 text-[#0F4F3F]" />,
+      title: 'Long-Term Partnership Approach',
+      text: 'Building lasting relationships with clients through a focus on shared success and continuous improvement.',
+    },
+    {
+      icon: <Laptop className="h-10 w-10 text-[#0F4F3F]" />,
+      title: 'Reliable Support & Maintenance',
+      text: 'Providing dependable, ongoing support to ensure your systems operate smoothly and efficiently.',
     },
   ];
   
@@ -63,117 +54,39 @@ const Landing2: React.FC = () => {
  const timelineEvents = [
     {
       year: '2021',
-      title: 'The Beginning of a Dream',
+      title: 'Foundation of an IT Services Firm',
       description:
-        'In 2021, <strong>CODEIT</strong> Software Training Institute was <strong>founded in Rajasthan</strong> with a bold vision to transform the IT education landscape. Recognizing the growing demand for skilled tech professionals, the institute aimed to bridge the gap between academia and industry needs by offering industry-aligned courses in core programming, advanced IT, and emerging technologies like Data Science and Cloud Computing.',
+        'In 2021, <strong>CODEIT Pvt. Ltd.</strong> was founded with a clear vision: to provide <strong>reliable IT services</strong> for enterprises. The company was established to address the growing demand for business-aligned technology solutions, starting with a core focus on IT outsourcing and application support.',
     },
     {
       year: '2022',
-      title: 'Building a Well Build Foundation',
+      title: 'Strengthening Core Service Offerings',
       description:
-        'In the following years, Leadership helped <strong>CODEIT establish a strong reputation</strong> for providing quality IT education. The institute expanded its course offerings to include <strong>Full Stack Development, Data Science, Cloud Computing, and specialized areas like Software Testing and Business Analytics.</strong> With Preeti’s expertise and industry knowledge, <strong>CODEIT</strong> developed a curriculum that was both relevant and forward-thinking, positioning students for success in emerging technologies.',
+        'The following year, CODEIT focused on <strong>expanding its core capabilities</strong>. The company enhanced its offerings in <strong>Application Support, IT Outsourcing, and Custom Software Development,</strong> building a reputation for operational excellence and structured delivery processes that met enterprise standards.',
     },
     {
       year: '2023',
-      title: 'Building Powerfull network',
+      title: 'Building Strategic Partnerships',
       description:
-        'During this period, Our focused on building a <strong>strong network</strong> of industry partners, creating placement opportunities for students, and establishing internships with top tech companies. Her dedication to student success and career growth became the cornerstone of <strong>CODEIT</strong>’s mission.',
+        'During this period, CODEIT concentrated on building a <strong>strong network of technology partners</strong> and enterprise clients. The company’s dedication to delivering measurable business value and fostering long-term relationships became the cornerstone of its growth strategy, solidifying its position as a trusted IT services provider.',
     },
     {
       year: '2024',
-      title: 'Expanding Horizons – Pune at Beginning',
+      title: 'Expansion into a Major Technology Hub',
       description:
-        'By 2024, We had successfully <strong>expanded CODEIT to Pune</strong>, a major tech hub in India. This new campus marked a significant milestone in her journey, allowing <strong>CODEIT</strong> to reach a wider audience and cater to the growing demand for IT professionals in the region. The Pune campus was designed to offer the same high-quality education and industry exposure that had become synonymous with <strong>CODEIT</strong>.',
+        'By 2024, CODEIT had successfully <strong>expanded its operations to Pune</strong>, a key technology hub. This strategic move enabled the company to scale its delivery capabilities and better serve a growing portfolio of enterprise clients, marking a significant milestone in its geographic expansion.',
     },
     {
       year: '2025',
-      title: 'A Legacy of Innovation',
+      title: 'A Future of Scalable Solutions',
       description:
-        'As 2025 approaches, Our journey is a testament to the power of vision, leadership, and a relentless commitment to excellence. Looking ahead, Preeti plans to expand <strong>CODEIT</strong>’s reach even further, with more campuses across India and a broader curriculum to meet the demands of an ever-changing tech industry. <strong>CODEIT</strong>, under Preeti’s visionary leadership, is poised to continue shaping the future of technology education.',
+        'As 2025 approaches, CODEIT’s journey reflects a relentless commitment to excellence and innovation in IT services. Looking ahead, the company plans to continue its expansion, focusing on <strong>delivering secure, scalable, and business-aligned technology solutions</strong> that support the long-term success of its enterprise partners.',
     },
   ];
 
-  const courses = {
-    'Core Programming': {
-      icon: <Code className="h-8 w-8 text-[#0F4F3F]" />,
-      list: ['C', 'C++', 'Python', 'PHP', 'Java', 'R', 'SQL', 'JavaScript', 'Ruby', 'Swift', 'Go (Golang)'],
-    },
-    'Advanced IT Technologies': {
-      icon: <Cpu className="h-8 w-8 text-[#0F4F3F]" />,
-      list: [
-        'Full Stack Java Development',
-        'Full Stack Asp .net Development',
-        'MEAN / MERN Stack Development',
-        'Full Stack Python Development',
-        'Full Stack Web Development',
-        'Android App Development',
-        'Data Science',
-        'Cloud Computing',
-        'Software Testing',
-        'Business Analytics',
-        'Advanced Excel',
-        'Data Analytics',
-      ],
-    },
-    'Trending & Future-Ready Technologies': {
-      icon: <TrendingUp className="h-8 w-8 text-[#0F4F3F]" />,
-      list: [
-        'DevOps and Cloud-Native Architectures',
-        'Artificial Intelligence (AI) & Machine Learning (ML)',
-        'Cybersecurity and Ethical Hacking',
-        'Internet of Things (IoT)',
-        'Blockchain Development',
-        'Big Data & Advanced Analytics',
-        'AR/VR Development',
-        'Quantum Computing Basics',
-        'SAP',
-      ],
-    },
-    'Specialized Training': {
-      icon: <FlaskConical className="h-8 w-8 text-[#0F4F3F]" />,
-      list: [
-        'Medical Coding',
-        'Pharmacovigilance',
-        'SAS',
-        'Clinical research',
-        'Health Informatics',
-        'Data Entry Operator',
-        'Clinical Data Management',
-        'Pharmaceutical Data Analytics',
-        'Healthcare Software Development',
-        'Bioinformatics',
-      ],
-    },
-  };
+
   
-  const colleges = [
-    { name: 'Angel College of Pharmacy, Hadapsar', logo: '/images/colleges/angel-college-of-pharmacy-hadapsar.png' },
-    { name: 'Jayawantrao Sawant Group (Handewadi & Hadapsar)', logo: '/images/colleges/jayawantrao-sawant-group.png' },
-    { name: 'PDEA Colleges (Manjari & Pune)', logo: '/images/colleges/pdea-colleges.png' },
-    { name: 'Dr. Jadhavar College, Narhe', logo: '/images/colleges/dr-jadhavar-college-narhe.png' },
-    { name: 'Padmashree Desai College, Urli Kanchan', logo: '/images/colleges/padmashree-desai-college-urli-kanchan.png' },
-    { name: 'Krishna College of Pharmacy, Karad', logo: '/images/colleges/krishna-college-of-pharmacy-karad.png' },
-    { name: 'Mahadev Kanchan College, Urli Kanchan', logo: '/images/colleges/mahadev-kanchan-college-urli-kanchan.png' },
-    { name: 'Annasaheb Magar College of Engineering, Hadapsar', logo: '/images/colleges/annasaheb-magar-college-of-engineering-hadapsar.png' },
-    { name: 'Prithviraj Kapoor Memorial High School, Loni Kalbhor', logo: '/images/colleges/prithviraj.jpg' },
-  ];
-  
-  const companies = [
-    { name: 'Work Together Group', logo: '/images/companies/work-together-group.png' },
-    { name: 'PiSyst India Pvt. Ltd.', logo: '/images/companies/pisyst-india-pvt-ltd.png' },
-    { name: 'TRON Softech, Hadapsar', logo: '/images/companies/tron-softech-hadapsar.png' },
-    { name: 'Syntelligence Tech, Pune', logo: '/images/companies/syntelligence-tech-pune.png' },
-    { name: 'Avanir Edutech Services Pvt. Ltd', logo: '/images/companies/avanir-edutech-services-pvt-ltd.png' },
-    { name: 'Accenture', logo: '/images/companies/accenture.png' },
-    { name: 'Sutherland', logo: '/images/companies/sutherland.png' },
-    { name: 'Tech Mahindra', logo: '/images/companies/tech-mahindra.png' },
-    { name: 'Sumasoft', logo: '/images/companies/sumasoft.png' },
-    { name: 'Traya', logo: '/images/companies/traya.png' },
-    { name: 'Zensar', logo: '/images/companies/zensar.png' },
-    { name: 'TCS', logo: '/images/companies/tcs.png' },
-    { name: 'Rabbit & Tortoise', logo: '/images/companies/rabbit-tortoise.png' },
-    { name: 'Bpointers', logo: '/images/companies/bpointers.png' },
-  ];
+
   
   const placedStudents = [
     { name: 'Mr. Atul Patil', role: 'Android Developer', company: 'Syntelligence Tech', lpa: '3.5 LPA', image: '/images/students/student1.jpg' },
@@ -192,7 +105,7 @@ const Landing2: React.FC = () => {
   return (
     <div className="bg-white text-gray-800">
 
-        {/* Section 3: Founder & Director Message */}
+       {/* Section 3: Founder & Director Message */}
 <section className="py-16 lg:py-24 bg-white">
   <div className="container mx-auto px-4">
     <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -205,24 +118,29 @@ const Landing2: React.FC = () => {
       </div>
       <div className="lg:w-2/3 w-full text-left">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">Dear Associates,</h2>
+
         <div className="space-y-4 text-gray-600 leading-relaxed">
           <p>
-            At <strong className="text-gray-800">CODEIT Pvt. Ltd.</strong>, we are driven by a powerful mission — to transform talent into industry-ready professionals through the strength of skill. We believe that skill development is not just training; it is a movement that empowers youth, elevates industries, and directly combats unemployment.
+            At <strong className="text-gray-800">CODEIT Pvt. Ltd.</strong>, our purpose is clear — to deliver reliable, scalable, and business-aligned technology solutions that help organizations operate efficiently and grow with confidence. We believe technology creates the greatest impact when it is thoughtfully aligned with business strategy.
           </p>
+
           <p>
-            Our commitment extends beyond classrooms. With robust capabilities in Outsourcing, Application Support, Training & Placement, and Recruitment, we provide end-to-end solutions that support both talent and industry. We ensure students are not only skilled — but strategically prepared to secure their dream careers in a highly competitive world.
+            With strong capabilities in IT Outsourcing, Application Support, and Software Development, we partner with organizations to design, build, and manage technology platforms that are secure, resilient, and future-ready. Our focus is on enabling operational excellence while supporting long-term digital transformation goals.
           </p>
+
           <p>
-            Every program we deliver, every partnership we build, and every student we train reflects our dedication to creating a future where capability meets opportunity. At <strong className="text-gray-800">CODE IT</strong>, excellence is our culture, and impact is our promise.
+            Every engagement we undertake is guided by structured processes, technical expertise, and a commitment to accountability. At <strong className="text-gray-800">CODEIT Pvt. Ltd.</strong>, excellence is not an aspiration — it is a standard embedded in our culture and delivery approach.
           </p>
+
           <p>
-            Together, let’s build a workforce that leads with skill, confidence, and purpose — and shape an India where every deserving student has a pathway to success.
+            Together with our clients and partners, we strive to build sustainable technology foundations that foster innovation, reliability, and measurable business value in an ever-evolving digital landscape.
           </p>
         </div>
+
         <div className="mt-8">
           <p className="font-bold text-lg text-gray-900">— Preeti Kalra</p>
           <p className="text-md text-[#0F4F3F] font-semibold">
-            Founder & Director, CODE IT Pvt. Ltd.
+            Founder & Director, CODEIT Pvt. Ltd.
           </p>
         </div>
       </div>
@@ -231,13 +149,14 @@ const Landing2: React.FC = () => {
 </section>
 
 
+
       {/* Section 1: Key Factors */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">KEY FACTORS</h2>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-              We groom our students with practical, industry-aligned skills through hands-on training and real-world projects. Our goal is to foster innovation and career success, preparing students to excel in the ever-evolving tech industry.
+              We deliver professional IT services and digital solutions that align technology with business objectives. Our focus is on providing secure, scalable, and reliable platforms that drive operational excellence and support long-term growth for our enterprise clients.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -263,9 +182,7 @@ const Landing2: React.FC = () => {
                 <Eye className="h-8 w-8 mr-3 text-[#0F4F3F]" /> VISION
               </h2>
               <p className="text-gray-600 leading-relaxed">
-                To become a leading force in transforming India into a highly skilled, future-ready workforce by empowering students with industry-driven skills, innovative learning, and impactful career opportunities.
-We envision a world where every learner is job-ready, every company is talent-ready, and where skill becomes the foundation of growth, confidence, and success.
-At CODE IT Pvt. Ltd., our vision is to bridge the gap between education and industry — creating opportunities, reducing unemployment, and shaping professionals who lead with knowledge, capability, and purpose.
+                To be a globally respected IT services organization, recognized for delivering reliable, scalable, and business-aligned technology solutions that enable long-term enterprise success.
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg h-full">
@@ -280,7 +197,7 @@ At CODE IT Pvt. Ltd., our vision is to bridge the gap between education and indu
                   </li>
                 ))}
               </ul> */}
-              <p className="text-gray-600 leading-relaxed">To strengthen India’s skill development ecosystem by providing standardized, scalable, and industry-driven training that enhances employability and prepares a future-ready workforce. We are committed to delivering measurable outcomes through high-quality skill programs, robust placement support, and strategic collaborations with government bodies, corporates, and educational institutions. By empowering youth with industry-relevant skills and fostering innovation, discipline, and practical expertise, our mission is to reduce unemployment, bridge the talent gap, and contribute to national growth and sustainable economic development.</p>
+              <p className="text-gray-600 leading-relaxed">To deliver professional IT services and digital solutions that align technology with business objectives, while maintaining the highest standards of quality, security, and accountability.</p>
 
             </div>
           </div>
@@ -313,119 +230,11 @@ At CODE IT Pvt. Ltd., our vision is to bridge the gap between education and indu
         </div>
       </section>
 
-      {/* Section 5: Courses */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12">Our Courses</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {Object.entries(courses).map(([category, details]) => (
-              <div key={category} className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4 flex items-center">
-                  {details.icon}
-                  <span className="ml-3">{category}</span>
-                </h3>
-                <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
-                  {details.list.map((course, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="text-[#0F4F3F] mr-2 mt-1">&#8227;</span>
-                      <span className="text-gray-600">{course}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Section 6 & 7: Partners */}
-      <section className="py-16 lg:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col gap-12">
-            {/* Colleges & Universities */}
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                <GraduationCap className="h-8 w-8 mr-3 text-[#0F4F3F]" />
-                Colleges & Universities
-              </h2>
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
-                  {colleges.map((college, index) => (
-                    <li key={index} className="flex items-center text-gray-700 gap-3">
-                      <img
-                        src={college.logo}
-                        alt={`${college.name} logo`}
-                        className="h-6 w-6 object-contain flex-shrink-0"
-                      />
-                      <span>{college.name}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
 
-            {/* Placement Partner Companies */}
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                <BriefcaseBusiness className="h-8 w-8 mr-3 text-[#0F4F3F]" />
-                Placement Partner Companies
-              </h2>
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
-                  {companies.map((company, index) => (
-                    <li key={index} className="flex items-center text-gray-700 gap-3">
-                       <img
-                        src={company.logo}
-                        alt={`${company.name} logo`}
-                        className="h-6 w-6 object-contain flex-shrink-0"
-                      />
-                      <span>{company.name}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Section 8: Our Placed Students */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 flex items-center justify-center">
-              <Users className="h-8 w-8 mr-3 text-[#0F4F3F]" />
-              Our Placed Students
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {placedStudents.map((student, index) => (
-              <div key={index} className="bg-gray-50 p-6 rounded-lg shadow-md text-center">
-                <img
-                  src={student.image}
-                  alt={student.name}
-                  className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
-                />
-                <h3 className="text-lg font-bold text-[#0F4F3F]">{student.name}</h3>
-                <p className="text-gray-600 font-medium">{student.role}</p>
-                <p className="mt-2">
-                  at <span className="font-bold text-[#0F4F3F]">{student.company}</span>
-                </p>
-                <p className="mt-1">
-                  Package: <span className="font-bold text-[#0F4F3F]">{student.lpa}</span>
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-16 text-center">
-            <img
-              src="/images/congratulations.png"
-              alt="Congratulations"
-              className="mx-auto w-70"
-            />
-          </div>
-        </div>
-      </section>
+
+
     </div>
   );
 };
