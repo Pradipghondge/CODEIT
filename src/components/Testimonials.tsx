@@ -12,7 +12,7 @@ const testimonialData = [
       'We combine strong technical capabilities with proven execution discipline. From strategy to deployment, we ensure reliable outcomes, transparent visibility, and faster time-to-value for every project.',
     image: '/images/your-image-1.jpg',
     ctaText: 'Our Approach',
-    ctaLink: '/why-us',
+    ctaLink: '/contact',
   },
   {
     title: 'Industry-Led Expertise',
@@ -20,7 +20,7 @@ const testimonialData = [
       'We support digital transformation across key industries including IT, BFSI, Healthcare, Oil & Gas, Manufacturing, and Telecom — solving real challenges with domain-focused solutions.',
     image: '/images/your-image-2.jpg',
     ctaText: 'Industries',
-    ctaLink: '/industries',
+    ctaLink: '/contact',
   },
   {
     title: 'Scalable Growth Partner',
@@ -28,7 +28,7 @@ const testimonialData = [
       'Whether you’re expanding teams, upgrading systems, or modernizing operations, we provide scalable solutions that grow with your business without disruption — ensuring long-term success and flexibility.',
     image: '/images/your-image-3.jpg',
     ctaText: 'Scale with Us',
-    ctaLink: '/growth',
+    ctaLink: '/contact',
   },
 ];
 

@@ -6,29 +6,29 @@ import { ChevronDown } from 'lucide-react';
 
 const faqData = [
   {
-    question: 'How can CodeIT support my business with skilled IT resources?',
+    question: 'What IT outsourcing models does CODEIT offer?',
     answer:
-      'We provide trained and experienced IT professionals through outsourcing, staff augmentation, and dedicated teams. This helps your business scale faster, reduce hiring efforts, and maintain continuous productivity.',
+      'CODEIT provides flexible IT outsourcing models, including project-based engagements, dedicated development teams, and staff augmentation. We tailor our approach to align with your specific business objectives, ensuring seamless integration and optimal performance.',
   },
   {
-    question: 'Do you offer 24/7 application support services?',
+    question: 'How do you ensure security and compliance in your software solutions?',
     answer:
-      'Yes, CodeIT offers round-the-clock L1, L2, and L3 support, including monitoring, incident handling, bug fixing, patch updates, and performance optimization — ensuring your applications run smoothly and securely.',
+      'We embed security and compliance into every stage of the development lifecycle. Our processes include regular code reviews, vulnerability assessments, and adherence to industry standards like ISO 27001 and GDPR to protect your data and ensure regulatory compliance.',
   },
   {
-    question: 'How does CodeIT handle recruitment and staffing for companies?',
+    question: 'What is your approach to Application Support and Maintenance?',
     answer:
-      'We offer end-to-end recruitment for IT & Non-IT roles including sourcing, technical screening, shortlisting, and onboarding support. As an official hiring partner for multiple companies, we ensure fast hiring and a high joining ratio.',
+      'Our Application Support & Maintenance services are designed for business continuity. We offer proactive monitoring, 24/7 incident management, and continuous improvement to ensure your applications are stable, secure, and optimized for performance.',
   },
   {
-    question: 'Do you provide training programs for students and professionals?',
+    question: 'Can CODEIT build scalable enterprise software from the ground up?',
     answer:
-      'Yes, through our CODEIT Software Training Institute, we offer practical IT courses like Java, Python, Full Stack Development, Software Testing, Data Analytics, and more — with 100% placement support.',
+      'Yes, we specialize in end-to-end software development, from ideation and architecture to deployment and maintenance. Our teams use modern technologies and agile methodologies to build robust, scalable, and future-proof enterprise applications.',
   },
   {
-    question: 'Can CodeIT customize services based on our business needs?',
+    question: 'How do you structure long-term enterprise partnerships?',
     answer:
-      'Absolutely. We design flexible and scalable engagement models — whether you need outsourced teams, long-term staffing support, or customized application support services tailored to your goals.',
+      'We focus on building strategic, long-term partnerships based on trust and mutual growth. Our engagement models include transparent governance, dedicated account management, and a commitment to understanding your evolving business needs to drive sustained value.',
   },
 ];
 

@@ -34,13 +34,14 @@ export default function Header() {
     { name: 'Services', href: '/services' },
     {
       name: 'Careers',
-      href: 'https://www.linkedin.com/company/code-it-software-training-institute/posts/?feedView=all',
+      href: 'https://www.linkedin.com/in/preeti-kalra-069286271/',
       external: true,
     },
     { name: 'Blog', href: '/blog' },
   ];
 
-  const textColorClass = 'text-gray-800';
+  const isTransparent = pathname === '/' && !isScrolled;
+  const textColorClass = isTransparent ? 'text-white' : 'text-gray-800';
   const hoverColorClass = 'hover:text-[#0F4F3F]';
 
   return (
@@ -61,7 +62,7 @@ export default function Header() {
               href="/" 
               className={`text-2xl font-bold transition-colors duration-300 ${textColorClass} ${hoverColorClass}`}
             >
-              CODEIT
+              CODEIT Pvt.Ltd.
             </Link>
           </div>
 
@@ -76,7 +77,11 @@ export default function Header() {
                       href={link.href}
                       target={link.external ? '_blank' : undefined}
                       className={`text-lg font-medium transition-colors duration-300 ${
-                        isActive ? 'text-[#0F4F3F]' : 'text-gray-800 hover:text-[#0F4F3F]'
+                        isActive
+                          ? 'text-[#0F4F3F]'
+                          : `${
+                              isTransparent ? 'text-white' : 'text-gray-800'
+                            } hover:text-[#0F4F3F]`
                       }`}
                     >
                       {link.name}
@@ -96,9 +101,13 @@ export default function Header() {
 
           {/* CONTACT BUTTON (Desktop) */}
           <div className="hidden md:block">
-            <Link 
-              href="/contact" 
-              className="rounded-full border border-[#0F4F3F] px-6 py-1.5 text-base font-semibold text-gray-800 transition-all hover:bg-[#0F4F3F] hover:text-white"
+            <Link
+              href="/contact"
+              className={`rounded-full border px-6 py-1.5 text-base font-semibold transition-all hover:bg-[#0F4F3F] hover:text-white ${
+                isTransparent
+                  ? 'border-white text-white'
+                  : 'border-[#0F4F3F] text-gray-800'
+              }`}
             >
               Contact
             </Link>
