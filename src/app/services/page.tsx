@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-
 import {
   CheckCircle,
   ShieldCheck,
@@ -18,7 +17,6 @@ import {
   ShoppingBag,
   GraduationCap,
   Briefcase,
-  Icon,
 } from "lucide-react";
 
 const PRIMARY = "#0F4F3F";
@@ -26,11 +24,9 @@ const PRIMARY = "#0F4F3F";
 export default function ServicesPage() {
   return (
     <div className="bg-white">
-     
-      
 
-      {/* ================= OUR SERVICES (UNCHANGED) ================= */}
-      <section className="bg-[#0E2A47] py-20 px-6 text-white gap pt-20 ">
+      {/* ================= OUR SERVICES ================= */}
+      <section className="bg-[#0E2A47] pt-20 pb-20 px-6 text-white">
         <h2 className="text-4xl font-bold text-center mb-4">Our Services</h2>
         <p className="text-center max-w-3xl mx-auto mb-14 text-gray-200 text-lg">
           Delivering secure, scalable, and business-focused technology solutions
@@ -122,37 +118,35 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ================= WHY CHOOSE US – TIMELINE STYLE ================= */}
+      {/* ================= WHY CHOOSE US ================= */}
       <section className="py-24 px-6 bg-gray-50">
-        <h2 className="text-4xl font-bold text-center mb-20" style={{ color: PRIMARY }}>
+        <h2
+          className="text-4xl font-bold text-center mb-20"
+          style={{ color: PRIMARY }}
+        >
           Why Choose Us
         </h2>
 
-        <div className="max-w-6xl mx-auto relative">
-          <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gray-200" />
-
-          <div className="grid md:grid-cols-4 gap-12 relative">
-            {[
-              ["Business-Aligned Solutions", "Technology aligned with real business objectives."],
-              ["Transparent Processes", "Clear communication and predictable delivery."],
-              ["Security & Scalability", "Secure systems designed to scale with growth."],
-              ["Reliable Support", "Ongoing support ensuring system stability."],
-            ].map(([title, desc]) => (
-              <div key={title} className="bg-white p-6 rounded-2xl shadow-lg text-center">
-                <CheckCircle className="w-10 h-10 mx-auto mb-4" style={{ color: PRIMARY }} />
-                <h4 className="font-semibold text-lg mb-2">{title}</h4>
-                <p className="text-sm text-gray-600">{desc}</p>
-              </div>
-            ))}
-          </div>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-12">
+          {[
+            ["Business-Aligned Solutions", "Technology aligned with real business objectives."],
+            ["Transparent Processes", "Clear communication and predictable delivery."],
+            ["Security & Scalability", "Secure systems designed to scale with growth."],
+            ["Reliable Support", "Ongoing support ensuring system stability."],
+          ].map(([title, desc]) => (
+            <div key={title} className="bg-white p-6 rounded-2xl shadow-lg text-center">
+              <CheckCircle className="w-10 h-10 mx-auto mb-4" style={{ color: PRIMARY }} />
+              <h4 className="font-semibold text-lg mb-2">{title}</h4>
+              <p className="text-sm text-gray-600">{desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-
+      {/* ================= CORE VALUES ================= */}
       <section className="py-24 px-6 bg-[#0F4F3F] text-white">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-14 items-center">
-
-          <div className="lg:col-span-1">
+          <div>
             <h2 className="text-4xl font-bold mb-6">Our Core Values</h2>
             <p className="text-gray-200 text-lg">
               The principles that guide our culture, decisions, and long-term partnerships.
@@ -160,40 +154,36 @@ export default function ServicesPage() {
           </div>
 
           <div className="lg:col-span-2 grid sm:grid-cols-2 gap-8">
-            {([
+            {[
               [ShieldCheck, "Integrity", "Ethical and professional conduct always."],
               [CheckCircle, "Quality", "High standards in engineering and delivery."],
               [Users, "Accountability", "Ownership of commitments and outcomes."],
               [Layers, "Continuous Improvement", "Constantly evolving skills and processes."],
-            ] as [any, string, string][]).map(([Icon, title, desc]) => (
-              <div
-                key={title}
-                className="bg-white text-gray-800 p-7 rounded-2xl shadow-md hover:-translate-y-1 transition"
-              >
+            ].map(([Icon, title, desc]: any) => (
+              <div key={title} className="bg-white text-gray-800 p-7 rounded-2xl shadow-md">
                 <Icon className="w-9 h-9 mb-4" style={{ color: PRIMARY }} />
                 <h4 className="font-semibold text-lg">{title}</h4>
                 <p className="text-sm text-gray-600 mt-2">{desc}</p>
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
-      {/* ================= INDUSTRIES – BADGE GRID STYLE ================= */}
+      {/* ================= INDUSTRIES ================= */}
       <section className="py-24 px-6 bg-white">
         <h2 className="text-4xl font-bold text-center mb-16" style={{ color: PRIMARY }}>
           The Industries We Serve
         </h2>
 
         <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
-          {([
+          {[
             [GraduationCap, "Education & Training"],
             [HeartPulse, "Healthcare"],
             [Briefcase, "Finance & Accounting"],
             [ShoppingBag, "Retail & eCommerce"],
             [Building2, "Professional Services"],
-          ] as [any, string][]).map(([Icon, title]) => (
+          ].map(([Icon, title]: any) => (
             <div
               key={title}
               className="rounded-full border px-6 py-8 text-center hover:shadow-md transition"
@@ -208,13 +198,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-            <p className="font-semibold text-gray-800">
-              — Mrs. Preeti Kalra
-            </p>
-            <p className="text-gray-500">Founder & Director</p>
-          </div>
-        </section>
-      </main>
     </div>
   );
 }
