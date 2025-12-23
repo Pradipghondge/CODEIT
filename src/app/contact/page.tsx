@@ -93,8 +93,8 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-[#F7F8FA] min-h-screen flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-lg p-6 sm:p-8 md:p-10 space-y-8 bg-white rounded-2xl shadow-lg">
+    <main className="min-h-screen h-auto flex items-center justify-center py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-[#F7F8FA] pt-24 sm:pt-28">
+      <div className="w-full max-w-lg p-6 sm:p-8 md:p-10 space-y-6 sm:space-y-8 bg-white rounded-2xl shadow-lg">
 
         {/* HEADER */}
         <div className="text-center">
@@ -189,6 +189,6 @@ export default function ContactPage() {
           </div>
         )}
       </div>
-    </div>
+    </main>
   );
 }
