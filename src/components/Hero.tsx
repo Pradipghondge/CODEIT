@@ -143,14 +143,14 @@ export default function ScrollShowcase() {
   }, []);
 
   return (
-    <section ref={rootRef} className="relative bg-slate-50">
-      <div className="container mx-auto max-w-7xl px-6 py-24">
+    <section ref={rootRef} className="relative bg-slate-50 py-16 sm:py-20 lg:py-24">
+      <div className="container mx-auto max-w-7xl px-6">
 
         {/* DESKTOP LAYOUT */}
         <div className="hidden md:grid grid-cols-2 gap-16 items-start">
 
           {/* LEFT STATIC TEXT */}
-          <div className="sticky top-32 w-[55%] min-h-[300px]">
+          <div className="sticky top-24 lg:top-32 w-[55%] min-h-[300px]">
             <h2 className="text-6xl font-extrabold text-[#133B31] mb-8">
               CODEIT
             </h2>

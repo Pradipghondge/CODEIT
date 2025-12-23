@@ -88,7 +88,7 @@ const Questions = () => {
   };
 
   return (
-    <section className="w-full bg-white py-20">
+    <section className="w-full bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-[1100px] px-4">
         <h2 className="mb-12 text-center text-4xl font-extrabold text-gray-800 sm:text-5xl">
           Any questions?

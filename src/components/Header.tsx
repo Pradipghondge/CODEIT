@@ -53,11 +53,11 @@ export default function Header() {
             : 'bg-transparent py-6'
         }`}
       >
-        <div className="container mx-auto flex items-center justify-between px-6">
+        <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8">
           
           {/* LOGO */}
           <div className="logo flex items-center">
-            <img src="/images/logo.png" alt="IMG" className="h-9 w-auto" />
+            <img src="/images/logo.png" alt="IMG" className="h-9 w-auto origin-center transition-transform scale-125" />
             <Link 
               href="/" 
               className={`text-2xl font-bold transition-colors duration-300 ${textColorClass} ${hoverColorClass}`}
@@ -121,19 +121,19 @@ export default function Header() {
             >
               <span
                 className={`absolute left-0 top-0 block h-[3px] w-full rounded-sm transition-all duration-300 ${
-                  isMenuOpen ? 'bg-white top-3 rotate-45 transform' : 'bg-gray-800'
+                  isMenuOpen ? 'bg-white top-3 rotate-45 transform' : (isTransparent ? 'bg-white' : 'bg-gray-800')
                 }`}
               ></span>
               
               <span
                 className={`absolute left-0 top-3 block h-[3px] w-full rounded-sm transition-all duration-300 ${
-                  isMenuOpen ? 'opacity-0' : 'opacity-100 bg-gray-800'
+                  isMenuOpen ? 'opacity-0' : 'opacity-100 ' + (isTransparent ? 'bg-white' : 'bg-gray-800')
                 }`}
               ></span>
               
               <span
                 className={`absolute bottom-0 left-0 block h-[3px] w-full rounded-sm transition-all duration-300 ${
-                  isMenuOpen ? 'bg-white bottom-2.5 -rotate-45 transform' : 'bg-gray-800'
+                  isMenuOpen ? 'bg-white bottom-2.5 -rotate-45 transform' : (isTransparent ? 'bg-white' : 'bg-gray-800')
                 }`}
               ></span>
             </button>
