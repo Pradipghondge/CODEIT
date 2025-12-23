@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import Hero from "@/components/Hero";
+
 import {
   CheckCircle,
   ShieldCheck,
@@ -13,280 +13,197 @@ import {
   Smartphone,
   Wrench,
   Network,
+  Building2,
+  HeartPulse,
+  ShoppingBag,
+  GraduationCap,
+  Briefcase,
 } from "lucide-react";
 
-// COLORS
 const PRIMARY = "#0F4F3F";
 
 export default function ServicesPage() {
   return (
     <div className="bg-white">
+     
+      
 
-      {/* ================= HERO ================= */}
-      <Hero />
-
-      {/* ================= ABOUT US ================= */}
-      <section className="py-12 text-center px-6">
-        <h2 className="text-3xl font-bold mb-4" style={{ color: PRIMARY }}>
-          About Us
-        </h2>
-        <p className="max-w-4xl mx-auto text-gray-700 text-lg">
-          CODEIT Pvt. Ltd. is your trusted technology partner, delivering dependable
-          IT services and software solutions designed to drive growth and efficiency.
-        </p>
-      </section>
-
-      {/* ================= VISION & MISSION ================= */}
-      <section className="bg-gray-100 py-12 px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
-          <div className="bg-white p-8 rounded-xl shadow">
-            <h3 className="text-2xl font-bold mb-3" style={{ color: PRIMARY }}>
-              Our Vision
-            </h3>
-            <p className="text-gray-700">
-              To be a trusted IT services partner recognized for delivering
-              reliable and business-aligned technology solutions.
-            </p>
-          </div>
-
-          <div className="bg-white p-8 rounded-xl shadow">
-            <h3 className="text-2xl font-bold mb-3" style={{ color: PRIMARY }}>
-              Our Mission
-            </h3>
-            <p className="text-gray-700">
-              Supporting business success through secure and high-quality
-              technology solutions.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= OUR SERVICES ================= */}
-      <section className="bg-[#0E2A47] py-16 px-6 text-white">
-        <h2 className="text-3xl font-bold text-center mb-4">
-          Our Services
-        </h2>
-        <p className="text-center max-w-3xl mx-auto mb-10 text-gray-200">
+      {/* ================= OUR SERVICES (UNCHANGED) ================= */}
+      <section className="bg-[#0E2A47] py-20 px-6 text-white gap pt-20 ">
+        <h2 className="text-4xl font-bold text-center mb-4">Our Services</h2>
+        <p className="text-center max-w-3xl mx-auto mb-14 text-gray-200 text-lg">
           Delivering secure, scalable, and business-focused technology solutions
           designed to support long-term growth and operational efficiency.
         </p>
 
-        <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-[#163C63] p-6 rounded-xl">
-            <Code className="w-10 h-10 mb-4" />
-            <h3 className="text-xl font-semibold mb-3">Software Development</h3>
-            <ul className="space-y-2 text-gray-200 text-sm">
-              <li>• Business & technical consulting</li>
-              <li>• Custom software development</li>
-              <li>• Architecture & system design</li>
-              <li>• API & system integrations</li>
-              <li>• Testing, QA & deployment</li>
-            </ul>
-          </div>
-
-          <div className="bg-[#163C63] p-6 rounded-xl">
-            <Monitor className="w-10 h-10 mb-4" />
-            <h3 className="text-xl font-semibold mb-3">Web Development</h3>
-            <ul className="space-y-2 text-gray-200 text-sm">
-              <li>• Custom web applications</li>
-              <li>• Enterprise platforms</li>
-              <li>• Front-end & back-end engineering</li>
-              <li>• Performance optimization</li>
-              <li>• Security best practices</li>
-            </ul>
-          </div>
-
-          <div className="bg-[#163C63] p-6 rounded-xl">
-            <Smartphone className="w-10 h-10 mb-4" />
-            <h3 className="text-xl font-semibold mb-3">iOS App Development</h3>
-            <ul className="space-y-2 text-gray-200 text-sm">
-              <li>• Native iOS applications</li>
-              <li>• UI/UX-focused design</li>
-              <li>• Secure app architecture</li>
-              <li>• Performance optimization</li>
-              <li>• Ongoing maintenance</li>
-            </ul>
-          </div>
-
-          <div className="bg-[#163C63] p-6 rounded-xl">
-            <Wrench className="w-10 h-10 mb-4" />
-            <h3 className="text-xl font-semibold mb-3">Application Support</h3>
-            <ul className="space-y-2 text-gray-200 text-sm">
-              <li>• Application monitoring</li>
-              <li>• Bug fixes & issue resolution</li>
-              <li>• Performance tuning</li>
-              <li>• Feature enhancements</li>
-              <li>• Security patches</li>
-            </ul>
-          </div>
-
-          <div className="bg-[#163C63] p-6 rounded-xl">
-            <Network className="w-10 h-10 mb-4" />
-            <h3 className="text-xl font-semibold mb-3">IT Outsourcing</h3>
-            <ul className="space-y-2 text-gray-200 text-sm">
-              <li>• Dedicated development teams</li>
-              <li>• Project-based delivery</li>
-              <li>• Long-term support models</li>
-              <li>• Scalable resource engagement</li>
-              <li>• Predictable delivery</li>
-            </ul>
-          </div>
+        <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {[
+            {
+              icon: Code,
+              title: "Software Development",
+              slug: "/services/software-development",
+              items: [
+                "Business & technical consulting",
+                "Custom software development",
+                "Architecture & system design",
+                "API & system integrations",
+                "Testing, QA & deployment",
+              ],
+            },
+            {
+              icon: Monitor,
+              title: "Web Development",
+              slug: "/services/web-development",
+              items: [
+                "Custom web applications",
+                "Enterprise platforms",
+                "Front-end & back-end engineering",
+                "Performance optimization",
+                "Security best practices",
+              ],
+            },
+            {
+              icon: Smartphone,
+              title: "iOS App Development",
+              slug: "/services/ios-app-development",
+              items: [
+                "Native iOS applications",
+                "UI/UX-focused design",
+                "Secure app architecture",
+                "Performance optimization",
+                "Ongoing maintenance",
+              ],
+            },
+            {
+              icon: Wrench,
+              title: "Application Support",
+              slug: "/services/application-support",
+              items: [
+                "Application monitoring",
+                "Bug fixes & issue resolution",
+                "Performance tuning",
+                "Feature enhancements",
+                "Security patches",
+              ],
+            },
+            {
+              icon: Network,
+              title: "IT Outsourcing",
+              slug: "/services/it-outsourcing",
+              items: [
+                "Dedicated development teams",
+                "Project-based delivery",
+                "Long-term support models",
+                "Scalable resource engagement",
+                "Predictable delivery",
+              ],
+            },
+          ].map((service) => (
+            <div
+              key={service.title}
+              className="bg-[#163C63] p-7 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all flex flex-col"
+            >
+              <service.icon className="w-10 h-10 mb-4 text-white" />
+              <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
+              <ul className="space-y-2 text-gray-200 text-sm flex-grow">
+                {service.items.map((item) => (
+                  <li key={item}>• {item}</li>
+                ))}
+              </ul>
+              <Link
+                href={service.slug}
+                className="inline-block mt-6 text-sm font-semibold text-[#A8DADC] hover:text-white"
+              >
+                Learn More →
+              </Link>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* ================= WHY CHOOSE US ================= */}
-      <section className="py-12 px-6">
-        <h2 className="text-3xl font-bold text-center mb-10" style={{ color: PRIMARY }}>
+      {/* ================= WHY CHOOSE US – TIMELINE STYLE ================= */}
+      <section className="py-24 px-6 bg-gray-50">
+        <h2 className="text-4xl font-bold text-center mb-20" style={{ color: PRIMARY }}>
           Why Choose Us
         </h2>
 
-        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-          {[
-            {
-              title: "Business-Aligned Solutions",
-              desc: "Technology aligned with real business objectives.",
-            },
-            {
-              title: "Transparent Processes",
-              desc: "Clear communication and predictable delivery.",
-            },
-            {
-              title: "Security & Scalability",
-              desc: "Secure systems designed to scale with growth.",
-            },
-            {
-              title: "Reliable Support",
-              desc: "Ongoing support ensuring system stability.",
-            },
-          ].map((item) => (
-            <div key={item.title} className="bg-gray-50 p-6 rounded-xl shadow-sm">
-              <CheckCircle className="w-8 h-8 mx-auto mb-3" style={{ color: PRIMARY }} />
-              <h4 className="font-semibold mb-2">{item.title}</h4>
-              <p className="text-sm text-gray-600">{item.desc}</p>
-            </div>
-          ))}
+        <div className="max-w-6xl mx-auto relative">
+          <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gray-200" />
+
+          <div className="grid md:grid-cols-4 gap-12 relative">
+            {[
+              ["Business-Aligned Solutions", "Technology aligned with real business objectives."],
+              ["Transparent Processes", "Clear communication and predictable delivery."],
+              ["Security & Scalability", "Secure systems designed to scale with growth."],
+              ["Reliable Support", "Ongoing support ensuring system stability."],
+            ].map(([title, desc]) => (
+              <div key={title} className="bg-white p-6 rounded-2xl shadow-lg text-center">
+                <CheckCircle className="w-10 h-10 mx-auto mb-4" style={{ color: PRIMARY }} />
+                <h4 className="font-semibold text-lg mb-2">{title}</h4>
+                <p className="text-sm text-gray-600">{desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ================= CORE VALUES ================= */}
-      <section className="bg-gray-100 py-12 px-6">
-        <h2 className="text-3xl font-bold text-center mb-10" style={{ color: PRIMARY }}>
-          Our Core Values
-        </h2>
+      {/* ================= CORE VALUES – SPLIT FEATURE STYLE ================= */}
+      <section className="py-24 px-6 bg-[#0F4F3F] text-white">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-14 items-center">
 
-        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-          {[
-            {
-              icon: ShieldCheck,
-              title: "Integrity",
-              desc: "Ethical and professional conduct always.",
-            },
-            {
-              icon: CheckCircle,
-              title: "Quality",
-              desc: "High standards in engineering and delivery.",
-            },
-            {
-              icon: Users,
-              title: "Accountability",
-              desc: "Ownership of commitments and outcomes.",
-            },
-            {
-              icon: Layers,
-              title: "Continuous Improvement",
-              desc: "Constantly evolving skills and processes.",
-            },
-          ].map((v) => (
-            <div key={v.title} className="bg-white p-6 rounded-xl shadow">
-              <v.icon className="w-10 h-10 mx-auto mb-3" style={{ color: PRIMARY }} />
-              <p className="font-semibold">{v.title}</p>
-              <p className="text-sm text-gray-600 mt-2">{v.desc}</p>
-            </div>
-          ))}
+          <div className="lg:col-span-1">
+            <h2 className="text-4xl font-bold mb-6">Our Core Values</h2>
+            <p className="text-gray-200 text-lg">
+              The principles that guide our culture, decisions, and long-term partnerships.
+            </p>
+          </div>
+
+          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-8">
+            {[
+              [ShieldCheck, "Integrity", "Ethical and professional conduct always."],
+              [CheckCircle, "Quality", "High standards in engineering and delivery."],
+              [Users, "Accountability", "Ownership of commitments and outcomes."],
+              [Layers, "Continuous Improvement", "Constantly evolving skills and processes."],
+            ].map(([Icon, title, desc]) => (
+              <div
+                key={title}
+                className="bg-white text-gray-800 p-7 rounded-2xl shadow-md hover:-translate-y-1 transition"
+              >
+                <Icon className="w-9 h-9 mb-4" style={{ color: PRIMARY }} />
+                <h4 className="font-semibold text-lg">{title}</h4>
+                <p className="text-sm text-gray-600 mt-2">{desc}</p>
+              </div>
+            ))}
+          </div>
+
         </div>
       </section>
 
-      {/* ================= INDUSTRIES ================= */}
-      <section className="py-12 px-6">
-        <h2 className="text-3xl font-bold text-center mb-10" style={{ color: PRIMARY }}>
+      {/* ================= INDUSTRIES – BADGE GRID STYLE ================= */}
+      <section className="py-24 px-6 bg-white">
+        <h2 className="text-4xl font-bold text-center mb-16" style={{ color: PRIMARY }}>
           The Industries We Serve
         </h2>
 
-        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-5 gap-6 text-center">
+        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
           {[
-            "Education & Training",
-            "Healthcare",
-            "Finance & Accounting",
-            "Retail & eCommerce",
-            "Professional Services",
-          ].map((industry) => (
-            <div key={industry} className="bg-gray-50 p-5 rounded-xl shadow">
-              <p className="font-semibold">{industry}</p>
-              <p className="text-sm text-gray-600 mt-2">
-                Technology solutions tailored to industry needs.
+            [GraduationCap, "Education & Training"],
+            [HeartPulse, "Healthcare"],
+            [Briefcase, "Finance & Accounting"],
+            [ShoppingBag, "Retail & eCommerce"],
+            [Building2, "Professional Services"],
+          ].map(([Icon, title]) => (
+            <div
+              key={title}
+              className="rounded-full border px-6 py-8 text-center hover:shadow-md transition"
+            >
+              <Icon className="w-9 h-9 mx-auto mb-3" style={{ color: PRIMARY }} />
+              <p className="font-semibold">{title}</p>
+              <p className="text-sm text-gray-600 mt-1">
+                Tailored digital solutions.
               </p>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* ================= CONTACT ================= */}
-      <section className="bg-[#0E2A47] py-16 px-6 text-white">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Let’s Work Together
-            </h2>
-            <p className="text-gray-200 text-lg mb-6 leading-relaxed">
-              Partner with CODEIT Pvt. Ltd. to build reliable, scalable, and
-              business-aligned IT solutions that support long-term growth and
-              operational excellence.
-            </p>
-
-            <div className="space-y-3 text-gray-200">
-              <p><strong>Email:</strong> careers@codeitinfotech.com</p>
-              <p><strong>Website:</strong> www.codeitinfotech.com</p>
-            </div>
-          </div>
-
-          <div className="bg-white text-gray-800 p-10 rounded-2xl shadow-xl text-center">
-            <h3 className="text-2xl font-bold mb-4" style={{ color: PRIMARY }}>
-              Contact Us
-            </h3>
-            <p className="text-gray-600 mb-6">
-              Tell us about your project or requirements and our team will get
-              back to you shortly.
-            </p>
-
-            <Link
-              href="/contact"
-              className="inline-block bg-[#0F4F3F] text-white px-10 py-4 rounded-full font-semibold hover:opacity-90 transition"
-            >
-              Get Started
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= FOUNDER MESSAGE (LAST) ================= */}
-      <section className="bg-gray-50 py-16 px-6">
-        <div className="max-w-5xl mx-auto text-center bg-white p-10 rounded-2xl shadow-xl">
-          <h2 className="text-3xl font-bold mb-6" style={{ color: PRIMARY }}>
-            Message from the Founder
-          </h2>
-
-          <p className="italic text-gray-700 text-lg leading-relaxed mb-6">
-            “At CODEIT Pvt. Ltd., we deliver reliable, scalable, and business-focused
-            technology solutions that empower organizations to achieve operational
-            efficiency, innovation, and sustainable growth.”
-          </p>
-
-          <p className="font-semibold text-gray-800">
-            — Mrs. Preeti Kalra
-          </p>
-          <p className="text-gray-500">
-            Founder & Director
-          </p>
         </div>
       </section>
 
