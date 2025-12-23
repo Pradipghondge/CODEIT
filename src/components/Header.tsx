@@ -34,13 +34,14 @@ export default function Header() {
     { name: 'Services', href: '/services' },
     {
       name: 'Careers',
-      href: 'https://www.linkedin.com/company/code-it-software-training-institute/posts/?feedView=all',
+      href: 'https://www.linkedin.com/in/preeti-kalra-069286271/',
       external: true,
     },
     { name: 'Blog', href: '/blog' },
   ];
 
-  const textColorClass = 'text-gray-800';
+  const isTransparent = pathname === '/' && !isScrolled;
+  const textColorClass = isTransparent ? 'text-white' : 'text-gray-800';
   const hoverColorClass = 'hover:text-[#0F4F3F]';
 
   return (
@@ -52,16 +53,16 @@ export default function Header() {
             : 'bg-transparent py-6'
         }`}
       >
-        <div className="container mx-auto flex items-center justify-between px-6">
+        <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8">
           
           {/* LOGO */}
           <div className="logo flex items-center">
-            <img src="/images/logo.png" alt="IMG" className="h-9 w-auto" />
+            <img src="/images/logo.png" alt="IMG" className="h-9 w-auto origin-center transition-transform scale-125" />
             <Link 
               href="/" 
               className={`text-2xl font-bold transition-colors duration-300 ${textColorClass} ${hoverColorClass}`}
             >
-              CODEIT
+              CODEIT Pvt.Ltd.
             </Link>
           </div>
 
@@ -76,7 +77,11 @@ export default function Header() {
                       href={link.href}
                       target={link.external ? '_blank' : undefined}
                       className={`text-lg font-medium transition-colors duration-300 ${
-                        isActive ? 'text-[#0F4F3F]' : 'text-gray-800 hover:text-[#0F4F3F]'
+                        isActive
+                          ? 'text-[#0F4F3F]'
+                          : `${
+                              isTransparent ? 'text-white' : 'text-gray-800'
+                            } hover:text-[#0F4F3F]`
                       }`}
                     >
                       {link.name}
@@ -96,9 +101,13 @@ export default function Header() {
 
           {/* CONTACT BUTTON (Desktop) */}
           <div className="hidden md:block">
-            <Link 
-              href="/contact" 
-              className="rounded-full border border-[#0F4F3F] px-6 py-1.5 text-base font-semibold text-gray-800 transition-all hover:bg-[#0F4F3F] hover:text-white"
+            <Link
+              href="/contact"
+              className={`rounded-full border px-6 py-1.5 text-base font-semibold transition-all hover:bg-[#0F4F3F] hover:text-white ${
+                isTransparent
+                  ? 'border-white text-white'
+                  : 'border-[#0F4F3F] text-gray-800'
+              }`}
             >
               Contact
             </Link>
@@ -112,19 +121,19 @@ export default function Header() {
             >
               <span
                 className={`absolute left-0 top-0 block h-[3px] w-full rounded-sm transition-all duration-300 ${
-                  isMenuOpen ? 'bg-white top-3 rotate-45 transform' : 'bg-gray-800'
+                  isMenuOpen ? 'bg-white top-3 rotate-45 transform' : (isTransparent ? 'bg-white' : 'bg-gray-800')
                 }`}
               ></span>
               
               <span
                 className={`absolute left-0 top-3 block h-[3px] w-full rounded-sm transition-all duration-300 ${
-                  isMenuOpen ? 'opacity-0' : 'opacity-100 bg-gray-800'
+                  isMenuOpen ? 'opacity-0' : 'opacity-100 ' + (isTransparent ? 'bg-white' : 'bg-gray-800')
                 }`}
               ></span>
               
               <span
                 className={`absolute bottom-0 left-0 block h-[3px] w-full rounded-sm transition-all duration-300 ${
-                  isMenuOpen ? 'bg-white bottom-2.5 -rotate-45 transform' : 'bg-gray-800'
+                  isMenuOpen ? 'bg-white bottom-2.5 -rotate-45 transform' : (isTransparent ? 'bg-white' : 'bg-gray-800')
                 }`}
               ></span>
             </button>

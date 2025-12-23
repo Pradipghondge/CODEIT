@@ -17,35 +17,41 @@ type Scene = {
 const SCENES: Scene[] = [
   {
     id: 's1',
-    image: '/images/hero-img-1.png',
-    title: 'IT Outsourcing',
-    lineA: 'Scale your business with cost-effective, high-quality execution through dedicated development teams and end-to-end project delivery.',
+    image: '/images/hero-img-4.png',
+    title: 'Software Development',
+    lineA:
+      '• Custom enterprise software solutions\n• Secure & scalable system architecture\n• API & system integrations\n\nGet Started',
   },
   {
     id: 's2',
-    image: '/images/hero-img-2.png',
-    title: 'Application Support',
-    lineA: 'Ensure smooth application performance every hour, every day with 24/7 monitoring, rapid incident resolution, root-cause analysis, and preventive optimization.',
+    image: '/images/hero-img-3.png',
+    title: 'Web Development',
+    lineA:
+      '• Responsive & high-performance web applications\n• Front-end & back-end development\n• Performance optimization & security\n\nGet Started',
   },
   {
     id: 's3',
-    image: '/images/hero-img-3.png',
-    title: 'Recruitment Services',
-    lineA: 'Hire the right talent faster and smarter with specialized sourcing, technical screening, bulk and niche hiring, and seamless onboarding coordination.',
+    image: '/images/hero-img-5.png',
+    title: 'iOS Application Development',
+    lineA:
+      '• Native iOS app development\n• UI/UX focused design\n• Secure and scalable architecture\n\nGet Started',
   },
   {
     id: 's4',
-    image: '/images/hero-img-4.png',
-    title: 'Why Choose CodeIT Pvt. Ltd.?',
-    lineA: 'Delivering professional expertise and industry experience with high response efficiency, strict SLAs, transparent communication, quality delivery, and measurable, client-centric outcomes.',
+    image: '/images/hero-img-2.png',
+    title: 'Application Support & Maintenance',
+    lineA:
+      '• Application monitoring & issue resolution\n• Bug fixes & performance tuning\n• Security updates & enhancements\n\nGet Started',
   },
   {
     id: 's5',
-    image: '/images/hero-img-5.png',
-    title: 'Professional expertise & industry experience',
-    lineA: 'Professional expertise and industry experience with scalable teams and continuous improvement using modern tools and best practices.',
+    image: '/images/hero-img-1.png',
+    title: 'IT Outsourcing Services',
+    lineA:
+      '• Dedicated development teams\n• Project-based delivery models\n• Long-term technology partnerships\n\nGet Started',
   },
 ];
+
 
 export default function ScrollShowcase() {
   const rootRef = useRef<HTMLElement | null>(null);
@@ -53,11 +59,11 @@ export default function ScrollShowcase() {
   const layersRef = useRef<Array<HTMLElement | null>>([]);
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
-  const setSectionRef = (el: HTMLElement | null, i: number): void => {
+  const setSectionRef = (el: HTMLElement | null, i: number) => {
     sectionsRef.current[i] = el;
   };
 
-  const setLayerRef = (el: HTMLElement | null, i: number): void => {
+  const setLayerRef = (el: HTMLElement | null, i: number) => {
     layersRef.current[i] = el;
   };
 
@@ -67,7 +73,7 @@ export default function ScrollShowcase() {
 
     const mm = gsap.matchMedia();
 
-    mm.add("(min-width: 768px)", () => {
+    mm.add('(min-width: 768px)', () => {
       sectionsRef.current.forEach((el, i) => {
         if (!el) return;
 
@@ -112,7 +118,7 @@ export default function ScrollShowcase() {
       });
     });
 
-    mm.add("(max-width: 767px)", () => {
+    mm.add('(max-width: 767px)', () => {
       sectionsRef.current.forEach((el) => {
         if (!el) return;
 
@@ -137,14 +143,14 @@ export default function ScrollShowcase() {
   }, []);
 
   return (
-    <section ref={rootRef} className="relative bg-slate-50">
-      <div className="container mx-auto max-w-7xl px-6 py-20">
+    <section ref={rootRef} className="relative bg-slate-50 py-16 sm:py-20 lg:py-24">
+      <div className="container mx-auto max-w-7xl px-6">
 
         {/* DESKTOP LAYOUT */}
         <div className="hidden md:grid grid-cols-2 gap-16 items-start">
 
-          {/* LEFT SIDE STATIC TEXT */}
-          <div className="sticky top-32 w-[55%] min-h-[300px]">
+          {/* LEFT STATIC TEXT */}
+          <div className="sticky top-24 lg:top-32 w-[55%] min-h-[300px]">
             <h2 className="text-6xl font-extrabold text-[#133B31] mb-8">
               CODEIT
             </h2>
@@ -158,24 +164,21 @@ export default function ScrollShowcase() {
             </p>
           </div>
 
-          {/* RIGHT SIDE IMAGES */}
+          {/* RIGHT IMAGES */}
           <div className="space-y-12">
             {SCENES.map((s, i) => (
               <section
                 key={s.id}
-                ref={(el) => {
-                  setSectionRef(el, i);
-                }}
+                ref={(el) => setSectionRef(el, i)}
                 className="scene min-h-[100vh] flex items-center justify-center"
               >
                 <div className="relative w-full max-w-[720px]">
                   <div
-                    ref={(el) => {
-                      setLayerRef(el, i);
-                    }}
+                    ref={(el) => setLayerRef(el, i)}
                     className="layer absolute inset-0 rounded-2xl"
                     style={{
-                      background: 'linear-gradient(135deg, #00b89422, #00000011)',
+                      background:
+                        'linear-gradient(135deg, #0F4F3F22, #00000011)',
                     }}
                   />
 
@@ -193,10 +196,12 @@ export default function ScrollShowcase() {
         </div>
 
         {/* MOBILE LAYOUT */}
-        <div className="md:hidden space-y-14">
+        <div className="md:hidden space-y-16">
           {SCENES.map((s) => (
             <div key={s.id} className="space-y-4">
-              <h3 className="text-3xl font-bold text-slate-900">{s.title}</h3>
+              <h3 className="text-3xl font-bold text-slate-900">
+                {s.title}
+              </h3>
               <p className="text-lg text-slate-600 leading-relaxed">
                 {s.lineA}
               </p>
