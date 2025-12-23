@@ -11,7 +11,7 @@ const blogPosts = [
   },
   {
     image: "/images/blog/blog2.jpg",
-    tag: "Training",
+    tag: "Professional Growth",
     date: "March 26, 2025",
     title: "How Professional Skill Development Boosts Your Career",
   },
@@ -41,7 +41,7 @@ const blogPosts = [
   },
   {
     image: "/images/blog/blog7.jpg",
-    tag: "Recruitment",
+    tag: "Hiring Strategy",
     date: "February 20, 2025",
     title: "Hiring Smarter: How We Deliver Job-Ready Talent",
   },
@@ -79,9 +79,9 @@ const ArrowIcon = () => (
 export default function BlogPage() {
   return (
     <div className="bg-white">
-
+      <main className="pt-16 sm:pt-20">
       {/* Hero Section */}
-      <section className="py-20 sm:py-24 lg:py-32">
+      <section className="pt-20 sm:pt-24 lg:pt-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#0F4F3F] leading-tight">
@@ -104,7 +104,7 @@ export default function BlogPage() {
       </section>
 
       {/* Blog Grid */}
-      <section className="pb-20 sm:pb-28 lg:pb-32">
+      <section className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
           <div className="grid grid-cols-1 gap-y-14 gap-x-8 md:grid-cols-2 lg:grid-cols-3">
@@ -141,6 +141,7 @@ export default function BlogPage() {
 
         </div>
       </section>
+      </main>
 
       <Address />
     </div>

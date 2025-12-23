@@ -85,28 +85,11 @@ const Landing2: React.FC = () => {
   ];
 
 
-  
-
-  
-  const placedStudents = [
-    { name: 'Mr. Atul Patil', role: 'Android Developer', company: 'Syntelligence Tech', lpa: '3.5 LPA', image: '/images/students/student1.jpg' },
-    { name: 'Ms. Shivani Jenna', role: 'Data Analyst', company: 'MD India', lpa: '4.8 LPA', image: '/images/students/student2.jpg' },
-    { name: 'Miss. Prachi Patil', role: 'Data Analyst', company: 'JKL', lpa: '5.5 LPA', image: '/images/students/student3.jpg' },
-    { name: 'Mr. Sunil Patil', role: 'Business Analyst', company: 'SumaSoft', lpa: '4.0 LPA', image: '/images/students/student4.jpg' },
-    { name: 'Ms. Pratiksha Jadhav', role: 'Flutter Developer', company: 'Syntelligence Tech', lpa: '3.0 LPA', image: '/images/students/student5.jpg' },
-    { name: 'Mr. Mangesh Chalode', role: 'Assi. Service Engineer', company: 'BitSoft', lpa: '4.5 LPA', image: '/images/students/student6.jpg' },
-    { name: 'Mr. Tukaramk Biradar', role: 'Data Analyst', company: 'WSN', lpa: ' 4.8 LPA', image: '/images/students/student7.jpg' },
-    { name: 'Mr. Sachin Honrao', role: 'Power BI Developer', company: 'Empyreal Solution', lpa: '3.5 LPA', image: '/images/students/student8.jpg' },
-    { name: 'Mr. Sagar Chennoji', role: 'Finance Manager', company: ' Angel Broking, Pune', lpa: '4.0 LPA',  image: '/images/students/student9.jpg' },
-    { name: 'Miss. Akaksha More', role: 'Business Analyst', company: 'Piogio, Puine', lpa: '4.5 LPA', image: '/images/students/student10.jpg' },
-    { name: 'Mr. Prajwal Surewad', role: 'Data Analyst', company: ' MD India', lpa: '3.8 LPA',  image: '/images/students/student11.jpg' },
-  ];
-
   return (
     <div className="bg-white text-gray-800">
 
        {/* Section 3: Founder & Director Message */}
-<section className="py-16 lg:py-24 bg-white">
+<section className="pt-16 lg:pt-24 bg-white">
   <div className="container mx-auto px-4">
     <div className="flex flex-col lg:flex-row items-center gap-12">
       <div className="lg:w-1/3 w-full flex justify-center">
@@ -151,7 +134,7 @@ const Landing2: React.FC = () => {
 
 
       {/* Section 1: Key Factors */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-16 lg:py-24 bg-white pb-16 lg:pb-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">KEY FACTORS</h2>
@@ -173,65 +156,8 @@ const Landing2: React.FC = () => {
         </div>
       </section>
 
-      {/* Section 2: Vision & Mission */}
-      <section className="py-16 lg:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="bg-white p-8 rounded-lg h-full">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center">
-                <Eye className="h-8 w-8 mr-3 text-[#0F4F3F]" /> VISION
-              </h2>
-              <p className="text-gray-600 leading-relaxed">
-                To be a globally respected IT services organization, recognized for delivering reliable, scalable, and business-aligned technology solutions that enable long-term enterprise success.
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-lg h-full">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center">
-                <Goal className="h-8 w-8 mr-3 text-[#0F4F3F]" /> MISSION
-              </h2>
-              {/* <ul className="space-y-4">
-                {missionPoints.map((point, index) => (
-                  <li key={index} className="flex items-start">
-                    <span className="text-[#0F4F3F] font-bold mr-3 mt-1">&#10003;</span>
-                    <p className="text-gray-600">{point}</p>
-                  </li>
-                ))}
-              </ul> */}
-              <p className="text-gray-600 leading-relaxed">To deliver professional IT services and digital solutions that align technology with business objectives, while maintaining the highest standards of quality, security, and accountability.</p>
 
-            </div>
-          </div>
-        </div>
-        
-      </section>
-
-      {/* Section 4: Success Story Timeline */}
-      <section className="py-16 lg:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12">A Success Story</h2>
-          <div className="relative wrap overflow-hidden p-10 h-full">
-            <div className="border-2-2 absolute border-opacity-20 border-gray-700 h-full border" style={{ left: '50%' }}></div>
-            {timelineEvents.map((event, index) => (
-              <div key={index} className={`mb-8 flex justify-between items-center w-full ${index % 2 === 0 ? 'flex-row-reverse left-timeline' : 'right-timeline'}`}>
-                <div className="order-1 w-5/12"></div>
-                <div className="z-20 flex items-center order-1 bg-[#0F4F3F] shadow-xl w-12 h-12 rounded-full">
-                  <h3 className="mx-auto font-bold text-lg text-white">{event.year}</h3>
-                </div>
-                <div className="order-1 bg-gray-100 rounded-lg shadow-xl w-5/12 px-6 py-4">
-                  <h4 className="font-bold text-lg text-gray-900 mb-2">{event.title}</h4>
-                  <p
-                    className="text-sm leading-snug tracking-wide text-gray-600"
-                    dangerouslySetInnerHTML={{ __html: event.description }}
-                  ></p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-
+  
 
 
 

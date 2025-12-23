@@ -81,36 +81,22 @@ const delightCards = [
 
 export default function AboutUsPage() {
   return (
-    <div className="bg-white">
-      <main className="py-20 sm:py-24 lg:py-32">
+    <div className="bg-white pb-12 lg:pb-20">
+      <main className="pt-16 sm:pt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-          {/* Title + Intro */}
-          <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0F4F3F]">
-              About CODEIT Pvt. Ltd.
-            </h1>
-            <p className="mt-4 inline-block text-lg font-semibold tracking-wide text-[#0F4F3F] pb-2 border-b-2 border-[#0F4F3F]/40">
-  Your Trusted Technology Partner
-</p>
-
-            <p className="mt-6 text-base sm:text-lg leading-relaxed text-gray-600">
-              We provide enterprise-grade IT outsourcing and application support services designed to strengthen digital operations and support long-term business growth.
-            </p>
-          </div>
-
           {/* Founder Section */}
-          <div className="mx-auto mt-20 sm:mt-24 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12 items-stretch">
+          <div className="mx-auto mt-12 sm:mt-16 lg:mt-20 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12 items-stretch">
 
             {/* Founder Card */}
-            <div className="flex flex-col items-center justify-center rounded-2xl bg-[#F7F8FA] p-8 sm:p-10 shadow-md hover:shadow-xl">
+            <div className="flex flex-col items-center justify-center rounded-2xl bg-[#F7F8FA] p-6 sm:p-8 shadow-md hover:shadow-xl">
               {teamMembers.map((person) => (
                 <div key={person.name} className="flex flex-col items-center text-center gap-y-4">
                   <Image
                     src={person.imageUrl}
                     alt={person.name}
-                    width={180}
-                    height={180}
+                    width={160}
+                    height={160}
                     className="rounded-full border-4 border-white object-cover shadow-lg"
                   />
                   <h3 className="mt-4 text-xl sm:text-2xl font-semibold text-gray-900">
@@ -122,11 +108,11 @@ export default function AboutUsPage() {
             </div>
 
             {/* Founder Story */}
-            <div className="flex flex-col justify-center rounded-2xl bg-[#F7F8FA] p-8 sm:p-10 text-center lg:text-left shadow-md hover:shadow-xl">
+            <div className="flex flex-col justify-center rounded-2xl bg-[#F7F8FA] p-6 sm:p-8 text-center lg:text-left shadow-md hover:shadow-xl">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#0F4F3F]">
                 From Vision to Venture
               </h2>
-              <p className="mt-6 text-base sm:text-lg leading-relaxed text-gray-600">
+              <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-relaxed text-gray-600">
                CODEIT Pvt. Ltd. was founded with a clear vision to deliver reliable and business-aligned technology solutions.
 What began as a focused idea has grown into a professional IT services organization serving diverse industries.
 We specialize in building secure, scalable, and high-performance digital platforms.
@@ -138,9 +124,27 @@ CODEIT continues to transform business challenges into measurable, future-ready 
             </div>
           </div>
 
+          {/* Founder Message */}
+          <div className="mx-auto mt-12 sm:mt-16 lg:mt-20 max-w-5xl text-center">
+            <div className="bg-[#F7F8FA] p-6 sm:p-8 rounded-2xl shadow-md">
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#0F4F3F] mb-4 sm:mb-6">
+                    Message from the Founder
+                </h2>
+                <p className="italic text-gray-700 text-lg leading-relaxed mb-4 sm:mb-6">
+                    “At CODEIT Pvt. Ltd., we deliver reliable, scalable, and business-focused technology solutions that empower organizations to achieve operational efficiency, innovation, and sustainable growth.”
+                </p>
+                <p className="font-semibold text-gray-800">
+                    — Mrs. Preeti Kalra
+                </p>
+                <p className="text-gray-500">
+                    Founder & Director
+                </p>
+            </div>
+          </div>
+
           {/* Mission + Guarantees */}
-          <div className="mx-auto mt-20 sm:mt-24 max-w-5xl">
-            <div className="p-8 sm:p-10 border border-gray-200 rounded-2xl">
+          <div className="mx-auto mt-12 sm:mt-16 lg:mt-20 max-w-5xl">
+            <div className="p-6 sm:p-8 border border-gray-200 rounded-2xl">
               <h2 className="text-xl sm:text-2xl font-bold text-[#0F4F3F]">Our Mission</h2>
               <p className="mt-4 text-gray-600 leading-relaxed">
                 To deliver professional IT services and digital solutions that align technology with business objectives, while maintaining the highest standards of quality, security, and accountability.
@@ -151,16 +155,16 @@ Through structured processes, experienced teams, and transparent engagement mode
           </div>
 
           {/* Vision */}
-          <div className="mx-auto mt-20 sm:mt-24 max-w-4xl text-center">
+          <div className="mx-auto mt-12 sm:mt-16 lg:mt-20 max-w-4xl text-center">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0F4F3F]">
               We Create Growth for Our Clients, Workforce & Community
             </h2>
           </div>
 
           {/* Delight Cards */}
-          <div className="mx-auto mt-12 sm:mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <div className="mx-auto mt-10 sm:mt-12 lg:mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
             {delightCards.map((card) => (
-              <div key={card.title} className="p-8 sm:p-10 border border-gray-200 rounded-2xl">
+              <div key={card.title} className="p-6 sm:p-8 border border-gray-200 rounded-2xl">
                 {card.icon}
                 <h3 className="mt-6 text-lg sm:text-xl font-semibold text-[#0F4F3F]">{card.title}</h3>
                 <p className="mt-3 text-gray-600 leading-relaxed">{card.description}</p>
@@ -169,8 +173,8 @@ Through structured processes, experienced teams, and transparent engagement mode
           </div>
 
           {/* Stats */}
-          <div className="mx-auto mt-20 sm:mt-24">
-            <div className="grid items-center gap-y-12 lg:grid-cols-2 lg:gap-x-16">
+          <div className="mx-auto mt-10 sm:mt-12 lg:mt-16">
+            <div className="grid items-center gap-y-10 sm:gap-y-12 lg:grid-cols-2 lg:gap-x-16">
 
               <div>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0F4F3F]">
@@ -182,7 +186,7 @@ Through structured processes, experienced teams, and transparent engagement mode
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-8 sm:gap-10">
+              <div className="grid grid-cols-2 gap-6 sm:gap-8">
                 {stats.map((stat) => (
                   <div key={stat.label} className="flex flex-col items-start">
                     <span className="text-sm sm:text-base text-gray-600">{stat.label}</span>

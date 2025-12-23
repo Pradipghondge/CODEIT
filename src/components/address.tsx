@@ -44,7 +44,7 @@ const Address = () => {
             </h3>
             <div className="text-gray-600 text-sm sm:text-base">
               <p>+91-7231925496</p>
-              <p>careers@codeitsoftwaretraining.com</p>
+              <p> careers@codeitinfotech.com</p>
             </div>
           </div>
 

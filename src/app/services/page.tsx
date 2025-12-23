@@ -207,6 +207,13 @@ export default function ServicesPage() {
         </div>
       </section>
 
+            <p className="font-semibold text-gray-800">
+              — Mrs. Preeti Kalra
+            </p>
+            <p className="text-gray-500">Founder & Director</p>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
