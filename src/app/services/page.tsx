@@ -18,6 +18,7 @@ import {
   ShoppingBag,
   GraduationCap,
   Briefcase,
+  Icon,
 } from "lucide-react";
 
 const PRIMARY = "#0F4F3F";
@@ -147,7 +148,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ================= CORE VALUES – SPLIT FEATURE STYLE ================= */}
+
       <section className="py-24 px-6 bg-[#0F4F3F] text-white">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-14 items-center">
 
@@ -159,12 +160,12 @@ export default function ServicesPage() {
           </div>
 
           <div className="lg:col-span-2 grid sm:grid-cols-2 gap-8">
-            {[
+            {([
               [ShieldCheck, "Integrity", "Ethical and professional conduct always."],
               [CheckCircle, "Quality", "High standards in engineering and delivery."],
               [Users, "Accountability", "Ownership of commitments and outcomes."],
               [Layers, "Continuous Improvement", "Constantly evolving skills and processes."],
-            ].map(([Icon, title, desc]) => (
+            ] as [any, string, string][]).map(([Icon, title, desc]) => (
               <div
                 key={title}
                 className="bg-white text-gray-800 p-7 rounded-2xl shadow-md hover:-translate-y-1 transition"
@@ -186,13 +187,13 @@ export default function ServicesPage() {
         </h2>
 
         <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
-          {[
+          {([
             [GraduationCap, "Education & Training"],
             [HeartPulse, "Healthcare"],
             [Briefcase, "Finance & Accounting"],
             [ShoppingBag, "Retail & eCommerce"],
             [Building2, "Professional Services"],
-          ].map(([Icon, title]) => (
+          ] as [any, string][]).map(([Icon, title]) => (
             <div
               key={title}
               className="rounded-full border px-6 py-8 text-center hover:shadow-md transition"
