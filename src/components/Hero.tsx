@@ -2,6 +2,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -20,35 +21,35 @@ const SCENES: Scene[] = [
     image: '/images/hero-img-4.png',
     title: 'Software Development',
     lineA:
-      '• Custom enterprise software solutions\n• Secure & scalable system architecture\n• API & system integrations\n\nGet Started',
+      'Custom enterprise software solutions\nSecure & scalable system architecture\nAPI & system integrations',
   },
   {
     id: 's2',
     image: '/images/hero-img-3.png',
     title: 'Web Development',
     lineA:
-      '• Responsive & high-performance web applications\n• Front-end & back-end development\n• Performance optimization & security\n\nGet Started',
+      'Responsive & high-performance web applications\nFront-end & back-end development\nPerformance optimization & security',
   },
   {
     id: 's3',
     image: '/images/hero-img-5.png',
     title: 'iOS Application Development',
     lineA:
-      '• Native iOS app development\n• UI/UX focused design\n• Secure and scalable architecture\n\nGet Started',
+      'Native iOS app development\nUI/UX focused design\nSecure and scalable architecture',
   },
   {
     id: 's4',
     image: '/images/hero-img-2.png',
     title: 'Application Support & Maintenance',
     lineA:
-      '• Application monitoring & issue resolution\n• Bug fixes & performance tuning\n• Security updates & enhancements\n\nGet Started',
+      'Application monitoring & issue resolution\nBug fixes & performance tuning\nSecurity updates & enhancements',
   },
   {
     id: 's5',
     image: '/images/hero-img-1.png',
     title: 'IT Outsourcing Services',
     lineA:
-      '• Dedicated development teams\n• Project-based delivery models\n• Long-term technology partnerships\n\nGet Started',
+      'Dedicated development teams\nProject-based delivery models\nLong-term technology partnerships',
   },
 ];
 
@@ -159,9 +160,15 @@ export default function ScrollShowcase() {
               {SCENES[activeIndex].title}
             </p>
 
-            <p className="text-2xl text-slate-600 leading-relaxed">
+            <p className="text-2xl text-slate-600 leading-relaxed whitespace-pre-line">
               {SCENES[activeIndex].lineA}
             </p>
+
+            <Link href="/services">
+              <div className="mt-8 inline-block rounded-full bg-[#133B31] px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-emerald-800">
+                Get Started
+              </div>
+            </Link>
           </div>
 
           {/* RIGHT IMAGES */}
