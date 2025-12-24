@@ -91,14 +91,23 @@ const Landing2: React.FC = () => {
        {/* Section 3: Founder & Director Message */}
 <section className="pt-16 lg:pt-24 bg-white">
   <div className="container mx-auto px-4">
-    <div className="flex flex-col lg:flex-row items-center gap-12">
-      <div className="lg:w-1/3 w-full flex justify-center">
+    <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12">
+      {/* Left Column: Image, Name, and Designation */}
+      <div className="lg:w-1/3 w-full flex flex-col items-center text-center">
         <img
           src="/images/member1.jpg"
           alt="Preeti Kalra, Founder & Director"
-          className="rounded-lg shadow-2xl w-full max-w-sm object-cover"
+          className="w-64 rounded-lg object-cover shadow-2xl"
         />
+        <div className="mt-6">
+          <p className="font-bold text-lg text-gray-900">— Preeti Kalra</p>
+          <p className="text-md text-[#0F4F3F] font-semibold">
+            Founder & Director, CODEIT Pvt. Ltd.
+          </p>
+        </div>
       </div>
+
+      {/* Right Column: Message Content */}
       <div className="lg:w-2/3 w-full text-left">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">Dear Associates,</h2>
 
@@ -117,13 +126,6 @@ const Landing2: React.FC = () => {
 
           <p>
             Together with our clients and partners, we strive to build sustainable technology foundations that foster innovation, reliability, and measurable business value in an ever-evolving digital landscape.
-          </p>
-        </div>
-
-        <div className="mt-8">
-          <p className="font-bold text-lg text-gray-900">— Preeti Kalra</p>
-          <p className="text-md text-[#0F4F3F] font-semibold">
-            Founder & Director, CODEIT Pvt. Ltd.
           </p>
         </div>
       </div>
