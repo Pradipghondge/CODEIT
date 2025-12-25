@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import * as nodemailer from "nodemailer";
+import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
@@ -12,67 +12,65 @@ export async function POST(req: Request) {
       );
     }
 
-    // Create transporter using SMTP
+    // Nodemailer Transporter (GoDaddy SMTP)
     const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST,
-      port: Number(process.env.EMAIL_PORT) || 465,
-      secure: process.env.EMAIL_SECURE === "true", // true for 465
+      host: process.env.EMAIL_HOST, // smtpout.secureserver.net
+      port: Number(process.env.EMAIL_PORT), // 465
+      secure: true, // SSL/TLS
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
     });
 
-    // Email content for Admin
-    const adminMailOptions = {
-      from: `"Contact Form" <${process.env.EMAIL_USER}>`,
+    // 🚀 Email to Admin (You/Company)
+    const adminMail = {
+      from: `"CODEIT Website" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_TO,
-      subject: `New contact form submission from ${name}`,
-      text: `
-Name: ${name}
-Email: ${email}
-Phone: ${phone || "-"}
-Message:
-${message || "-"}
-      `,
+      subject: `📩 New Contact Form Submission - ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || "-"}</p>
+        <p><strong>Phone:</strong> ${phone || "Not Provided"}</p>
         <p><strong>Message:</strong></p>
-        <p>${message || "-"}</p>
+        <p>${message || "No additional message"}</p>
+        <br/>
+        <hr/>
+        <p style="font-size:12px;color:#777;">This email was sent from the CODEIT Infotech website.</p>
       `,
     };
 
-    // Email content for User
-    const userMailOptions = {
+    // 🎉 Email to User (Confirmation)
+    const userMail = {
       from: `"CODEIT Pvt. Ltd." <${process.env.EMAIL_USER}>`,
-      to: email, // Send to the user who filled the form
-      subject: `We've received your message!`,
+      to: email,
+      subject: "We Received Your Message ✔️",
       html: `
-        <h2>Thank You, ${name}!</h2>
-        <p>We have successfully received your message and will get back to you as soon as possible.</p>
-        <p><strong>Here is a copy of your submission:</strong></p>
-        <blockquote style="border-left: 2px solid #ccc; padding-left: 1em; margin-left: 1em;">
-          <p><strong>Message:</strong></p>
-          <p>${message || "-"}</p>
+        <h2>Thank You, ${name}! 👋</h2>
+        <p>We have received your message and will get back to you shortly.</p>
+        <p>Here’s a copy of your submission:</p>
+        <blockquote style="border-left:3px solid #0F4F3F;padding-left:10px;margin-left:10px;">
+          <p>${message || "No message provided"}</p>
         </blockquote>
+        <p>📞 Our Team Will Contact You Soon.</p>
+        <br/>
+        <strong>Regards,<br/>CODEIT Pvt. Ltd.</strong>
       `,
     };
 
-    // Send both emails
-    await transporter.sendMail(adminMailOptions); // Send to admin
-    await transporter.sendMail(userMailOptions); // Send to user
+    await transporter.sendMail(adminMail);
+    await transporter.sendMail(userMail);
 
     return NextResponse.json(
       { success: true, message: "Email sent successfully" },
       { status: 200 }
     );
+
   } catch (error) {
-    console.error("Error sending email:", error);
+    console.error("❌ Email Error:", error);
     return NextResponse.json(
-      { success: false, message: "Failed to send email" },
+      { success: false, message: "Email sending failed. Check SMTP details." },
       { status: 500 }
     );
   }
