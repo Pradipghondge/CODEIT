@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@swc/helpers": "^0.5.17",
     "framer-motion": "^12.23.24",
     "gsap": "^3.13.0",
     "lucide-react": "^0.554.0",

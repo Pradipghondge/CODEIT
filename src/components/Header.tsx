@@ -4,6 +4,12 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
+interface NavLink {
+  name: string;
+  href: string;
+  external?: boolean;
+}
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,15 +34,11 @@ export default function Header() {
     }
   }, [isMenuOpen]);
 
-  const navLinks = [
+  const navLinks: NavLink[] = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
     { name: 'Services', href: '/services' },
-    {
-      name: 'Careers',
-      href: 'https://www.linkedin.com/in/preeti-kalra-069286271/',
-      external: true,
-    },
+    { name: 'How We Work', href: '/how-we-work' },
     { name: 'Blog', href: '/blog' },
   ];
 
