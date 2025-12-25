@@ -1,22 +1,19 @@
 import React from "react";
 
-export default function SoftwareDevelopmentPage() {
+export default function WebDevelopmentPage() {
   return (
     <main className="min-h-screen bg-gray-50">
 
-      {/* ================= HERO SECTION (CARD STYLE LIKE SCREENSHOT) ================= */}
-      <section className="bg-gray-100 py-28 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-md border border-gray-200 px-10 py-14 text-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
-              Software Development
-            </h1>
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              CODEIT Pvt. Ltd. provides end-to-end software development services
-              focused on delivering secure, scalable, and business-aligned
-              applications.
-            </p>
-          </div>
+      {/* ================= HERO SECTION ================= */}
+      <section className="bg-gray-200 text-gray-900 py-32 px-6">
+        <div className="max-w-6xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">
+            Web Development
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            We design and develop high-performance, responsive web applications
+            that meet enterprise security and performance standards.
+          </p>
         </div>
       </section>
 
@@ -27,12 +24,13 @@ export default function SoftwareDevelopmentPage() {
         <Section title="Service Capabilities">
           <CardGrid
             items={[
-              { title: "Custom Software Application Development", desc: "Tailored solutions designed to meet specific business requirements." },
-              { title: "Enterprise Application Development", desc: "Robust enterprise-grade systems for large-scale operations." },
-              { title: "Application Modernization & Enhancement", desc: "Upgrading legacy systems with modern technologies." },
-              { title: "API & Third-Party Integration", desc: "Seamless integration with external systems and services." },
-              { title: "Ongoing Application Maintenance", desc: "Continuous support, monitoring, and performance optimization." },
+              { title: "Custom Web Apps", desc: "Tailored solutions built from the ground up." },
+              { title: "Full-Stack Development", desc: "Frontend and backend expertise with modern frameworks." },
+              { title: "Responsive UI", desc: "Optimized for desktop, tablet, and mobile devices." },
+              { title: "Database Management", desc: "Secure and scalable data architecture." },
+              { title: "Performance & Security", desc: "Optimized speed with enterprise-grade security." },
             ]}
+            color="border-t-green-600"
           />
         </Section>
 
@@ -45,19 +43,19 @@ export default function SoftwareDevelopmentPage() {
                 {[
                   {
                     title: "User-Centric Design",
-                    desc: "Interfaces designed for clarity, usability, and efficiency.",
+                    desc: "User-centric interface design focused on usability and clarity.",
                   },
                   {
                     title: "Secure Architecture",
-                    desc: "Strong security practices to protect application data.",
+                    desc: "Secure data handling following industry best practices.",
                   },
                   {
                     title: "Cross-Platform Compatibility",
-                    desc: "Consistent experience across browsers and devices.",
+                    desc: "Cross-browser and cross-device compatibility for consistent experiences.",
                   },
                   {
                     title: "Scalable Systems",
-                    desc: "Architecture designed to scale with business growth.",
+                    desc: "Scalable application architecture designed for long-term growth.",
                   },
                 ].map((item) => (
                   <div
@@ -107,7 +105,7 @@ export default function SoftwareDevelopmentPage() {
   );
 }
 
-/* ================= REUSABLE COMPONENTS ================= */
+/* ================= SUB COMPONENTS ================= */
 
 function Section({
   title,
@@ -129,17 +127,19 @@ function Section({
 
 function CardGrid({
   items,
+  color,
 }: {
   items: { title: string; desc: string }[];
+  color: string;
 }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto text-left">
       {items.map((item) => (
         <div
           key={item.title}
-          className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition"
+          className={`bg-white p-6 rounded-xl shadow-sm border-t-4 ${color} hover:shadow-md transition`}
         >
-          <h3 className="font-semibold text-lg mb-2 text-gray-800">
+          <h3 className="font-bold text-lg mb-2 text-gray-800">
             {item.title}
           </h3>
           <p className="text-gray-600 text-sm leading-relaxed">
