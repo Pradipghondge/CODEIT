@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
 import Header from "@/components/Header";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "CODEIT",
   description: "CODEIT Pvt.Ltd.",
   icons: {
@@ -24,16 +24,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>     
-      <body>
-        <Header/>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className="scroll-smooth">
+        <SmoothScroll />
+        <Header />
         {children}
-        <Footer/>
-        </body>
+        <Footer />
+      </body>
     </html>
   );
 }
