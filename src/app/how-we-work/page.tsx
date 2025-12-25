@@ -11,9 +11,6 @@ import {
   Rocket,
   BarChart3,
   CheckCircle2,
-  Briefcase,
-  Terminal,
-  Settings,
 } from "lucide-react";
 
 const fadeUp = {
@@ -28,212 +25,268 @@ const steps = [
     id: 1,
     title: "Discovery & Requirement Analysis",
     purpose: "To clearly understand business goals, operational challenges, and technical requirements before solution design begins.",
-    icon: Search,
     activities: [
-      "Stakeholder consultations and workshops",
-      "Business process & gap analysis",
-      "Functional/Non-functional definitions",
-      "Scope, timeline & feasibility assessment",
-      "Risk identification & mitigation planning",
+      "Stakeholder consultations & requirement workshops",
+      "Business process understanding & gap analysis",
+      "Functional / non-functional requirement definition",
     ],
-    deliverables: ["Requirement Specification", "Defined Project Scope", "High-level Delivery Roadmap"],
+    deliverables: [
+      "Requirement specification document",
+      "Defined project scope & success criteria",
+    ],
+    icon: Search,
   },
   {
     id: 2,
     title: "Solution Architecture & Technical Design",
     purpose: "To define a secure, scalable, and future-ready technical foundation aligned with business needs.",
-    icon: Layers,
     activities: [
       "System architecture & component design",
-      "Technology stack selection",
       "Data flow & integration planning",
       "Security & performance considerations",
-      "Infrastructure & deployment planning",
     ],
-    deliverables: ["Solution Architecture Blueprint", "Technical Design Documentation", "Security Specifications"],
+    deliverables: [
+      "Architecture blueprint",
+      "Technical design documentation",
+      "Integration & security design specifications",
+    ],
+    icon: Layers,
   },
   {
     id: 3,
     title: "UI / UX Planning & Experience Design",
-    purpose: "To ensure intuitive user experiences, consistency, and high adoption across digital solutions.",
-    icon: MousePointer2,
+    purpose: "To ensure intuitive user experience & high adoption.",
     activities: [
-      "User journey mapping & flows",
+      "User journey mapping & interaction flows",
       "Wireframes and visual layouts",
-      "Experience design aligned with workflows",
       "Design validation & approvals",
     ],
-    deliverables: ["Approved UI/UX Prototypes", "Design Guidelines", "Experience Specifications"],
+    deliverables: [
+      "Approved UI/UX prototypes",
+      "Design guidelines & experience specifications",
+    ],
+    icon: MousePointer2,
   },
   {
     id: 4,
     title: "Development & Implementation",
-    purpose: "To build reliable, maintainable, and high-performance solutions using structured engineering practices.",
-    icon: Code2,
+    purpose: "To build reliable, maintainable, scalable solutions.",
     activities: [
       "Modular & phased development",
       "Secure coding standards",
-      "Version control & code reviews",
-      "Continuous Integration (CI/CD)",
+      "Code reviews & CI/CD",
     ],
-    deliverables: ["Developed Modules", "Configured Integrations", "Technical Documentation"],
+    deliverables: [
+      "Developed modules",
+      "Configured integrations",
+      "Technical documentation",
+    ],
+    icon: Code2,
   },
   {
     id: 5,
     title: "Quality Assurance & Validation",
-    purpose: "To ensure the solution meets functional, performance, and security standards before deployment.",
-    icon: ShieldCheck,
+    purpose: "To ensure readiness, compliance, and performance.",
     activities: [
       "Functional & regression testing",
       "Performance & load testing",
-      "Security & data integrity checks",
-      "UAT support",
+      "Security validations",
     ],
-    deliverables: ["Test Execution Reports", "Defect Resolution Sign-off", "Production Readiness Approval"],
+    deliverables: [
+      "Execution reports",
+      "Resolution sign-off",
+      "Go-live approval",
+    ],
+    icon: ShieldCheck,
   },
   {
     id: 6,
     title: "Deployment & Go-Live",
-    purpose: "To ensure a controlled, secure, and seamless transition from development to production.",
-    icon: Rocket,
+    purpose: "To ensure controlled and secure transition to production.",
     activities: [
       "Environment configuration",
-      "Data migration execution",
-      "Go-live monitoring",
-      "Stabilization support",
+      "Data migration",
+      "Monitoring & stabilization",
     ],
-    deliverables: ["Successfully Deployed Solution", "Go-live Sign-off", "Configuration Documentation"],
+    deliverables: [
+      "Successfully deployed solution",
+      "Go-live sign-off",
+      "Deployment documentation",
+    ],
+    icon: Rocket,
   },
   {
     id: 7,
     title: "Support, Monitoring & Optimization",
-    purpose: "To maintain system stability, ensure performance, and support continuous improvement.",
-    icon: BarChart3,
+    purpose: "To maintain stability and support continuous improvement.",
     activities: [
-      "Application & system monitoring",
-      "Incident management & resolution",
-      "Preventive maintenance",
-      "Performance tuning",
+      "Monitoring & SLA-based support",
+      "Issue resolution & updates",
+      "Performance tuning & enhancement",
     ],
-    deliverables: ["SLA-based Support Reports", "Optimized System Performance", "Continuous Improvement Roadmap"],
+    deliverables: [
+      "SLA-based support reports",
+      "Optimized performance",
+      "Improvement roadmap",
+    ],
+    icon: BarChart3,
   },
 ];
 
+
 export default function HowWeWork() {
   return (
-    /* h-screen snap container */
-    <main className="h-screen overflow-y-scroll snap-y snap-mandatory bg-white text-black scroll-smooth">
-      
-      {/* 1. HERO SECTION */}
+    <main className="snap-y snap-mandatory bg-white text-black scroll-smooth overflow-x-hidden">
+
+      {/* HERO */}
       <section className="snap-start min-h-screen flex items-center justify-center pt-24 bg-white">
         <motion.div {...fadeUp} className="max-w-5xl mx-auto px-6 text-center">
-          <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-black leading-none mb-6">
+          <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-none mb-6">
             DESIGN-LED <br />
             <span className="text-[#0F4F3F]">DELIVERY HIERARCHY</span>
           </h1>
           <p className="text-gray-800 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            At CODEIT, every service engagement follows a design-led, structured delivery 
+            At CODEIT, every service engagement follows a design-led, structured delivery
             hierarchy ensuring alignment with business objectives and high-quality outcomes.
           </p>
         </motion.div>
       </section>
 
-      {/* 2. BLUEPRINT SECTION */}
-      <section className="snap-start min-h-screen flex items-center py-20 bg-white">
+      {/* BLUEPRINT */}
+      <section className="snap-start min-h-screen flex items-center py-20">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           <motion.div {...fadeUp}>
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight text-black">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight">
               Our Delivery Blueprint
             </h2>
             <p className="text-gray-700 text-lg mb-8">
-              Our methodology integrates strategy, design, engineering, and governance 
-              across the entire solution lifecycle.
+              Our methodology integrates strategy, design, engineering, and governance across the entire solution lifecycle.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+            <div className="grid sm:grid-cols-2 gap-4">
               {[
                 "Strategy-first alignment",
                 "Documented workflows",
                 "SLA-based ownership",
-                "Scalable Architecture"
+                "Scalable Architecture",
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div
+                  key={i}
+                  className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl border border-gray-100"
+                >
                   <CheckCircle2 className="text-[#0F4F3F] w-5 h-5" />
-                  <span className="font-bold text-black">{item}</span>
+                  <span className="font-bold">{item}</span>
                 </div>
               ))}
             </div>
           </motion.div>
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} className="relative">
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="relative"
+          >
             <Image
               src="/how-we-work.png"
-              alt="CODEIT Hierarchy"
+              alt="Blueprint"
               width={600}
               height={600}
-              className="rounded-2xl shadow-2xl border border-gray-100"
+              className="rounded-2xl shadow-2xl border border-gray-200"
             />
           </motion.div>
         </div>
       </section>
 
-      {/* 3. PARALLAX SECTION (KEPT AS REQUESTED) */}
+      {/* 🔥 PREMIUM PARALLAX */}
       <section
-        className="snap-start relative min-h-screen bg-cover bg-center bg-fixed flex items-center justify-center"
+        className="snap-start relative min-h-screen bg-fixed bg-center bg-cover flex items-center justify-center"
         style={{ backgroundImage: "url('/howWeworkBg.png')" }}
       >
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
-        <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} className="relative z-10 text-center px-6">
-          <h2 className="text-5xl md:text-8xl font-black text-white tracking-tighter uppercase">
-            Predictable <br /> Execution.
+        <motion.div
+          initial={{ scale: 1.2 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 2, ease: "easeOut" }}
+          className="absolute inset-0 bg-black/50 backdrop-blur-[2px]"
+        />
+        <motion.div
+          className="relative z-10 text-center px-6"
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <h2 className="text-6xl md:text-8xl font-black text-white drop-shadow-2xl">
+            PREMIUM EXECUTION
           </h2>
-          <p className="text-emerald-400 text-xl md:text-2xl mt-4 font-bold tracking-widest uppercase">
-            Architecture Designed for Longevity
+          <p className="text-emerald-300/90 text-xl md:text-2xl mt-6 font-semibold uppercase tracking-wide">
+            Engineered for Predictability & Scale
           </p>
         </motion.div>
       </section>
 
-      {/* 4. DETAILED STEPS (SCROLLABLE GRID TO PREVENT CUTOFF) */}
-      <section className="snap-start min-h-screen flex items-center py-20 bg-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto px-6 w-full">
-          <h2 className="text-4xl md:text-5xl font-black text-center mb-12 text-black">THE 7-STAGE PROCESS</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-h-[75vh] overflow-y-auto pr-2 custom-scrollbar">
-            {steps.map((step) => (
-              <motion.div
-                key={step.id}
-                whileHover={{ y: -5 }}
-                className="p-8 bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl transition-all group"
-              >
-                <div className="flex items-center justify-between mb-6">
-                  <step.icon className="w-10 h-10 text-[#0F4F3F]" />
-                  <span className="text-4xl font-black text-gray-100 group-hover:text-[#0F4F3F]/10 transition-colors">0{step.id}</span>
+      {/* 7 STAGES */}
+      <section className="snap-start py-20 bg-[#F8FAFC] relative">
+        <h2 className="text-4xl md:text-5xl font-black text-center mb-16">
+          THE 7-STAGE PROCESS
+        </h2>
+
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {steps.map((step) => (
+            <motion.div
+              key={step.id}
+              className="relative group [transform-style:preserve-3d] w-full h-72 cursor-pointer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              {/* FRONT FACE */}
+              <div className="absolute inset-0 bg-white rounded-2xl border border-gray-200 shadow-sm p-8 flex flex-col justify-between
+          group-hover:[transform:rotateY(180deg)]
+          [backface-visibility:hidden] transition-all duration-700 ease-out">
+
+                <div className="flex items-center justify-between">
+                  <step.icon className="text-[#0F4F3F] w-10 h-10" />
+                  <span className="text-gray-200 text-5xl font-black">0{step.id}</span>
                 </div>
-                <h3 className="text-xl font-bold text-black mb-3">{step.title}</h3>
-                <p className="text-gray-600 text-sm mb-6 leading-relaxed">"{step.purpose}"</p>
-                <div className="space-y-4">
-                    <div>
-                        <h4 className="text-[10px] uppercase tracking-widest font-black text-[#0F4F3F] mb-2">Key Activities</h4>
-                        <ul className="text-xs text-gray-700 space-y-1">
-                            {step.activities.map((a, i) => <li key={i} className="flex gap-2">• {a}</li>)}
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 className="text-[10px] uppercase tracking-widest font-black text-blue-600 mb-2">Deliverables</h4>
-                        <ul className="text-xs text-gray-700 space-y-1">
-                            {step.deliverables.map((d, i) => <li key={i} className="flex gap-2 text-blue-900/70">✓ {d}</li>)}
-                        </ul>
-                    </div>
+
+                <div>
+                  <h3 className="text-xl font-bold mb-1">{step.title}</h3>
+                  <p className="text-gray-600 text-sm line-clamp-3">{step.purpose}</p>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+
+              {/* BACK FACE (DETAILS) */}
+              <div className="absolute inset-0 rounded-2xl bg-[#0F4F3F] text-white p-6 overflow-y-auto
+          [transform:rotateY(180deg)] [backface-visibility:hidden] transition-all duration-700 ease-out group-hover:[transform:rotateY(0deg)]">
+
+                <h4 className="text-lg font-bold mb-3">Key Activities</h4>
+                <ul className="text-sm space-y-1 mb-4 text-emerald-100">
+                  {step.activities.map((a, i) => (
+                    <li key={i}>• {a}</li>
+                  ))}
+                </ul>
+
+                <h4 className="text-lg font-bold mb-3">Deliverables</h4>
+                <ul className="text-sm space-y-1 text-emerald-50">
+                  {step.deliverables.map((d, i) => (
+                    <li key={i}>✓ {d}</li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* 5. GOVERNANCE & WHY US */}
+
+      {/* ⭐️ GOVERNANCE & WHY US (YOUR ORIGINAL CONTENT) */}
       <section className="snap-start min-h-screen flex items-center py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+
+          {/* Left Side */}
           <motion.div {...fadeUp}>
-            <h2 className="text-4xl font-black text-black mb-10 tracking-tight uppercase">
-              Governance & <br />Quality Controls
+            <h2 className="text-4xl font-black mb-10 uppercase leading-tight">
+              Governance <br />& Quality Controls
             </h2>
             <div className="space-y-4">
               {[
@@ -243,17 +296,52 @@ export default function HowWeWork() {
                 "SLA-driven delivery and support",
                 "Transparent communication and reporting",
               ].map((text, i) => (
-                <div key={i} className="flex items-center gap-4 p-5 bg-gray-50 rounded-2xl border border-gray-100">
-                  <ShieldCheck className="text-[#0F4F3F] w-6 h-6 flex-shrink-0" />
-                  <span className="font-bold text-black text-lg">{text}</span>
-                </div>
+                <motion.div
+                  key={i}
+                  whileHover={{
+                    scale: 1.02,
+                    y: -3,
+                    backgroundColor: "rgba(15, 79, 63, 0.04)",
+                  }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="flex items-center gap-4 p-5 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[#0F4F3F]/30 shadow-sm hover:shadow-md"
+                >
+                  <motion.div
+                    whileHover={{ rotate: 8 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ShieldCheck className="text-[#0F4F3F] w-6 h-6" />
+                  </motion.div>
+                  <span className="font-semibold text-lg text-gray-800">{text}</span>
+                </motion.div>
               ))}
             </div>
           </motion.div>
 
-          <motion.div {...fadeUp} className="bg-[#0F4F3F] p-10 md:p-14 rounded-[3rem] text-white shadow-2xl">
-            <h3 className="text-3xl font-black mb-8 uppercase tracking-tighter">Why Our Model Works</h3>
-            <div className="space-y-6">
+          {/* Right Side (WHY OUR MODEL WORKS) */}
+          <motion.div
+            {...fadeUp}
+            whileHover={{
+              scale: 1.02,
+              boxShadow: "0 25px 60px rgba(15, 79, 63, 0.35)",
+            }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="relative bg-[#0F4F3F] group p-10 md:p-14 rounded-[3rem] text-white shadow-2xl overflow-hidden"
+          >
+
+            {/* Gradient Sheen Sweep */}
+            <motion.div
+              initial={{ x: "-150%" }}
+              whileHover={{ x: "150%" }}
+              transition={{ duration: 1, repeat: Infinity }}
+              className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white/10 to-transparent skew-x-12"
+            />
+
+            <h3 className="text-3xl font-black mb-10 uppercase tracking-wide relative z-10">
+              Why Our Model Works
+            </h3>
+
+            <div className="space-y-6 relative z-10">
               {[
                 "Clear alignment between business and technology",
                 "Reduced risk and rework",
@@ -261,42 +349,45 @@ export default function HowWeWork() {
                 "Consistent quality across all services",
                 "Scalable solutions supporting growth",
               ].map((text, i) => (
-                <div key={i} className="flex items-start gap-4">
-                  <div className="mt-1 bg-white rounded-full p-1">
+                <motion.div
+                  key={i}
+                  whileHover={{ x: 6 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex items-start gap-4"
+                >
+                  <motion.div
+                    whileHover={{ rotate: 12, scale: 1.1 }}
+                    className="mt-1 bg-white/90 rounded-full p-1"
+                  >
                     <CheckCircle2 className="text-[#0F4F3F] w-4 h-4" />
-                  </div>
-                  <p className="text-lg font-medium text-emerald-50 text-left">{text}</p>
-                </div>
+                  </motion.div>
+                  <p className="text-lg font-medium text-emerald-50">
+                    {text}
+                  </p>
+                </motion.div>
               ))}
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* 6. FINAL CTA + FOOTER SNAP POINT */}
-      <section className="snap-start min-h-screen flex flex-col justify-between bg-white pt-32">
-        <div className="text-center px-6">
-          <h2 className="text-5xl md:text-7xl font-black text-black tracking-tighter mb-8">
-            READY TO BUILD <br />WITH CONFIDENCE?
-          </h2>
-          <p className="text-gray-600 text-xl max-w-2xl mx-auto mb-12">
-            Let’s turn structured execution into business results — predictably and at scale.
-          </p>
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            href="/contact"
-            className="inline-block bg-[#0F4F3F] text-white px-12 py-5 rounded-full font-black text-xl shadow-2xl hover:bg-black transition-all"
-          >
-            Start a Consultation
-          </motion.a>
-        </div>
-        
-        {/* IMPORTANT: This ensures the footer is part of the final snap section */}
-        <div className="mt-auto">
-             {/* The global footer component will appear here because of the root layout, 
-                 but we need a spacer to ensure the user scrolls to see it. */}
-             <div className="h-20" /> 
-        </div>
+
+      {/* CTA */}
+      <section className="snap-start min-h-screen flex flex-col justify-center text-center bg-white px-6">
+        <h2 className="text-5xl md:text-7xl font-black tracking-tight mb-6">
+          READY TO BUILD WITH CONFIDENCE?
+        </h2>
+        <p className="text-gray-600 text-xl max-w-2xl mx-auto mb-10">
+          Let’s turn structured execution into business results — predictably and at scale.
+        </p>
+        <motion.a
+          whileHover={{ scale: 1.05 }}
+          href="/contact"
+          className="bg-[#0F4F3F] text-white px-12 py-5 rounded-full font-black text-xl shadow-xl hover:bg-black transition"
+        >
+          Start a Consultation
+        </motion.a>
+        <div className="h-20" />
       </section>
     </main>
   );
