@@ -1,8 +1,16 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import React, { useState, useEffect, FormEvent } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { 
+  Mail, 
+  Phone, 
+  CheckCircle2, 
+  ArrowRight,
+  Sparkles
+} from "lucide-react";
 
-// Define interfaces for better type-checking
+// --- TYPES ---
 interface FormData {
   name: string;
   email: string;
@@ -22,6 +30,7 @@ interface SubmissionStatus {
 }
 
 export default function ContactPage() {
+  // --- STATE & LOGIC ---
   const initialFormData: FormData = {
     name: "",
     email: "",
@@ -37,18 +46,24 @@ export default function ContactPage() {
     message: "",
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const validateForm = (): FormErrors => {
     const newErrors: FormErrors = {};
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required.";
-    }
+    if (!formData.name.trim()) newErrors.name = "Name is required.";
     if (!formData.email.trim()) {
       newErrors.email = "Email is required.";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
@@ -62,132 +77,244 @@ export default function ContactPage() {
     const validationErrors = validateForm();
     setErrors(validationErrors);
 
-    if (Object.keys(validationErrors).length > 0) {
-      return;
-    }
+    if (Object.keys(validationErrors).length > 0) return;
 
-    setStatus({ submitting: true, success: null, message: "Sending..." });
+    setStatus({ submitting: true, success: null, message: "Initiating Connection..." });
 
     try {
       const response = await fetch("/api/contactus", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       const result = await response.json();
 
       if (response.ok && result.success) {
-        setStatus({ submitting: false, success: true, message: "Thank you! Your message has been sent successfully." });
-        setFormData(initialFormData); // Reset form
+        setStatus({ submitting: false, success: true, message: "Message encrypted and sent. Our architects will be in touch." });
+        setFormData(initialFormData);
       } else {
-        setStatus({ submitting: false, success: false, message: result.message || "Failed to send message. Please try again." });
+        setStatus({ submitting: false, success: false, message: result.message || "Transmission failed." });
       }
     } catch (error) {
       console.error("Submission error:", error);
-      setStatus({ submitting: false, success: false, message: "An error occurred. Please try again later." });
+      setStatus({ submitting: false, success: false, message: "A technical error occurred. Please try again." });
     }
-
   };
 
   return (
-    <main className="min-h-screen h-auto flex items-center justify-center py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-[#F7F8FA] pt-24 sm:pt-28">
-      <div className="w-full max-w-lg p-6 sm:p-8 md:p-10 space-y-6 sm:space-y-8 bg-white rounded-2xl shadow-lg">
+    <main className="min-h-screen bg-white text-black overflow-x-hidden pt-32 pb-20 px-6 relative selection:bg-[#0F4F3F] selection:text-white">
+      
+      {/* ================= DYNAMIC MOUSE FOLLOWER GRADIENT ================= */}
+      <div 
+        className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-700 ease-out"
+        style={{
+          background: `radial-gradient(800px circle at ${mousePos.x}px ${mousePos.y}px, rgba(15, 79, 63, 0.12), transparent 80%)`
+        }}
+      />
 
-        {/* HEADER */}
-        <div className="text-center">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0F4F3F]">
-            How Can We Help?
-          </h1>
-          <p className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-500 leading-relaxed">
-            We're here to help with any questions you may have. Reach out and
-            let&apos;s build something great together.
-          </p>
-        </div>
+      {/* Subtle Grid Overlay for "Architectural" feel */}
+      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/graphy.png')]" />
 
-        {/* FORM */}
-        <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6" noValidate>
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="grid lg:grid-cols-2 gap-24 items-start">
           
-          <div>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              required
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Name"
-              className="w-full px-4 py-3 bg-[#F7F8FA] border-2 border-transparent rounded-lg text-[#0F4F3F] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0F4F3F] transition"
-            />
-            {errors.name && (
-              <p className="mt-1 text-sm text-red-600">{errors.name}</p>
-            )}
-          </div>
-
-          <div>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              required
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Email"
-              className="w-full px-4 py-3 bg-[#F7F8FA] border-2 border-transparent rounded-lg text-[#0F4F3F] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0F4F3F] transition"
-            />
-            {errors.email && (
-              <p className="mt-1 text-sm text-red-600">{errors.email}</p>
-            )}
-          </div>
-
-          <div>
-            <input
-              type="tel"
-              name="phone"
-              id="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="Phone Number"
-              className="w-full px-4 py-3 bg-[#F7F8FA] border-2 border-transparent rounded-lg text-[#0F4F3F] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0F4F3F] transition"
-            />
-          </div>
-
-          <div>
-            <textarea
-              name="message"
-              id="message"
-              rows={5}
-              value={formData.message}
-              onChange={handleChange}
-              placeholder="Message"
-              className="w-full px-4 py-3 bg-[#F7F8FA] border-2 border-transparent rounded-lg text-[#0F4F3F] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0F4F3F] transition"
-            ></textarea>
-          </div>
-
-          <div>
-            <button
-              type="submit"
-              className="w-full px-4 py-3 font-semibold text-white bg-[#0F4F3F] rounded-lg hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0F4F3F] transition active:scale-[0.98]"
-            >
-              {status.submitting ? "Sending..." : "Submit"}
-            </button>
-          </div>
-        </form>
-
-        {/* SUCCESS MESSAGE */}
-        {status.message && !status.submitting && (
-          <div
-            className={`text-center p-3 rounded-lg text-sm sm:text-base ${
-              status.success
-                ? "bg-green-100 text-green-800"
-                : "bg-red-100 text-red-800"
-            }`}
+          {/* ================= LEFT COLUMN: BRANDING & UPDATED INFO ================= */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            {status.message}
-          </div>
-        )}
+            <motion.span 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="inline-block py-2 px-6 rounded-full border border-[#0F4F3F]/20 text-[#0F4F3F] text-[10px] font-black tracking-[0.2em] uppercase mb-10 bg-[#0F4F3F]/5"
+            >
+              Strategic Partnerships
+            </motion.span>
+            
+            <h1 className="text-7xl md:text-9xl font-black tracking-tighter leading-[0.85] mb-10 text-gray-900">
+              CONNECT <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0F4F3F] via-[#2D8E73] to-[#0F4F3F]">
+                ELITE.
+              </span>
+            </h1>
+            
+            <p className="text-xl text-gray-500 max-w-md leading-relaxed mb-20 italic">
+              "We don't just respond to inquiries; we start conversations about the future of your infrastructure."
+            </p>
+
+            {/* Updated Contact Details */}
+            <div className="space-y-12">
+              {[
+                { 
+                  icon: Mail, 
+                  label: "Inquiries & Careers", 
+                  val: "careers@codeitinfotech.com",
+                  href: "mailto:careers@codeitinfotech.com"
+                },
+                { 
+                  icon: Phone, 
+                  label: "Direct Line", 
+                  val: "+91-7231925496",
+                  href: "tel:+917231925496"
+                },
+              ].map((item, i) => (
+                <motion.a 
+                  key={i}
+                  href={item.href}
+                  whileHover={{ x: 10 }}
+                  className="flex items-center gap-8 group cursor-pointer"
+                >
+                  <div className="w-16 h-16 rounded-3xl bg-white border border-gray-100 shadow-sm flex items-center justify-center group-hover:bg-[#0F4F3F] group-hover:border-[#0F4F3F] transition-all duration-500 group-hover:shadow-[0_15px_30px_rgba(15,79,63,0.2)]">
+                    <item.icon className="w-6 h-6 text-[#0F4F3F] group-hover:text-white transition-colors" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-1">{item.label}</p>
+                    <p className="text-xl font-bold text-gray-900 group-hover:text-[#0F4F3F] transition-colors">{item.val}</p>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* ================= RIGHT COLUMN: THE PREMIUM FORM ================= */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            {/* Main Form Container */}
+            <div className="bg-white/80 backdrop-blur-xl border border-white shadow-[0_50px_100px_rgba(0,0,0,0.04)] rounded-[4rem] p-10 md:p-16 relative overflow-hidden">
+              
+              {/* Subtle Internal Glow */}
+              <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#0F4F3F]/5 rounded-full blur-3xl pointer-events-none" />
+
+              <AnimatePresence mode="wait">
+                {status.success ? (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-center py-20"
+                  >
+                    <div className="w-24 h-24 bg-[#0F4F3F]/5 rounded-full flex items-center justify-center mx-auto mb-10 border border-[#0F4F3F]/10">
+                      <CheckCircle2 className="w-10 h-10 text-[#0F4F3F]" />
+                    </div>
+                    <h2 className="text-4xl font-black mb-6 tracking-tight">Transmission Successful.</h2>
+                    <p className="text-gray-500 text-lg mb-12 max-w-xs mx-auto">{status.message}</p>
+                    <button 
+                      onClick={() => setStatus({ ...status, success: null, message: "" })}
+                      className="text-[#0F4F3F] font-black text-sm tracking-widest uppercase border-b-2 border-[#0F4F3F] pb-1 hover:opacity-60 transition-opacity"
+                    >
+                      New Transmission
+                    </button>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-12" noValidate>
+                    
+                    {/* Name Input */}
+                    <div className="relative group">
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Full Name"
+                        className="peer w-full bg-transparent border-b border-gray-200 py-5 outline-none focus:border-[#0F4F3F] transition-all text-xl font-bold placeholder:text-transparent"
+                      />
+                      <label className="absolute left-0 top-5 text-gray-400 pointer-events-none transition-all peer-focus:-top-4 peer-focus:text-[10px] peer-focus:font-black peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[#0F4F3F] peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-[10px]">
+                        Full Name
+                      </label>
+                      {errors.name && <p className="text-[10px] text-red-500 font-black mt-2 uppercase tracking-widest">{errors.name}</p>}
+                    </div>
+
+                    {/* Email Input */}
+                    <div className="relative group">
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="Corporate Email"
+                        className="peer w-full bg-transparent border-b border-gray-200 py-5 outline-none focus:border-[#0F4F3F] transition-all text-xl font-bold placeholder:text-transparent"
+                      />
+                      <label className="absolute left-0 top-5 text-gray-400 pointer-events-none transition-all peer-focus:-top-4 peer-focus:text-[10px] peer-focus:font-black peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[#0F4F3F] peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-[10px]">
+                        Corporate Email
+                      </label>
+                      {errors.email && <p className="text-[10px] text-red-500 font-black mt-2 uppercase tracking-widest">{errors.email}</p>}
+                    </div>
+
+                    {/* Phone Input */}
+                    <div className="relative group">
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="Phone (Optional)"
+                        className="peer w-full bg-transparent border-b border-gray-200 py-5 outline-none focus:border-[#0F4F3F] transition-all text-xl font-bold placeholder:text-transparent"
+                      />
+                      <label className="absolute left-0 top-5 text-gray-400 pointer-events-none transition-all peer-focus:-top-4 peer-focus:text-[10px] peer-focus:font-black peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[#0F4F3F] peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-[10px]">
+                        Phone (Optional)
+                      </label>
+                    </div>
+
+                    {/* Message Input */}
+                    <div className="relative group">
+                      <textarea
+                        name="message"
+                        rows={3}
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder="How can our engineering teams assist?"
+                        className="peer w-full bg-transparent border-b border-gray-200 py-5 outline-none focus:border-[#0F4F3F] transition-all text-xl font-bold placeholder:text-transparent resize-none"
+                      ></textarea>
+                      <label className="absolute left-0 top-5 text-gray-400 pointer-events-none transition-all peer-focus:-top-4 peer-focus:text-[10px] peer-focus:font-black peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[#0F4F3F] peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-[10px]">
+                        Project Overview
+                      </label>
+                    </div>
+
+                    {/* Submit Button */}
+                    <button
+                      type="submit"
+                      disabled={status.submitting}
+                      className="group w-full relative h-20 overflow-hidden bg-[#0F4F3F] text-white rounded-3xl font-black text-lg tracking-widest hover:shadow-[0_25px_50px_rgba(15,79,63,0.35)] transition-all active:scale-[0.98] disabled:opacity-70"
+                    >
+                      <div className="relative z-10 flex items-center justify-center gap-4">
+                        {status.submitting ? "ENCRYPTING..." : "INITIATE PARTNERSHIP"}
+                        <ArrowRight className="w-6 h-6 group-hover:translate-x-3 transition-transform duration-500" />
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#1b8a6e] to-[#0F4F3F] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500" />
+                    </button>
+                    
+                    {/* Status Message for non-success cases */}
+                    {status.message && !status.success && (
+                      <p className="text-center text-[10px] font-black uppercase tracking-[0.2em] text-[#0F4F3F] animate-pulse">
+                        {status.message}
+                      </p>
+                    )}
+                  </form>
+                )}
+              </AnimatePresence>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Decorative Branding Footer */}
+      <div className="max-w-7xl mx-auto mt-40 pt-16 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-8 opacity-40">
+        <div className="flex gap-12 font-black text-[10px] tracking-[0.3em] uppercase">
+          <span>Security</span>
+          <span>Scalability</span>
+          <span>Efficiency</span>
+        </div>
+        <div className="flex items-center gap-3 text-[#0F4F3F]">
+           <Sparkles size={16} />
+           <span className="font-bold tracking-widest text-[10px] uppercase">Designed for Excellence</span>
+        </div>
       </div>
     </main>
   );
