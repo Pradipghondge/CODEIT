@@ -56,7 +56,7 @@ const Landing2: React.FC = () => {
       year: '2021',
       title: 'Foundation of an IT Services Firm',
       description:
-        'In 2021, <strong>CODEIT Pvt. Ltd.</strong> was founded with a clear vision: to provide <strong>reliable IT services</strong> for enterprises. The company was established to address the growing demand for business-aligned technology solutions, starting with a core focus on IT outsourcing and application support.',
+        'In 2021, <strong> CODEIT-INFOTECH.</strong> was founded with a clear vision: to provide <strong>reliable IT services</strong> for enterprises. The company was established to address the growing demand for business-aligned technology solutions, starting with a core focus on IT outsourcing and application support.',
     },
     {
       year: '2022',

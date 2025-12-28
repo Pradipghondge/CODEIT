@@ -12,7 +12,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <h3 className="text-2xl font-extrabold text-gray-900">
-              CODEIT Pvt. Ltd.
+            CODEIT-INFOTECH.
             </h3>
             <p className="mt-4 text-gray-700 text-sm leading-relaxed max-w-sm">
               Delivering reliable IT services and software solutions with a strong
