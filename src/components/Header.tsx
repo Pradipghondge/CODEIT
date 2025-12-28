@@ -132,8 +132,7 @@ export default function Header() {
                 }`}
               />
               <motion.span
-                animate={isMenuOpen ? { rotate: -45, y: -8, w: 32 } : { rotate: 0, y: 0, w: 20 }}
-                style={{ width: isMenuOpen ? '32px' : '20px' }}
+                animate={isMenuOpen ? { rotate: -45, y: -8, width: 32 } : { rotate: 0, y: 0, width: 20 }}
                 className={`block h-[2.5px] rounded-full transition-colors ${
                   isMenuOpen || isTransparent ? 'bg-white' : 'bg-gray-800'
                 }`}
