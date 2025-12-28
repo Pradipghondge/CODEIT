@@ -181,9 +181,15 @@ export default function SoftwareDevelopmentPage() {
               </span>
               <h1 className="text-4xl sm:text-6xl md:text-[90px] xl:text-[120px] font-black tracking-tighter leading-[0.85] mb-8 sm:mb-12">
                 SOFTWARE <br />
-                <span className="text-transparent  bg-clip-text bg-gradient-to-r from-[#0F4F3F] via-[#2D8E73] to-[#0F4F3F] drop-shadow-sm">
-                  ARCHITECTURE.
-                </span>
+                <span
+  className="block text-transparent bg-clip-text bg-gradient-to-r 
+             from-[#0F4F3F] via-[#2D8E73] to-[#0F4F3F] drop-shadow-sm
+             text-[clamp(2.8rem,5.5vw,5.5rem)]
+             lg:text-[clamp(3.5rem,6vw,6.2rem)]"
+>
+  ARCHITECTURE.
+</span>
+
               </h1>
               <p className="text-base sm:text-xl md:text-2xl text-gray-400 max-w-xl mx-auto lg:mx-0 font-light leading-tight italic">
                 "We architect the invisible digital infrastructure that powers industry leaders."
